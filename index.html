@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>풀스택 개발자 배선화 포트폴리오</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .project-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- 네비게이션 -->
+    <nav class="bg-white shadow-lg fixed w-full z-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div class="flex items-center py-4">
+                        <span class="font-semibold text-gray-500 text-lg">Portfolio</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="#about" class="py-4 px-2 text-gray-500 hover:text-gray-900">소개</a>
+                    <a href="#projects" class="py-4 px-2 text-gray-500 hover:text-gray-900">프로젝트</a>
+                    <a href="#skills" class="py-4 px-2 text-gray-500 hover:text-gray-900">기술</a>
+                    <a href="#contact" class="py-4 px-2 text-gray-500 hover:text-gray-900">연락처</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 헤더 섹션 -->
+    <header class="pt-24 pb-12 bg-gradient-to-r from-blue-500 to-blue-700">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <img src="images/profile.jpg" alt="프로필 사진" class="rounded-full mx-auto mb-8 border-4 border-white">
+            <h1 class="text-4xl font-bold text-white mb-4">배선화</h1>
+            <p class="text-xl text-white mb-8">풀스택 개발자</p>
+            <div class="flex justify-center space-x-4">
+                <a href="https://github.com/Bae-Sunny" target="_blank" class="bg-white text-gray-900 px-6 py-2 rounded-full hover:bg-gray-100">
+                    GitHub
+                </a>
+                <a href="mailto:bshwa0563@gmail.com" class="bg-white text-gray-900 px-6 py-2 rounded-full hover:bg-gray-100">
+                    이메일
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 프로젝트 섹션 -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">프로젝트</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 프로젝트 카드 1 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="프로젝트 1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">KBO 리그 웹 기반 데이터 분석 시스템</h3>
+                        <p class="text-gray-600 mb-4">Python 기반 KBO 리그 데이터 크롤링 및 시각화 플랫폼</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Python Web Scraping</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Oracle</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://www.notion.so/4818ecc4ff1a4744b10b00b0b6f0a9a3?pvs=4#1244a1039a024924ad59144ee006f050" class="text-blue-500 hover:text-blue-700">Demo</a>
+                            <a href="#" class="text-blue-500 hover:text-blue-700">GitHub</a>
+                            <a href="https://www.canva.com/design/DAGFSMUCJfE/1RvZJ65ai2eefxNQ34yQzw/view?utm_content=DAGFSMUCJfE&utm_campaign=designshare&utm_medium=link&utm_source=editor" class="text-blue-500 hover:text-blue-700">PPT</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 카드 2 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="프로젝트 2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">머신러닝 기반 커피 등급 평가 시스템</h3>
+                        <p class="text-gray-600 mb-4">KNN 알고리즘을 활용한 스마트 커피 품질 평가</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Vue.js</span>
+                          <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Spring Boot</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">KNN Algorithm</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://www.notion.so/e816b04935b0481e94943cdbce21fb3b?pvs=4#88c0a93de8bc457c83ef23fd015331b1" class="text-blue-500 hover:text-blue-700">Demo</a>
+                            <a href="#" class="text-blue-500 hover:text-blue-700">GitHub</a>
+                            <a href="assets/project2.pdf" class="text-blue-500 hover:text-blue-700">PPT</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 카드 3 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="프로젝트 3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">마스크 감지 및 컬러 진단을 위한 스마트 AI 웹 서비스</h3>
+                        <p class="text-gray-600 mb-4">AI 기반 마스크 및 컬러 분석 웹 애플리케이션</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Vue.js</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Spring Boot</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">TensorFlow</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">OpenCV</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Machine Learning</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Oracle</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://www.notion.so/AI-c8520be1e0a44c8b82c79be1d9e3c346?pvs=4#22ebe776591641e4b802ff2ca0f130cb" class="text-blue-500 hover:text-blue-700">Demo</a>
+                            <a href="#" class="text-blue-500 hover:text-blue-700">GitHub</a>
+                            <a href="https://www.canva.com/design/DAGKvfQMiow/auisO2bp0iSHNN5-ymFHEQ/view?utm_content=DAGKvfQMiow&utm_campaign=designshare&utm_medium=link&utm_source=editor" class="text-blue-500 hover:text-blue-700">PPT</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 카드 4 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="/api/placeholder/400/250" alt="프로젝트 4" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">AI 기반 취업 준비 지원 웹 서비스</h3>
+                        <p class="text-gray-600 mb-4">안면 이미지 기반 스트레스 예측 및 AI 모의 면접 플랫폼</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">React</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Spring Boot</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">TensorFlow</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">OpenCV</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Deep Learning</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Oracle</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://www.notion.so/e638492c79bc423eadad200877af0c9d?pvs=4#11006503eb5880909c2fe1ceb7430e7a">Demo</a>
+                            <a href="#" class="text-blue-500 hover:text-blue-700">GitHub</a>
+                            <a href="https://www.canva.com/design/DAGNsnS8GJU/vhAroisxus4p5GENJkmPKA/view?utm_content=DAGNsnS8GJU&utm_campaign=designshare&utm_medium=link&utm_source=editor" class="text-blue-500 hover:text-blue-700">PPT</a>
+                        </div>
+                    </div>
+                </div>
+       
+            </div>
+        </div>
+    </section>
+
+    <!-- 기술 스택 섹션 -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">기술 스택</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center mb-4">
+                        <span class="text-3xl">💻</span>
+                    </div>
+                    <h3 class="text-lg font-semibold">Frontend</h3>
+                    <p class="text-gray-600 text-center">React, Vue.js, HTML/CSS, JavaScript</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center mb-4">
+                        <span class="text-3xl">⚙️</span>
+                    </div>
+                    <h3 class="text-lg font-semibold">Backend</h3>
+                    <p class="text-gray-600 text-center">Node.js, Spring Boot, Spring Security, RESTful API, Oracle</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center mb-4">
+                        <span class="text-3xl">🗄️</span>
+                    </div>
+                    <h3 class="text-lg font-semibold">AI/ML</h3>
+                    <p class="text-gray-600 text-center">Python, TensorFlow, OpenCV, Scikit-learn</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center mb-4">
+                        <span class="text-3xl">🚀</span>
+                    </div>
+                    <h3 class="text-lg font-semibold">DevOps</h3>
+                    <p class="text-gray-600 text-center">Docker, AWS</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 연락처 섹션 -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8">연락하기</h2>
+            <p class="text-gray-600 mb-8">새로운 기회를 기다리고 있습니다.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="mailto:bshwa0563@gmail.com" class="text-blue-500 hover:text-blue-700">
+                    📧 이메일
+                </a>
+                <a href="https://github.com/Bae-Sunny" target="_blank" class="text-blue-500 hover:text-blue-700">
+                    GitHub
+                </a>
+                <a href="https://linkedin.com/" target="_blank" class="text-blue-500 hover:text-blue-700">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p>&copy; 2025 배선화 포트폴리오. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
