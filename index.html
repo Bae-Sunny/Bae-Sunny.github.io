@@ -3,59 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>풀스택 개발자 배선화 포트폴리오</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <title>배선화 | 풀스택 개발자 포트폴리오</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #3B82F6, #10B981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .project-card {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: scale(1.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .skill-icon {
             transition: transform 0.3s ease;
+        }
+        .skill-icon:hover {
+            transform: rotate(360deg) scale(1.2);
         }
     </style>
 </head>
-<body class="bg-gray-100">
-    <!-- 네비게이션 -->
-    <nav class="bg-white shadow-lg fixed w-full z-10">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between">
-                <div class="flex space-x-7">
-                    <div class="flex items-center py-4">
-                        <span class="font-semibold text-gray-500 text-lg">Bae Sunny's Portfolio</span>
-                    </div>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <span class="text-xl font-bold gradient-text">Bae Sunny</span>
                 </div>
-                <div class="flex items-center space-x-6">
-                    <a href="#about" class="py-4 px-2 text-gray-500 hover:text-gray-900">소개</a>
-                    <a href="#projects" class="py-4 px-2 text-gray-500 hover:text-gray-900">프로젝트</a>
-                    <a href="#skills" class="py-4 px-2 text-gray-500 hover:text-gray-900">기술</a>
-                    <a href="#contact" class="py-4 px-2 text-gray-500 hover:text-gray-900">연락처</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#about" class="text-gray-600 hover:text-blue-600 transition-colors">소개</a>
+                    <a href="#projects" class="text-gray-600 hover:text-blue-600 transition-colors">프로젝트</a>
+                    <a href="#skills" class="text-gray-600 hover:text-blue-600 transition-colors">기술</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors">연락처</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-toggle" class="text-gray-600 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- 헤더 섹션 -->
-    <header class="pt-24 pb-12 bg-gradient-to-r from-blue-500 to-blue-700">
-        <div class="max-w-4xl mx-auto text-center px-4">
-            <img src="image/profile.png" alt="프로필 사진" class="rounded-full mx-auto mb-8 border-4 border-white" style="width: 150px; height: 150px;">
-            <h1 class="text-4xl font-bold text-white mb-4">배선화</h1>
-            <p class="text-xl text-white mb-8">🌱 현재 성장 중인 개발자</p>
-            <div class="flex justify-center space-x-4">
-                <a href="https://github.com/Bae-Sunny" target="_blank" class="bg-white text-gray-900 px-6 py-2 rounded-full hover:bg-gray-100">
-                    GitHub
-                </a>
-                <a href="mailto:bshwa0563@gmail.com" class="bg-white text-gray-900 px-6 py-2 rounded-full hover:bg-gray-100">
-                    이메일
-                </a>
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 bg-gradient-to-br from-blue-500 to-green-400 text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-pattern"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10 px-4">
+            <div class="relative">
+                <img src="image/profile.png" alt="프로필 사진" 
+                     class="mx-auto mb-6 w-48 h-48 rounded-full border-4 border-white shadow-2xl object-cover">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fadeIn">배선화</h1>
+                <p class="text-xl mb-8 animate-slideUp">🌱 혁신을 추구하는 풀스택 개발자</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="https://github.com/Bae-Sunny" target="_blank" 
+                       class="bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-blue-50 transition-all flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="mailto:bshwa0563@gmail.com" 
+                       class="bg-white text-green-600 px-6 py-3 rounded-full hover:bg-green-50 transition-all flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 .02c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.99 14.5c0 .691-.561 1.25-1.25 1.25h-11.48c-.689 0-1.25-.559-1.25-1.25v-6.5c0-.691.561-1.25 1.25-1.25h11.48c.689 0 1.25.559 1.25 1.25v6.5zm-1.403-5.007l-4.587 3.508-4.496-3.667v-.001l-.006.005-.494.421c-.371.305-.769.562-1.214.738v.132l.484.392 5.099 4.05 5.143-3.928.01-.008v-.046l-.01-.008c-.143-.117-.285-.234-.428-.352z"/>
+                        </svg>
+                        Email
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- 소개 섹션 -->
+    <!-- About Section -->
     <section id="about" class="py-20 bg-gray-50">
         <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">소개</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">소개</h2>
             <div class="space-y-10">
-                <!-- 현재 경력 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 flex items-center space-x-6 hover:shadow-xl transition-all duration-300">
+                <!-- Current Career -->
+                <div class="bg-white rounded-xl shadow-lg p-6 flex items-center space-x-6 hover:shadow-xl transition-all duration-300" data-aos="fade-up">
                     <div class="w-24 h-24 bg-teal-100 rounded-full flex items-center justify-center shrink-0">
                         <span class="text-5xl">💼</span>
                     </div>
@@ -73,8 +110,8 @@
                     </div>
                 </div>
 
-                <!-- 개발 전환 과정 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 flex items-center space-x-6 hover:shadow-xl transition-all duration-300">
+                <!-- Development Transition -->
+                <div class="bg-white rounded-xl shadow-lg p-6 flex items-center space-x-6 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center shrink-0">
                         <span class="text-5xl">🔄</span>
                     </div>
@@ -92,8 +129,8 @@
                     </div>
                 </div>
 
-                <!-- 이전 경력 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 flex items-center space-x-6 hover:shadow-xl transition-all duration-300">
+                <!-- Previous Careers -->
+                <div class="bg-white rounded-xl shadow-lg p-6 flex items-center space-x-6 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center shrink-0">
                         <span class="text-5xl">💻</span>
                     </div>
@@ -111,8 +148,8 @@
                     </div>
                 </div>
 
-                <!-- 학업 및 전문 교육 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 flex items-center space-x-6 hover:shadow-xl transition-all duration-300">
+                <!-- Academic and Professional Education -->
+                <div class="bg-white rounded-xl shadow-lg p-6 flex items-center space-x-6 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-24 h-24 bg-orange-100 rounded-full flex items-center justify-center shrink-0">
                         <span class="text-5xl">🎓</span>
                     </div>
@@ -139,22 +176,21 @@
                                     기업실무 프로젝트 최우수상 수상
                                     <span class="text-xs text-blue-600 ml-2 bg-blue-50 px-2 py-0.5 rounded-full">혁신성 인정</span>
                                 </li>
-                                <li>실무 중심 개발 역량 강화</li>
+                                <li>실무 중심 개발 역량</li>
                             </ul>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- 프로젝트 섹션 -->
+    <!-- Projects Section -->
     <section id="projects" class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">프로젝트</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">프로젝트</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 프로젝트 카드 1 -->
-                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
+                <!-- Project Card 1 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up">
                     <img src="image/project1.png" alt="프로젝트 1" class="w-full h-48 object-cover" style="width: 400px; height: 250px;">
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">🏟️ KBO 리그 통합 데이터 플랫폼</h3>
@@ -172,8 +208,8 @@
                     </div>
                 </div>
 
-                <!-- 프로젝트 카드 2 -->
-                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
+                <!-- Project Card 2 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
                     <img src="image/project2.png" alt="프로젝트 2" class="w-full h-48 object-cover" style="width: 400px; height: 250px;">
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">☕ 커피의 특성에 따른 원두 등급 예측</h3>
@@ -192,8 +228,8 @@
                     </div>
                 </div>
 
-                <!-- 프로젝트 카드 3 -->
-                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
+                <!-- Project Card 3 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
                     <img src="image/project3.png" alt="프로젝트 3" class="w-full h-48 object-cover" style="width: 400px; height: 250px;">
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">🎭 AI 기반 마스크 감지 & 퍼스널 컬러 진단</h3>
@@ -214,8 +250,8 @@
                     </div>
                 </div>
 
-                <!-- 프로젝트 카드 4 -->
-                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
+                <!-- Project Card 4 -->
+                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="300">
                     <img src="image/project4.png" alt="프로젝트 4" class="w-full h-48 object-cover" style="width: 400px; height: 250px;">
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">🚀 취업 준비생을 위한 온라인 취업 지원 서비스</h3>
@@ -235,89 +271,53 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- 프로젝트 카드 5 -->
-                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="image/project5.png" alt="프로젝트 5" class="w-full h-48 object-cover" style="width: 400px; height: 250px;">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">🎤 인터뷰 답변 분석 및 피드백 시스템</h3>
-                        <p class="text-gray-600 mb-4">KoBERT 모델로 면접 답변의 의도를 분석해 카테고리, 표현, 관련 직무를 예측하고 맞춤형 피드백을 제공하는 AI 면접 코칭 시스템을 위한 알고리즘 개발</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Deep Learning</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">KoBERT</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">NLP</span>
-                        </div>
-                        <div class="flex space-x-4">
-                            <a href="https://scandalous-lady-ca4.notion.site/11006503eb5880da95ead45c99ff0f61?pvs=4" class="text-blue-500 hover:text-blue-700">Demo</a>
-                            <a href="https://github.com/Bae-Sunny/algorithm/blob/main/AIinterview/Indetail.md" class="text-blue-500 hover:text-blue-700">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 프로젝트 카드 6 -->
-                <div class="project-card bg-white rounded-lg shadow-lg overflow-hidden">
-                    <img src="image/project6.png" alt="프로젝트 6" class="w-full h-48 object-cover" style="width: 400px; height: 250px;">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">🎨 퍼스널 컬러 분석 알고리즘</h3>
-                        <p class="text-gray-600 mb-4">얼굴의 피부색과 눈동자색을 AI로 분석해 최적의 퍼스널 컬러 시즌을 진단하는 알고리즘 개발</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">OpenCV</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">dlib</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">scikit-learn</span>
-                        </div>
-                        <div class="flex space-x-4">
-                            <a href="https://scandalous-lady-ca4.notion.site/11006503eb58805da19dca00169207ef?pvs=4" class="text-blue-500 hover:text-blue-700">Demo</a>
-                            <a href="https://github.com/Bae-Sunny/algorithm/blob/main/personalcolor/Indetail.md" class="text-blue-500 hover:text-blue-700">GitHub</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- 기술 스택 섹션 -->
+    <!-- Skills Section -->
     <section id="skills" class="py-20 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">기술 스택</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-text">기술 스택</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center mb-4">
-                        <span class="text-3xl">💻</span>
+                <div class="flex flex-col items-center skill-icon" data-aos="zoom-in">
+                    <div class="w-24 h-24 bg-white rounded-lg shadow-lg flex items-center justify-center mb-4">
+                        <span class="text-4xl">💻</span>
                     </div>
                     <h3 class="text-lg font-semibold">Frontend</h3>
                     <p class="text-gray-600 text-center">React, Vue.js, HTML/CSS, JavaScript</p>
                 </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center mb-4">
-                        <span class="text-3xl">⚙️</span>
+                <div class="flex flex-col items-center skill-icon" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="w-24 h-24 bg-white rounded-lg shadow-lg flex items-center justify-center mb-4">
+                        <span class="text-4xl">⚙️</span>
                     </div>
                     <h3 class="text-lg font-semibold">Backend</h3>
                     <p class="text-gray-600 text-center">Node.js, Spring Boot, Spring Security, RESTful API</p>
                 </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center mb-4">
-                        <span class="text-3xl">🗃️</span>
+                <div class="flex flex-col items-center skill-icon" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-24 h-24 bg-white rounded-lg shadow-lg flex items-center justify-center mb-4">
+                        <span class="text-4xl">🗃️</span>
                     </div>
                     <h3 class="text-lg font-semibold">Database</h3>
                     <p class="text-gray-600 text-center">Oracle, MySQL</p>
                 </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center mb-4">
-                        <span class="text-3xl">🔍</span>
+                <div class="flex flex-col items-center skill-icon" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="w-24 h-24 bg-white rounded-lg shadow-lg flex items-center justify-center mb-4">
+                        <span class="text-4xl">🔍</span>
                     </div>
                     <h3 class="text-lg font-semibold">AI/ML</h3>
                     <p class="text-gray-600 text-center">Python, TensorFlow, OpenCV, Pandas, Matplotlib/Seaborn, Scikit-learn</p>
                 </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center mb-4">
-                        <span class="text-3xl">🚀</span>
+                <div class="flex flex-col items-center skill-icon" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="w-24 h-24 bg-white rounded-lg shadow-lg flex items-center justify-center mb-4">
+                        <span class="text-4xl">🚀</span>
                     </div>
                     <h3 class="text-lg font-semibold">DevOps</h3>
                     <p class="text-gray-600 text-center">Docker, AWS</p>
                 </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-white rounded-lg shadow-lg flex items-center justify-center mb-4">
-                        <span class="text-3xl">🛠️</span>
+                <div class="flex flex-col items-center skill-icon" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="w-24 h-24 bg-white rounded-lg shadow-lg flex items-center justify-center mb-4">
+                        <span class="text-4xl">🛠️</span>
                     </div>
                     <h3 class="text-lg font-semibold">Tools</h3>
                     <p class="text-gray-600 text-center">GitHub, Jira, Trello, Figma</p>
@@ -326,28 +326,102 @@
         </div>
     </section>
 
-    <!-- 연락처 섹션 -->
-    <section id="contact" class="py-20 bg-white">
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-r from-blue-500 to-green-400 text-white">
         <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-8">연락하기</h2>
-            <p class="text-gray-600 mb-8">🌱 현재 성장 중인 개발자입니다. 새로운 기회를 기다리고 있습니다.</p>
+            <h2 class="text-4xl font-bold mb-8 animate-pulse">함께 성장하고 싶습니다</h2>
+            <p class="text-xl mb-8">새로운 도전과 혁신적인 프로젝트를 기다리고 있습니다.</p>
             <div class="flex justify-center space-x-6">
-                <a href="mailto:bshwa0563@gmail.com" class="text-blue-500 hover:text-blue-700">
-                    📧 이메일
+                <a href="mailto:bshwa0563@gmail.com" class="hover:text-blue-200 transition-colors flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 .02c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.99 14.5c0 .691-.561 1.25-1.25 1.25h-11.48c-.689 0-1.25-.559-1.25-1.25v-6.5c0-.691.561-1.25 1.25-1.25h11.48c.689 0 1.25.559 1.25 1.25v6.5zm-1.403-5.007l-4.587 3.508-4.496-3.667v-.001l-.006.005-.494.421c-.371.305-.769.562-1.214.738v.132l.484.392 5.099 4.05 5.143-3.928.01-.008v-.046l-.01-.008c-.143-.117-.285-.234-.428-.352z"/>
+                    </svg>
+                    이메일
                 </a>
-                <a href="https://github.com/Bae-Sunny" target="_blank" class="text-blue-500 hover:text-blue-700">
+                <a href="https://github.com/Bae-Sunny" target="_blank" class="hover:text-blue-200 transition-colors flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
                     GitHub
                 </a>
-                <a href="">LinkedIn
-            </a>
+            </div>
         </div>
     </section>
 
-    <!-- 푸터 -->
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-8">
         <div class="max-w-4xl mx-auto px-4 text-center">
-            <p>&copy; 2025 배선화 포트폴리오. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://github.com/Bae-Sunny" target="_blank" class="text-gray-300 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="mailto:bshwa0563@gmail.com" class="text-gray-300 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 .02c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.99 14.5c0 .691-.561 1.25-1.25 1.25h-11.48c-.689 0-1.25-.559-1.25-1.25v-6.5c0-.691.561-1.25 1.25-1.25h11.48c.689 0 1.25.559 1.25 1.25v6.5zm-1.403-5.007l-4.587 3.508-4.496-3.667v-.001l-.006.005-.494.421c-.371.305-.769.562-1.214.738v.132l.484.392 5.099 4.05 5.143-3.928.01-.008v-.046l-.01-.008c-.143-.117-.285-.234-.428-.352z"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="text-gray-400">&copy; 2025 배선화 포트폴리오. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- JavaScript for mobile menu and AOS animations -->
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.innerHTML = `
+            <div class="fixed inset-0 bg-black/50 z-40 md:hidden" id="mobile-menu-overlay">
+                <div class="absolute top-0 right-0 w-64 h-full bg-white shadow-lg p-6">
+                    <button id="mobile-menu-close" class="absolute top-4 right-4 text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                    <nav class="flex flex-col space-y-4 mt-12">
+                        <a href="#about" class="text-gray-800 hover:text-blue-600">소개</a>
+                        <a href="#projects" class="text-gray-800 hover:text-blue-600">프로젝트</a>
+                        <a href="#skills" class="text-gray-800 hover:text-blue-600">기술</a>
+                        <a href="#contact" class="text-gray-800 hover:text-blue-600">연락처</a>
+                    </nav>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(mobileMenu);
+
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuOverlay.classList.remove('hidden');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenuOverlay.classList.add('hidden');
+        });
+
+        // Initially hide mobile menu
+        mobileMenuOverlay.classList.add('hidden');
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                mobileMenuOverlay.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
