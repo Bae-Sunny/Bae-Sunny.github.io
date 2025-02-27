@@ -16,6 +16,13 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .hover-effect:hover {
+            background: #3182ce; /* 파란색 단색 */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transition: background 0.3s;
+        }
         .project-card {
             transition: all 0.3s ease;
             transform-origin: center;
@@ -38,7 +45,7 @@
         <div class="max-w-6xl mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-4">
-                    <span class="text-xl font-bold gradient-text hover:text-blue-600 transition-colors" onclick="scrollToTop()">Bae Sunny</span>
+                   <span class="text-xl font-bold gradient-text hover-effect" onclick="scrollToTop()">Bae Sunny</span>
                 </div>
                 <div class="hidden md:flex space-x-6">
                     <a href="#about" class="text-gray-600 hover:text-blue-600 transition-colors">소개</a>
