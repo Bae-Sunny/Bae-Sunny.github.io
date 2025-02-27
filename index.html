@@ -713,121 +713,124 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text inline-block">기술 스택</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">다양한 기술을 활용한 문제 해결 역량</p>
+<section id="skills" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text inline-block">기술 스택</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">다양한 기술을 활용한 문제 해결 역량</p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Frontend Skills -->
+            <div class="skill-icon" data-aos="zoom-in">
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 h-full">
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-code text-blue-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-4">Frontend</h3>
+                        <div class="space-y-2 w-full">
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">React</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Vue.js</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">JavaScript</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">HTML/CSS</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">AJAX</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                <!-- Frontend Skills -->
-                <div class="skill-icon" data-aos="zoom-in">
-                    <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 h-full">
-                        <div class="flex flex-col items-center">
-                            <div class="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
-                                <i class="fas fa-code text-blue-500 text-2xl"></i>
-                            </div>
-                            <h3 class="text-lg font-semibold mb-4">Frontend</h3>
-                            <div class="space-y-2 w-full">
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">React</div>
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Vue.js</div>
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">JavaScript</div>
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">HTML/CSS</div>
-                            </div>
+            <!-- Backend Skills -->
+            <div class="skill-icon" data-aos="zoom-in" data-aos-delay="100">
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 h-full">
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-green-50 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-server text-green-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-4">Backend</h3>
+                        <div class="space-y-2 w-full">
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Spring Boot</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Node.js</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">RESTful API</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Spring Security</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Redis</div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Backend Skills -->
-                <div class="skill-icon" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 h-full">
-                        <div class="flex flex-col items-center">
-                            <div class="w-16 h-16 bg-green-50 rounded-xl flex items-center justify-center mb-4">
-                                <i class="fas fa-server text-green-500 text-2xl"></i>
-                            </div>
-                            <h3 class="text-lg font-semibold mb-4">Backend</h3>
-                            <div class="space-y-2 w-full">
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Spring Boot</div>
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Node.js</div>
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">RESTful API</div>
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Spring Security</div>
-                            </div>
+            </div>
+            
+            <!-- Database Skills -->
+            <div class="skill-icon" data-aos="zoom-in" data-aos-delay="200">
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 h-full">
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-yellow-50 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-database text-yellow-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-4">Database</h3>
+                        <div class="space-y-2 w-full">
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Oracle</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">MySQL</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">SQL</div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Database Skills -->
-                <div class="skill-icon" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 h-full">
-                        <div class="flex flex-col items-center">
-                            <div class="w-16 h-16 bg-yellow-50 rounded-xl flex items-center justify-center mb-4">
-                                <i class="fas fa-database text-yellow-500 text-2xl"></i>
-                            </div>
-                            <h3 class="text-lg font-semibold mb-4">Database</h3>
-                            <div class="space-y-2 w-full">
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Oracle</div>
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">MySQL</div>
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">SQL</div>
-                            </div>
+            </div>
+            
+            <!-- AI/ML Skills -->
+            <div class="skill-icon" data-aos="zoom-in" data-aos-delay="300">
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 h-full">
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-purple-50 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-brain text-purple-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-4">AI/ML</h3>
+                        <div class="space-y-2 w-full">
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Python</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">TensorFlow</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">OpenCV</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Scikit-learn</div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- AI/ML Skills -->
-                <div class="skill-icon" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 h-full">
-                        <div class="flex flex-col items-center">
-                            <div class="w-16 h-16 bg-purple-50 rounded-xl flex items-center justify-center mb-4">
-                                <i class="fas fa-brain text-purple-500 text-2xl"></i>
-                            </div>
-                            <h3 class="text-lg font-semibold mb-4">AI/ML</h3>
-                            <div class="space-y-2 w-full">
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Python</div>
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">TensorFlow</div>
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">OpenCV</div>
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Scikit-learn</div>
-                            </div>
+            </div>
+            
+            <!-- DevOps Skills -->
+            <div class="skill-icon" data-aos="zoom-in" data-aos-delay="400">
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 h-full">
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-red-50 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-rocket text-red-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-4">DevOps</h3>
+                        <div class="space-y-2 w-full">
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Docker</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">AWS</div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- DevOps Skills -->
-                <div class="skill-icon" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 h-full">
-                        <div class="flex flex-col items-center">
-                            <div class="w-16 h-16 bg-red-50 rounded-xl flex items-center justify-center mb-4">
-                                <i class="fas fa-rocket text-red-500 text-2xl"></i>
-                            </div>
-                            <h3 class="text-lg font-semibold mb-4">DevOps</h3>
-                            <div class="space-y-2 w-full">
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Docker</div>
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">AWS</div>
-                            </div>
+            </div>
+            
+            <!-- Tools & Services Skills -->
+            <div class="skill-icon" data-aos="zoom-in" data-aos-delay="500">
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 h-full">
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-indigo-50 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-tools text-indigo-500 text-2xl"></i>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Tools Skills -->
-                <div class="skill-icon" data-aos="zoom-in" data-aos-delay="500">
-                    <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 h-full">
-                        <div class="flex flex-col items-center">
-                            <div class="w-16 h-16 bg-indigo-50 rounded-xl flex items-center justify-center mb-4">
-                                <i class="fas fa-tools text-indigo-500 text-2xl"></i>
-                            </div>
-                            <h3 class="text-lg font-semibold mb-4">Tools</h3>
-                            <div class="space-y-2 w-full">
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">GitHub</div>
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Jira</div>
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Figma</div>
-                                <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Trello</div>
-                            </div>
+                        <h3 class="text-lg font-semibold mb-4">Tools & Services</h3>
+                        <div class="space-y-2 w-full">
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">GitHub</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Jira</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Figma</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Trello</div>
+                            <div class="skill-item px-3 py-2 bg-gray-50 rounded-lg text-sm text-center">Formspree</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
