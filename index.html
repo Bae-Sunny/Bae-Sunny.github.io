@@ -864,30 +864,32 @@
                         <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600 transition-colors font-medium" data-i18n="nav_skills">기술</a>
                         <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition-colors font-medium" data-i18n="nav_contact">연락처</a>
                     </div>
-                    <!-- 언어 선택 드롭다운 -->
-                    <div class="language-dropdown mr-6">
-                        <button class="flex items-center text-gray-700 hover:text-blue-600 transition-colors">
-                            <span id="current-language" class="mr-1">한국어</span>
-                            <i class="fas fa-chevron-down text-xs"></i>
-                        </button>
-                        <div class="language-dropdown-content">
-                            <button class="language-option w-full text-left" onclick="changeLanguage('ko')">
-                                <img src="https://hatscripts.github.io/circle-flags/flags/kr.svg" alt="한국어" class="language-flag">
-                                <span>한국어</span>
-                            </button>
-                            <button class="language-option w-full text-left" onclick="changeLanguage('en')">
-                                <img src="https://hatscripts.github.io/circle-flags/flags/us.svg" alt="English" class="language-flag">
-                                <span>English</span>
-                            </button>
-                            <button class="language-option w-full text-left" onclick="changeLanguage('ja')">
-                                <img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" alt="日本語" class="language-flag">
-                                <span>日本語</span>
-                            </button>
-                            <button class="language-option w-full text-left" onclick="changeLanguage('zh')">
-                                <img src="https://hatscripts.github.io/circle-flags/flags/cn.svg" alt="中文" class="language-flag">
-                                <span>中文</span>
-                            </button>
-                        </div>
+                    <!-- 언어 선택 드롭다운 개선 -->
+        <div class="language-dropdown relative">
+            <button class="flex items-center text-gray-700 hover:text-blue-600 transition-colors focus:outline-none" id="language-dropdown-button" aria-haspopup="true" aria-expanded="false" aria-label="언어 선택">
+                <i class="fas fa-globe mr-1"></i>
+                <span id="current-language" class="mr-1">한국어</span>
+                <i class="fas fa-chevron-down text-xs"></i>
+            </button>
+            <div class="language-dropdown-content absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg z-10 hidden" aria-labelledby="language-dropdown-button" role="menu" tabindex="-1"> <!-- absolute, bg-white, shadow, hidden, role, tabindex 추가 -->
+                <button class="language-option block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600 focus:outline-none focus:bg-gray-100 focus:text-blue-600 transition-colors" onclick="changeLanguage('ko')" role="menuitem" tabindex="-1"> <!-- block, px-4, py-2, hover & focus 스타일, role, tabindex 추가 -->
+                    <img src="https://hatscripts.github.io/circle-flags/flags/kr.svg" alt="한국어" class="language-flag inline-block mr-2"> <!-- inline-block 추가 -->
+                    <span>한국어</span>
+                </button>
+                <button class="language-option block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600 focus:outline-none focus:bg-gray-100 focus:text-blue-600 transition-colors" onclick="changeLanguage('en')" role="menuitem" tabindex="-1">
+                    <img src="https://hatscripts.github.io/circle-flags/flags/us.svg" alt="English" class="language-flag inline-block mr-2">
+                    <span>English</span>
+                </button>
+                <button class="language-option block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600 focus:outline-none focus:bg-gray-100 focus:text-blue-600 transition-colors" onclick="changeLanguage('ja')" role="menuitem" tabindex="-1">
+                    <img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" alt="日本語" class="language-flag inline-block mr-2">
+                    <span>日本語</span>
+                </button>
+                <button class="language-option block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600 focus:outline-none focus:bg-gray-100 focus:text-blue-600 transition-colors" onclick="changeLanguage('zh')" role="menuitem" tabindex="-1">
+                    <img src="https://hatscripts.github.io/circle-flags/flags/cn.svg" alt="中文" class="language-flag inline-block mr-2">
+                    <span>中文</span>
+                </button>
+            </div>
+        </div>
                     </div>
                 </div>
                 <div class="md:hidden">
