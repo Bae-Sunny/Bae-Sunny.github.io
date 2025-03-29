@@ -3,151 +3,917 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>풀스택 개발자 배선화 포트폴리오</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <title>배선화 | 풀스택 개발자 포트폴리오</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #3B82F6, #10B981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hover-effect:hover {
+            color: #3B82F6;
+            transition: color 0.3s;
+        }
         .project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 그림자 효과 transition 추가 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .project-card:hover {
-            transform: translateY(-8px); /* hover 시 더 위로 솟아오르게 변경 */
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* 그림자 더 진하게 */
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        .skill-icon-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-icon-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .nav-link.active {
+            color: #3B82F6;
+        }
+        .nav-link:hover {
+            color: #3B82F6;
+        }
+        .language-dropdown-content {
+            right: 0;
+            left: auto;
+        }
+        .language-option {
+            padding: 0.75rem 1.25rem;
+        }
+        .language-option:hover {
+            background-color: #f9fafb;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            border-color: #e5e7eb;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #3B82F6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+        .btn-primary {
+            background-image: linear-gradient(135deg, #3B82F6, #10B981);
+            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3), 0 1px 3px rgba(59, 130, 246, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px rgba(59, 130, 246, 0.4), 0 4px 6px rgba(59, 130, 246, 0.4);
+        }
+        .hero-section {
+            background-color: #f0f9ff; /* Light blue background */
+        }
+        .hero-content {
+            background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white for content */
+            backdrop-filter: blur(10px); /* Apply blur effect */
+            border-radius: 1rem;
+            padding: 2rem 3rem;
+        }
+        .timeline::before {
+            background-color: #d1d5db; /* Light gray timeline line */
+        }
+        .timeline-content::before {
+            background-color: #3B82F6; /* Blue timeline dot */
+            border: 3px solid #f0f9ff; /* Light blue border for timeline dot */
+            box-shadow: 0 0 0 3px #f0f9ff; /* Inner shadow for timeline dot */
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-15px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-8px) translateX(-50%);
+            }
+        }
+        .scroll-indicator {
+            color: #6b7280; /* Gray scroll indicator */
+        }
+        .scroll-indicator i {
+            border: 2px solid #6b7280; /* Gray border for scroll arrow */
+            border-radius: 50%;
+            padding: 0.5rem;
+        }
+        .tag {
+            background-color: #e0f2fe; /* Light blue tags */
+            color: #3B82F6; /* Blue tag text */
+        }
+        .tag:hover {
+            background-color: #bae6fd; /* Lighter blue on hover */
+            transform: scale(1.05);
         }
     </style>
 </head>
-<body class="bg-gray-50"> <!-- 전체 배경색 변경 -->
-    <!-- 네비게이션 -->
-    <nav class="bg-white shadow-md fixed w-full z-10"> <!-- 그림자 효과 변경 및 sticky 적용 -->
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between">
-                <div class="flex space-x-7">
-                    <div class="flex items-center py-4">
-                        <span class="font-semibold text-gray-700 text-xl">Bae Sunny's Portfolio</span> <!-- 폰트 색상 및 크기 변경 -->
+<body class="bg-gray-50 text-gray-900">
+    <!-- 언어 데이터 스크립트 -->
+    <script>
+        // 다국어 번역 데이터 객체
+        const translations = {
+            'ko': {
+                // 내비게이션
+                'nav_about': '소개',
+                'nav_projects': '프로젝트',
+                'nav_skills': '기술',
+                'nav_contact': '연락처',
+
+                // 히어로 섹션
+                'hero_name': '배선화',
+                'hero_title': '데이터 분석 능력을 갖춘 풀스택 개발자',
+                'hero_github': 'GitHub',
+                'hero_email': 'Email',
+                'hero_years': '개발 년차',
+                'hero_projects': '프로젝트',
+                'hero_stacks': '기술 스택',
+                'hero_scroll': '스크롤',
+
+                // 소개 섹션
+                'about_title': '성장 스토리',
+                'about_subtitle': 'ERP 운영에서 데이터 분석 기반 풀스택 개발로의 성장 여정',
+
+                // 현재 경력
+                'current_career': '현재 경력',
+                'current_year': '2023 ~ 현재',
+                'current_role': 'ERP 시스템 운영 | 데이터 관리 및 프로젝트 코디네이션',
+                'current_desc1': 'ERP 시스템 데이터 관리 및 운영',
+                'current_desc2': '프로젝트 진행 상황 모니터링 및 코디네이션',
+                'current_desc3': '시스템 개선을 위한 요구사항 분석',
+
+                // 개발자 전향
+                'dev_transition': '개발자 전향 준비',
+                'dev_year': '2019 ~ 2023',
+                'dev_role': '개발 학습 및 역량 개발',
+                'dev_desc1': '온라인 개발 부트캠프 및 전문 강의 수강',
+                'dev_desc2': '개인 프로젝트 및 자기 주도 학습',
+                'dev_desc3': '개발 커뮤니티 참여 및 네트워킹',
+
+                // 이전 경력
+                'prev_career': '이전 IT 경력',
+                'prev_year': '2014 ~ 2018',
+                'prev_role': '기술 지원 및 기획 역할',
+                'prev_desc1': '기술 지원 과정에서 개발에 대한 관심 증가',
+                'prev_desc2': '개발 문화와 프로세스에 대한 이해',
+                'prev_desc3': '프로그래밍 독학 및 기초 학습',
+
+                // 학업
+                'academic': '학업 및 전문 교육',
+                'academic_year': '2022 ~ 2024',
+                'academic_role': '컴퓨터과학과 졸업 및 전문 교육',
+                'academic_desc1': '컴퓨터과학 전공 학습 (2022-2024)',
+                'academic_desc2': '풀스택 개발자 과정 수료 (2024)',
+                'academic_desc3': '기업실무 프로젝트 최우수상 수상',
+
+                // 프로젝트 섹션
+                'projects_title': '프로젝트',
+                'projects_subtitle': '혁신적인 아이디어와 기술을 결합한 프로젝트 모음',
+
+                // 프로젝트 1
+                'project1_title': '🏟️ KBO 리그 통합 데이터 플랫폼',
+                'project1_tag': '웹 앱',
+                'project1_desc': 'KBO 리그의 경기, 선수, 날씨, 뉴스 데이터를 통합 제공하는 원스톱 야구 정보 플랫폼',
+
+                // 프로젝트 2
+                'project2_title': '☕ 커피 원두 등급 예측',
+                'project2_tag': 'AI/ML',
+                'project2_desc': 'K-최근접 이웃(KNN) 알고리즘을 활용해 커피 원두의 특성 데이터 기반 등급을 예측하는 웹 서비스',
+
+                // 프로젝트 3
+                'project3_title': '🎭 AI 마스크 감지 & 퍼스널 컬러',
+                'project3_tag': 'AI 비전',
+                'project3_desc': '딥러닝 기반 이미지 분석 기술을 활용하여 마스크 착용 여부 판별 및 퍼스널 컬러를 진단하는 웹 서비스',
+
+                // 프로젝트 4
+                'project4_title': '🚀 온라인 취업 지원 서비스',
+                'project4_tag': '풀스택',
+                'project4_desc': 'AI 면접 및 맞춤형 피드백을 제공하는 취업 지원 플랫폼. 취업 준비생, 컨설턴트, 관리자용 통합 시스템',
+
+                // 프로젝트 5
+                'project5_title': '🎤 인터뷰 답변 분석 시스템',
+                'project5_tag': 'NLP',
+                'project5_desc': 'KoBERT 모델로 면접 답변의 의도를 분석해 카테고리, 표현, 관련 직무를 예측하고 맞춤형 피드백 제공',
+
+                // 프로젝트 6
+                'project6_title': '🎨 퍼스널 컬러 분석 알고리즘',
+                'project6_tag': '컴퓨터 비전',
+                'project6_desc': '얼굴의 피부색과 눈동자색을 AI로 분석해 최적의 퍼스널 컬러 시즌을 진단하는 알고리즘 개발',
+
+                // 공통 프로젝트 링크
+                'project_demo': 'Demo',
+                'project_github': 'GitHub',
+                'project_ppt': 'PPT',
+
+                // 기술 스택 섹션
+                'skills_title': '기술 스택',
+                'skills_subtitle': '다양한 기술을 활용한 문제 해결 역량',
+
+                // 기술 카테고리
+                'skills_frontend': 'Frontend',
+                'skills_backend': 'Backend',
+                'skills_database': 'Database',
+                'skills_ai': 'AI/ML',
+                'skills_devops': 'DevOps',
+                'skills_tools': 'Tools & Services',
+                'skills_design': 'Design & Analysis',
+                'skills_doc': 'Documentation',
+                'skills_ide': 'Development Environments',
+
+                // 연락처 섹션
+                'contact_title': '함께 성장하고 싶습니다',
+                'contact_subtitle': '새로운 도전과 혁신적인 프로젝트를 기다리고 있습니다.',
+                'contact_info': '연락처',
+                'contact_email': '이메일',
+                'contact_github': 'GitHub',
+                'contact_form': '메시지 보내기',
+                'contact_name': '이름',
+                'contact_name_placeholder': '이름을 입력해주세요',
+                'contact_email_placeholder': '이메일을 입력해주세요',
+                'contact_message': '메시지',
+                'contact_message_placeholder': '메시지를 입력해주세요',
+                'contact_send': '전송하기',
+
+                // 푸터
+                'footer_copyright': '© 2025 배선화 포트폴리오. All rights reserved.'
+            },
+            'en': {
+                // Navigation
+                'nav_about': 'About',
+                'nav_projects': 'Projects',
+                'nav_skills': 'Skills',
+                'nav_contact': 'Contact',
+
+                // Hero Section
+                'hero_name': 'Bae Sunny',
+                'hero_title': 'Full-Stack Developer with Data Analysis Capabilities',
+                'hero_github': 'GitHub',
+                'hero_email': 'Email',
+                'hero_years': 'Years',
+                'hero_projects': 'Projects',
+                'hero_stacks': 'Tech Stacks',
+                'hero_scroll': 'Scroll',
+
+                // About Section
+                'about_title': 'Growth Story',
+                'about_subtitle': 'A Growth Journey from ERP Operations to Data-Driven Full-Stack Development',
+
+                // Current Career
+                'current_career': 'Current Career',
+                'current_year': '2023 ~ Present',
+                'current_role': 'ERP System Operation | Data Management & Project Coordination',
+                'current_desc1': 'ERP system data management and operation',
+                'current_desc2': 'Project progress monitoring and coordination',
+                'current_desc3': 'Requirements analysis for system improvement',
+
+                // Development Transition
+                'dev_transition': 'Preparation for Development Career',
+                'dev_year': '2019 ~ 2023',
+                'dev_role': 'Development Learning & Capability Building',
+                'dev_desc1': 'Online development bootcamps and professional courses',
+                'dev_desc2': 'Personal projects and self-directed learning',
+                'dev_desc3': 'Participation in development communities and networking',
+
+                // Previous Career
+                'prev_career': 'Previous IT Career',
+                'prev_year': '2014 ~ 2018',
+                'prev_role': 'Technical Support & Planning Roles',
+                'prev_desc1': 'Increased interest in development through technical support',
+                'prev_desc2': 'Understanding of development culture and processes',
+                'prev_desc3': 'Self-study of programming and basic learning',
+
+                // Academic
+                'academic': 'Academic & Professional Education',
+                'academic_year': '2022 ~ 2024',
+                'academic_role': 'Computer Science Degree & Professional Training',
+                'academic_desc1': 'Computer Science major studies (2022-2024)',
+                'academic_desc2': 'Full Stack Developer course completion (2024)',
+                'academic_desc3': 'Excellence Award in corporate business project',
+
+                // Projects Section
+                'projects_title': 'Projects',
+                'projects_subtitle': 'A collection of projects combining innovative ideas and technologies',
+
+                // Project 1
+                'project1_title': '🏟️ KBO League Integrated Data Platform',
+                'project1_tag': 'Web App',
+                'project1_desc': 'One-stop baseball information platform providing integrated data on KBO League games, players, weather, and news',
+
+                // Project 2
+                'project2_title': '☕ Coffee Bean Grade Prediction',
+                'project2_tag': 'AI/ML',
+                'project2_desc': 'Web service that predicts coffee bean grades based on characteristic data using the K-Nearest Neighbor (KNN) algorithm',
+
+                // Project 3
+                'project3_title': '🎭 AI Mask Detection & Personal Color',
+                'project3_tag': 'AI Vision',
+                'project3_desc': 'Web service that uses deep learning-based image analysis technology to determine mask wearing status and diagnose personal color',
+
+                // Project 4
+                'project4_title': '🚀 Online Employment Support Service',
+                'project4_tag': 'Full Stack',
+                'project4_desc': 'Employment support platform providing AI interviews and customized feedback. Integrated system for job seekers, consultants, and administrators',
+
+                // Project 5
+                'project5_title': '🎤 Interview Response Analysis System',
+                'project5_tag': 'NLP',
+                'project5_desc': 'System that analyzes interview response intent using the KoBERT model to predict categories, expressions, related jobs, and provide customized feedback',
+
+                // Project 6
+                'project6_title': '🎨 Personal Color Analysis Algorithm',
+                'project6_tag': 'Computer Vision',
+                'project6_desc': 'Algorithm development that analyzes skin color and eye color with AI to diagnose the optimal personal color season',
+
+                // Common Project Links
+                'project_demo': 'Demo',
+                'project_github': 'GitHub',
+                'project_ppt': 'PPT',
+
+                // Skills Section
+                'skills_title': 'Skills',
+                'skills_subtitle': 'Problem-solving capabilities using various technologies',
+
+                // Skill Categories
+                'skills_frontend': 'Frontend',
+                'skills_backend': 'Backend',
+                'skills_database': 'Database',
+                'skills_ai': 'AI/ML',
+                'skills_devops': 'DevOps',
+                'skills_tools': 'Tools & Services',
+                'skills_design': 'Design & Analysis',
+                'skills_doc': 'Documentation',
+                'skills_ide': 'Development Environments',
+
+                // Contact Section
+                'contact_title': 'I Want to Grow Together',
+                'contact_subtitle': 'I am waiting for new challenges and innovative projects.',
+                'contact_info': 'Contact',
+                'contact_email': 'Email',
+                'contact_github': 'GitHub',
+                'contact_form': 'Send Message',
+                'contact_name': 'Name',
+                'contact_name_placeholder': 'Enter your name',
+                'contact_email_placeholder': 'Enter your email',
+                'contact_message': 'Message',
+                'contact_message_placeholder': 'Enter your message',
+                'contact_send': 'Send',
+
+                // Footer
+                'footer_copyright': '© 2025 Bae Sunny Portfolio. All rights reserved.'
+            },
+            'ja': {
+                // ナビゲーション
+                'nav_about': '紹介',
+                'nav_projects': 'プロジェクト',
+                'nav_skills': 'スキル',
+                'nav_contact': '連絡先',
+
+                // ヒーローセクション
+                'hero_name': '裵 善花',
+                'hero_title': 'データ分析能力を備えたフルスタック開発者',
+                'hero_github': 'GitHub',
+                'hero_email': 'メール',
+                'hero_years': '開発年数',
+                'hero_projects': 'プロジェクト',
+                'hero_stacks': '技術スタック',
+                'hero_scroll': 'スクロール',
+
+                // 紹介セクション
+                'about_title': '成長ストーリー',
+                'about_subtitle': 'ERPの運用からデータ分析ベースのフルスタック開発への成長の旅',
+
+                // 現在のキャリア
+                'current_career': '現在のキャリア',
+                'current_year': '2023 ~ 現在',
+                'current_role': 'ERPシステム運用 | データ管理およびプロジェクトコーディネーション',
+                'current_desc1': 'ERPシステムデータ管理および運用',
+                'current_desc2': 'プロジェクト進行状況モニタリングおよびコーディネーション',
+                'current_desc3': 'システム改善のための要件分析',
+
+                // 開発者への転向
+                'dev_transition': '開発者への転向準備',
+                'dev_year': '2019 ~ 2023',
+                'dev_role': '開発学習および能力開発',
+                'dev_desc1': 'オンライン開発ブートキャンプおよび専門講義の受講',
+                'dev_desc2': '個人プロジェクトおよび自己主導学習',
+                'dev_desc3': '開発コミュニティへの参加およびネットワーキング',
+
+                // 以前のキャリア
+                'prev_career': '以前のITキャリア',
+                'prev_year': '2014 ~ 2018',
+                'prev_role': '技術サポートおよび企画の役割',
+                'prev_desc1': '技術サポートの過程で開発への関心が増加',
+                'prev_desc2': '開発文化とプロセスへの理解',
+                'prev_desc3': 'プログラミングの独学および基礎学習',
+
+                // 学業
+                'academic': '学業および専門教育',
+                'academic_year': '2022 ~ 2024',
+                'academic_role': 'コンピュータサイエンス学科卒業および専門教育',
+                'academic_desc1': 'コンピュータサイエンス専攻学習 (2022-2024)',
+                'academic_desc2': 'フルスタック開発者コース修了 (2024)',
+                'academic_desc3': '企業実務プロジェクト最優秀賞受賞',
+
+                // プロジェクトセクション
+                'projects_title': 'プロジェクト',
+                'projects_subtitle': '革新的なアイデアと技術を組み合わせたプロジェクトコレクション',
+
+                // プロジェクト1
+                'project1_title': '🏟️ KBOリーグ統合データプラットフォーム',
+                'project1_tag': 'ウェブアプリ',
+                'project1_desc': 'KBOリーグの試合、選手、天気、ニュースデータを統合提供するワンストップ野球情報プラットフォーム',
+
+                // プロジェクト2
+                'project2_title': '☕ コーヒー豆グレード予測',
+                'project2_tag': 'AI/ML',
+                'project2_desc': 'K最近傍（KNN）アルゴリズムを活用してコーヒー豆の特性データに基づいたグレードを予測するウェブサービス',
+
+                // プロジェクト3
+                'project3_title': '🎭 AIマスク検知＆パーソナルカラー',
+                'project3_tag': 'AIビジョン',
+                'project3_desc': 'ディープラーニングベースの画像分析技術を活用してマスク着用の有無を判別し、パーソナルカラーを診断するウェブサービス',
+
+                // プロジェクト4
+                'project4_title': '🚀 オンライン就職支援サービス',
+                'project4_tag': 'フルスタック',
+                'project4_desc': 'AI面接およびカスタマイズされたフィードバックを提供する就職支援プラットフォーム。就職準備生、コンサルタント、管理者用統合システム',
+
+                // プロジェクト5
+                'project5_title': '🎤 インタビュー回答分析システム',
+                'project5_tag': 'NLP',
+                'project5_desc': 'KoBERTモデルで面接回答の意図を分析してカテゴリ、表現、関連職務を予測し、カスタマイズされたフィードバックを提供',
+
+                // プロジェクト6
+                'project6_title': '🎨 パーソナルカラー分析アルゴリズム',
+                'project6_tag': 'コンピュータビジョン',
+                'project6_desc': '顔の肌色と瞳の色をAIで分析して最適なパーソナルカラーシーズンを診断するアルゴリズム開発',
+
+                // 共通プロジェクトリンク
+                'project_demo': 'デモ',
+                'project_github': 'GitHub',
+                'project_ppt': 'プレゼン',
+
+                // スキルセクション
+                'skills_title': '技術スタック',
+                'skills_subtitle': '多様な技術を活用した問題解決能力',
+
+                // スキルカテゴリ
+                'skills_frontend': 'フロントエンド',
+                'skills_backend': 'バックエンド',
+                'skills_database': 'データベース',
+                'skills_ai': 'AI/ML',
+                'skills_devops': 'DevOps',
+                'skills_tools': 'ツール＆サービス',
+                'skills_design': '設計＆分析',
+                'skills_doc': 'ドキュメンテーション',
+                'skills_ide': '開発環境',
+
+                // 連絡先セクション
+                'contact_title': '一緒に成長したいと思います',
+                'contact_subtitle': '新しい挑戦と革新的なプロジェクトを待っています。',
+                'contact_info': '連絡先',
+                'contact_email': 'メール',
+                'contact_github': 'GitHub',
+                'contact_form': 'メッセージを送る',
+                'contact_name': '名前',
+                'contact_name_placeholder': '名前を入力してください',
+                'contact_email_placeholder': 'メールアドレスを入力してください',
+                'contact_message': 'メッセージ',
+                'contact_message_placeholder': 'メッセージを入力してください',
+                'contact_send': '送信',
+
+                // フッター
+                'footer_copyright': '© 2025 裵善花ポートフォリオ. All rights reserved.'
+            },
+            'zh': {
+                // 导航
+                'nav_about': '简介',
+                'nav_projects': '项目',
+                'nav_skills': '技术',
+                'nav_contact': '联系方式',
+
+                // 主页部分
+                'hero_name': '裵善花',
+                'hero_title': '具备数据分析能力的全栈开发工程师',
+                'hero_github': 'GitHub',
+                'hero_email': '邮箱',
+                'hero_years': '开发年限',
+                'hero_projects': '项目',
+                'hero_stacks': '技术栈',
+                'hero_scroll': '滚动',
+
+                // 简介部分
+                'about_title': '成长故事',
+                'about_subtitle': '从ERP运维到基于数据分析的全栈开发的成长历程',
+
+                // 当前职业
+                'current_career': '当前职业',
+                'current_year': '2023 ~ 至今',
+                'current_role': 'ERP系统运营 | 数据管理和项目协调',
+                'current_desc1': 'ERP系统数据管理和运营',
+                'current_desc2': '项目进展监控和协调',
+                'current_desc3': '系统改进需求分析',
+
+                // 开发者转型
+                'dev_transition': '开发者转型准备',
+                'dev_year': '2019 ~ 2023',
+                'dev_role': '开发学习和能力建设',
+                'dev_desc1': '线上开发训练营和专业课程学习',
+                'dev_desc2': '个人项目和自主学习',
+                'dev_desc3': '参与开发社区和网络交流',
+
+                // 之前职业
+                'prev_career': '之前的IT职业',
+                'prev_year': '2014 ~ 2018',
+                'prev_role': '技术支持和规划角色',
+                'prev_desc1': '通过技术支持增加对开发的兴趣',
+                'prev_desc2': '了解开发文化和流程',
+                'prev_desc3': '编程自学和基础学习',
+
+                // 学术
+                'academic': '学术和专业教育',
+                'academic_year': '2022 ~ 2024',
+                'academic_role': '计算机科学专业毕业和专业培训',
+                'academic_desc1': '计算机科学专业学习 (2022-2024)',
+                'academic_desc2': '全栈开发者课程完成 (2024)',
+                'academic_desc3': '企业实务项目最优秀奖获奖',
+
+                // 项目部分
+                'projects_title': '项目',
+                'projects_subtitle': '结合创新理念和技术的项目集合',
+
+                // 项目1
+                'project1_title': '🏟️ KBO联盟综合数据平台',
+                'project1_tag': '网页应用',
+                'project1_desc': '提供KBO联盟比赛、选手、天气、新闻数据的一站式棒球信息平台',
+
+                // 项目2
+                'project2_title': '☕ 咖啡豆等级预测',
+                'project2_tag': 'AI/ML',
+                'project2_desc': '利用K近邻(KNN)算法基于咖啡豆特性数据预测等级的网络服务',
+
+                // 项目3
+                'project3_title': '🎭 AI口罩检测和个人色彩',
+                'project3_tag': 'AI视觉',
+                'project3_desc': '利用深度学习图像分析技术判断口罩佩戴状况并诊断个人色彩的网络服务',
+
+                // 项目4
+                'project4_title': '🚀 在线就业支持服务',
+                'project4_tag': '全栈',
+                'project4_desc': '提供AI面试和定制反馈的就业支持平台。求职者、顾问、管理员用集成系统',
+
+                // 项目5
+                'project5_title': '🎤 面试回答分析系统',
+                'project5_tag': 'NLP',
+                'project5_desc': '使用KoBERT模型分析面试回答意图来预测类别、表达、相关职位并提供定制反馈',
+
+                // 项目6
+                'project6_title': '🎨 个人色彩分析算法',
+                'project6_tag': '计算机视觉',
+                'project6_desc': '通过AI分析面部肤色和眼睛颜色来诊断最佳个人色彩季节的算法开发',
+
+                // 通用项目链接
+                'project_demo': '演示',
+                'project_github': 'GitHub',
+                'project_ppt': '演示文稿',
+
+                // 技术部分
+                'skills_title': '技术栈',
+                'skills_subtitle': '利用各种技术的问题解决能力',
+
+                // 技能类别
+                'skills_frontend': '前端',
+                'skills_backend': '后端',
+                'skills_database': '数据库',
+                'skills_ai': 'AI/ML',
+                'skills_devops': 'DevOps',
+                'skills_tools': '工具和服务',
+                'skills_design': '设计和分析',
+                'skills_doc': '文档',
+                'skills_ide': '开发环境',
+
+                // 联系部分
+                'contact_title': '希望一起成长',
+                'contact_subtitle': '期待新的挑战和创新项目。',
+                'contact_info': '联系方式',
+                'contact_email': '邮箱',
+                'contact_github': 'GitHub',
+                'contact_form': '发送消息',
+                'contact_name': '姓名',
+                'contact_name_placeholder': '请输入您的姓名',
+                'contact_email_placeholder': '请输入您的邮箱',
+                'contact_message': '消息',
+                'contact_message_placeholder': '请输入您的消息',
+                'contact_send': '发送',
+
+                // 页脚
+                'footer_copyright': '© 2025 裵善花作品集. All rights reserved.'
+            }
+        };
+
+        // 기본 언어 설정
+        let currentLanguage = 'ko';
+
+        // 브라우저 언어 감지 (페이지 로드 시 실행)
+        document.addEventListener('DOMContentLoaded', function() {
+            const browserLang = navigator.language.split('-')[0];
+            if (translations[browserLang]) {
+                currentLanguage = browserLang;
+                updateLanguage();
+            }
+        });
+
+        // 언어 변경 함수
+        function changeLanguage(lang) {
+            if (translations[lang]) {
+                currentLanguage = lang;
+                updateLanguage();
+
+                // 언어 변경 시 현재 페이지의 언어 코드를 URL 파라미터로 추가
+                const url = new URL(window.location.href);
+                url.searchParams.set('lang', lang);
+                window.history.pushState({}, '', url);
+            }
+        }
+
+        // 페이지의 모든 텍스트 업데이트
+        function updateLanguage() {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLanguage][key]) {
+                    element.textContent = translations[currentLanguage][key];
+                }
+            });
+
+            // placeholder 처리
+            const placeholders = document.querySelectorAll('[data-i18n-placeholder]');
+            placeholders.forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (translations[currentLanguage][key]) {
+                    element.setAttribute('placeholder', translations[currentLanguage][key]);
+                }
+            });
+
+            // 페이지 타이틀 업데이트
+            if (currentLanguage === 'ko') {
+                document.title = '배선화 | 풀스택 개발자 포트폴리오';
+            } else if (currentLanguage === 'en') {
+                document.title = 'Bae Sunny | Full Stack Developer Portfolio';
+            } else if (currentLanguage === 'ja') {
+                document.title = '裵善花 | フルスタック開発者ポートフォリオ';
+            } else if (currentLanguage === 'zh') {
+                document.title = '裵善花 | 全栈开发者作品集';
+            }
+
+            // 언어 선택 UI 업데이트
+            const currentLangDisplay = document.getElementById('current-language');
+            if (currentLangDisplay) {
+                if (currentLanguage === 'ko') {
+                    currentLangDisplay.textContent = '한국어';
+                } else if (currentLanguage === 'en') {
+                    currentLangDisplay.textContent = 'English';
+                } else if (currentLanguage === 'ja') {
+                    currentLangDisplay.textContent = '日本語';
+                } else if (currentLanguage === 'zh') {
+                    currentLangDisplay.textContent = '中文';
+                }
+            }
+
+            // HTML 문서의 lang 속성 업데이트
+            document.documentElement.setAttribute('lang', currentLanguage);
+        }
+
+        // URL에서 언어 파라미터 확인 (페이지 로드 시)
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const langParam = urlParams.get('lang');
+
+            if (langParam && translations[langParam]) {
+                currentLanguage = langParam;
+                updateLanguage();
+            }
+        });
+    </script>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 w-full z-50 bg-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <button onclick="scrollToTop()" class="text-xl font-bold gradient-text hover-effect focus:outline-none" style="cursor: pointer;" data-i18n="hero_name">배선화</button>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link hover-effect font-medium" data-i18n="nav_about">소개</a>
+                    <a href="#projects" class="nav-link hover-effect font-medium" data-i18n="nav_projects">프로젝트</a>
+                    <a href="#skills" class="nav-link hover-effect font-medium" data-i18n="nav_skills">기술</a>
+                    <a href="#contact" class="nav-link hover-effect font-medium" data-i18n="nav_contact">연락처</a>
+                    <!-- Language Dropdown -->
+                    <div class="language-dropdown relative">
+                        <button class="flex items-center hover-effect focus:outline-none">
+                            <span id="current-language" class="mr-2">한국어</span>
+                            <i class="fas fa-chevron-down text-sm"></i>
+                        </button>
+                        <div class="language-dropdown-content hidden absolute mt-2 w-32 bg-white rounded-md shadow-lg z-10">
+                            <button class="language-option block w-full text-left hover-effect focus:outline-none" onclick="changeLanguage('ko')">
+                                <img src="https://hatscripts.github.io/circle-flags/flags/kr.svg" alt="한국어" class="language-flag">
+                                한국어
+                            </button>
+                            <button class="language-option block w-full text-left hover-effect focus:outline-none" onclick="changeLanguage('en')">
+                                <img src="https://hatscripts.github.io/circle-flags/flags/us.svg" alt="English" class="language-flag">
+                                English
+                            </button>
+                            <button class="language-option block w-full text-left hover-effect focus:outline-none" onclick="changeLanguage('ja')">
+                                <img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" alt="日本語" class="language-flag">
+                                日本語
+                            </button>
+                            <button class="language-option block w-full text-left hover-effect focus:outline-none" onclick="changeLanguage('zh')">
+                                <img src="https://hatscripts.github.io/circle-flags/flags/cn.svg" alt="中文" class="language-flag">
+                                中文
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div class="flex items-center space-x-6">
-                    <a href="#about" class="py-4 px-2 text-gray-700 hover:text-blue-500 transition duration-300">소개</a> <!-- 폰트 색상 및 hover 효과 변경 -->
-                    <a href="#projects" class="py-4 px-2 text-gray-700 hover:text-blue-500 transition duration-300">프로젝트</a>
-                    <a href="#skills" class="py-4 px-2 text-gray-700 hover:text-blue-500 transition duration-300">기술</a>
-                    <a href="#contact" class="py-4 px-2 text-gray-700 hover:text-blue-500 transition duration-300">연락처</a>
+                <div class="md:hidden">
+                    <button id="mobile-menu-toggle" class="text-gray-600 hover:text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full top-full left-0 z-50">
+            <div class="px-6 py-8 flex flex-col space-y-4">
+                <a href="#about" class="block py-2 hover-effect" data-i18n="nav_about">소개</a>
+                <a href="#projects" class="block py-2 hover-effect" data-i18n="nav_projects">프로젝트</a>
+                <a href="#skills" class="block py-2 hover-effect" data-i18n="nav_skills">기술</a>
+                <a href="#contact" class="block py-2 hover-effect" data-i18n="nav_contact">연락처</a>
+                <!-- Mobile Language Options -->
+                <div class="border-t pt-4">
+                    <div class="flex justify-around">
+                        <button class="language-option-mobile focus:outline-none" onclick="changeLanguage('ko')">
+                            <img src="https://hatscripts.github.io/circle-flags/flags/kr.svg" alt="한국어" class="language-flag w-7 h-7">
+                        </button>
+                        <button class="language-option-mobile focus:outline-none" onclick="changeLanguage('en')">
+                            <img src="https://hatscripts.github.io/circle-flags/flags/us.svg" alt="English" class="language-flag w-7 h-7">
+                        </button>
+                        <button class="language-option-mobile focus:outline-none" onclick="changeLanguage('ja')">
+                            <img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" alt="日本語" class="language-flag w-7 h-7">
+                        </button>
+                        <button class="language-option-mobile focus:outline-none" onclick="changeLanguage('zh')">
+                            <img src="https://hatscripts.github.io/circle-flags/flags/cn.svg" alt="中文" class="language-flag w-7 h-7">
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- 헤더 섹션 -->
-    <header class="pt-24 pb-16 bg-gradient-to-r from-blue-200 to-blue-300"> <!-- 배경색 변경 -->
-        <div class="max-w-4xl mx-auto text-center px-4">
-            <img src="image/profile.png" alt="프로필 사진" class="rounded-full mx-auto mb-6 border-4 border-white" style="width: 150px; height: 150px;"> <!-- mb 값 조정 -->
-            <h1 class="text-4xl font-bold text-gray-900 mb-2">배선화</h1> <!-- 폰트 색상 변경 -->
-            <p class="text-xl text-gray-700 mb-8">🌱 풀스택 개발자를 꿈꾸며 성장하는 개발자입니다.</p> <!-- 폰트 색상 및 문구 수정 -->
-            <div class="flex justify-center space-x-4">
-                <a href="https://github.com/Bae-Sunny" target="_blank" class="bg-white text-blue-500 px-6 py-2 rounded-full hover:bg-blue-50 hover:text-blue-700 transition duration-300"> <!-- 버튼 hover 효과 변경 -->
-                    GitHub
-                </a>
-                <a href="mailto:bshwa0563@gmail.com" class="bg-white text-blue-500 px-6 py-2 rounded-full hover:bg-blue-50 hover:text-blue-700 transition duration-300">
-                    이메일
-                </a>
+    <!-- Hero Section -->
+    <header id="hero" class="hero-section py-32 md:py-48">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="hero-content mx-auto max-w-3xl p-8 md:p-12" data-aos="fade-up" data-aos-duration="1000">
+                <img src="image/profile.png" alt="프로필 사진" class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-6 border-4 border-white shadow-xl object-cover">
+                <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-4" data-i18n="hero_name">배선화</h1>
+                <p class="text-lg md:text-xl text-gray-700 mb-8" data-i18n="hero_title">데이터 분석 능력을 갖춘 풀스택 개발자</p>
+                <div class="flex justify-center space-x-4 mb-8">
+                    <a href="https://github.com/Bae-Sunny" target="_blank" class="btn-primary px-6 py-3 rounded-full font-medium text-white hover:shadow-lg">
+                        <i class="fab fa-github mr-2"></i> <span data-i18n="hero_github">GitHub</span>
+                    </a>
+                    <a href="mailto:bshwa0563@gmail.com" class="bg-white hover:bg-gray-100 text-blue-600 px-6 py-3 rounded-full font-medium shadow-md hover:shadow-lg transition-colors">
+                        <i class="fas fa-envelope mr-2"></i> <span data-i18n="hero_email">Email</span>
+                    </a>
+                </div>
+                <div class="flex justify-center space-x-8">
+                    <div>
+                        <div class="text-3xl font-bold text-gray-800 mb-2">1+</div>
+                        <p class="text-sm text-gray-600" data-i18n="hero_years">개발 년차</p>
+                    </div>
+                    <div class="border-r border-gray-300 h-10"></div>
+                    <div>
+                        <div class="text-3xl font-bold text-gray-800 mb-2">6+</div>
+                        <p class="text-sm text-gray-600" data-i18n="hero_projects">프로젝트</p>
+                    </div>
+                    <div class="border-r border-gray-300 h-10"></div>
+                    <div>
+                        <div class="text-3xl font-bold text-gray-800 mb-2">10+</div>
+                        <p class="text-sm text-gray-600" data-i18n="hero_stacks">기술 스택</p>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer hover:opacity-80" onclick="scrollToSection('#about')">
+                <p class="text-sm mb-2" data-i18n="hero_scroll">스크롤</p>
+                <i class="fas fa-chevron-down text-lg"></i>
             </div>
         </div>
     </header>
 
-    <!-- 소개 섹션 -->
-    <section id="about" class="py-24 bg-gray-100"> <!-- 배경색 변경 -->
-        <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-4">소개</h2> <!-- mb 값 조정 -->
-            <p class="text-gray-600 text-center mb-12">끊임없이 배우고 성장하며, 사용자에게 가치 있는 서비스를 제공하고자 노력합니다.</p> <!-- 설명 추가 -->
-            <div class="space-y-12"> <!-- space-y 값 조정 -->
-                <!-- 현재 경력 -->
-                <div class="bg-white rounded-xl shadow-lg p-8 flex items-center space-x-8 hover:shadow-xl transition-all duration-300"> <!-- p 값 조정 및 space-x 값 조정 -->
-                    <div class="w-24 h-24 bg-teal-100 rounded-full flex items-center justify-center shrink-0">
-                        <span class="text-5xl">💼</span>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">현재 경력</h3> <!-- mb 값 조정 -->
-                        <h4 class="text-lg font-semibold text-gray-700 mb-1">ERP 시스템 운영 및 데이터 관리</h4> <!-- 부제목 추가 -->
-                        <div class="flex justify-between items-center mb-2">
-                            <p class="text-gray-600">OO 회사 | 시스템 운영 및 데이터 관리 담당</p> <!-- 회사명 추가 -->
-                            <p class="text-sm text-gray-500">현재 근무 중</p>
-                        </div>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm pl-2"> <!-- space-y 값 조정 -->
-                            <li>ERP 시스템 데이터 관리 및 운영</li>
-                            <li>프로젝트 진행 상황 모니터링 및 코디네이션</li>
-                            <li>시스템 개선을 위한 요구사항 분석 및 개선</li> <!-- 내용 수정 -->
-                        </ul>
-                    </div>
-                </div>
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4" data-i18n="about_title">성장 스토리</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="about_subtitle">ERP 운영에서 데이터 분석 기반 풀스택 개발로의 성장</p>
+            </div>
 
-                <!-- 개발 전환 과정 -->
-                <div class="bg-white rounded-xl shadow-lg p-8 flex items-center space-x-8 hover:shadow-xl transition-all duration-300"> <!-- p 값 조정 및 space-x 값 조정 -->
-                    <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center shrink-0">
-                        <span class="text-5xl">🔄</span>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">개발자 전향 준비</h3> <!-- mb 값 조정 -->
-                        <h4 class="text-lg font-semibold text-gray-700 mb-1">풀스택 개발 역량 학습 및 프로젝트 경험</h4> <!-- 부제목 추가 -->
-                        <div class="flex justify-between items-center mb-2">
-                            <p class="text-gray-600">2019 ~ 2023년 | 개발 학습 및 개인/팀 프로젝트 진행</p> <!-- 기간 및 내용 수정 -->
-                            <p class="text-sm text-gray-500">개발자 전향 준비 기간</p>
-                        </div>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm pl-2"> <!-- space-y 값 조정 -->
-                            <li>온라인 개발 부트캠프 및 풀스택 개발 강의 수강</li>
-                            <li>다양한 개인 프로젝트 및 팀 협업 프로젝트 진행</li> <!-- 내용 수정 -->
-                            <li>개발 커뮤니티 참여 및 네트워킹 활동</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 이전 경력 -->
-                <div class="bg-white rounded-xl shadow-lg p-8 flex items-center space-x-8 hover:shadow-xl transition-all duration-300"> <!-- p 값 조정 및 space-x 값 조정 -->
-                    <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center shrink-0">
-                        <span class="text-5xl">💻</span>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">이전 IT 경력</h3> <!-- mb 값 조정 -->
-                        <h4 class="text-lg font-semibold text-gray-700 mb-1">SI 기술 지원 및 IT 기획</h4> <!-- 부제목 추가 -->
-                        <div class="flex justify-between items-center mb-2">
-                            <p class="text-gray-600">2014 ~ 2018년 | SI 업체 기술 지원 및 서비스 기획</p> <!-- 기간 및 내용 수정 -->
-                            <p class="text-sm text-gray-500">IT 분야 경력</p>
-                        </div>
-                        <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm pl-2"> <!-- space-y 값 조정 -->
-                            <li>SI 프로젝트 기술 지원 및 고객 커뮤니케이션 담당</li>
-                            <li>IT 서비스 기획 및 문서 작성 업무 수행</li> <!-- 내용 수정 -->
-                            <li>개발 문화 및 프로세스에 대한 이해도 향상</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 학업 및 전문 교육 -->
-                <div class="bg-white rounded-xl shadow-lg p-8 flex items-center space-x-8 hover:shadow-xl transition-all duration-300"> <!-- p 값 조정 및 space-x 값 조정 -->
-                    <div class="w-24 h-24 bg-orange-100 rounded-full flex items-center justify-center shrink-0">
-                        <span class="text-5xl">🎓</span>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">학업 및 전문 교육</h3> <!-- mb 값 조정 -->
-                        <h4 class="text-lg font-semibold text-gray-700 mb-1">컴퓨터 과학 전공 및 풀스택 개발자 과정 수료</h4> <!-- 부제목 추가 -->
-                        <div class="mb-4"> <!-- mb 값 조정 -->
-                            <div class="flex justify-between items-center mb-1">
-                                <p class="text-gray-600">컴퓨터과학과 졸업</p>
-                                <p class="text-sm text-gray-500">2022 ~ 2024년</p> <!-- 년도 수정 -->
+            <div class="timeline">
+                <!-- Current Career -->
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content timeline-right">
+                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg p-6">
+                            <div class="flex items-start space-x-4 mb-3">
+                                <div class="w-10 h-10 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800" data-i18n="current_career">현재 경력</h3>
+                                    <p class="text-gray-500 text-sm" data-i18n="current_year">2023 ~ 현재</p>
+                                </div>
                             </div>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm pl-2"> <!-- space-y 값 조정 -->
-                                <li>컴퓨터 과학 전반에 대한 체계적인 학습</li>
-                                <li>개발 기초 역량 및 문제 해결 능력 강화</li>
+                            <p class="text-gray-700 mb-3" data-i18n="current_role">ERP 시스템 운영 | 데이터 관리 및 프로젝트 코디네이션</p>
+                            <ul class="list-disc list-inside text-gray-600 text-sm">
+                                <li data-i18n="current_desc1">ERP 시스템 데이터 관리 및 운영</li>
+                                <li data-i18n="current_desc2">프로젝트 진행 상황 모니터링 및 코디네이션</li>
+                                <li data-i18n="current_desc3">시스템 개선을 위한 요구사항 분석</li>
                             </ul>
                         </div>
-                        <div>
-                            <div class="flex justify-between items-center mb-1">
-                                <p class="text-gray-600">풀스택 개발자 과정 수료</p>
-                                <p class="text-sm text-gray-500">2024년</p> <!-- 년도 수정 -->
+                    </div>
+                </div>
+
+                <!-- Development Transition -->
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content timeline-left">
+                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg p-6">
+                            <div class="flex items-start space-x-4 mb-3">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800" data-i18n="dev_transition">개발자 전향 준비</h3>
+                                    <p class="text-gray-500 text-sm" data-i18n="dev_year">2019 ~ 2023</p>
+                                </div>
                             </div>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2 text-sm pl-2"> <!-- space-y 값 조정 -->
-                                <li>실무 중심의 풀스택 개발 교육 수료</li>
-                                <li class="flex items-center">
-                                    기업 연계 프로젝트 최우수상 수상 <!-- 내용 수정 -->
-                                    <span class="text-xs text-blue-600 ml-2 bg-blue-50 px-2 py-0.5 rounded-full">혁신적인 아이디어</span> <!-- badge 내용 수정 -->
-                                </li>
-                                <li>실무 개발 역량 및 협업 능력 향상</li>
+                            <p class="text-gray-700 mb-3" data-i18n="dev_role">개발 학습 및 역량 개발</p>
+                            <ul class="list-disc list-inside text-gray-600 text-sm">
+                                <li data-i18n="dev_desc1">온라인 개발 부트캠프 및 전문 강의 수강</li>
+                                <li data-i18n="dev_desc2">개인 프로젝트 및 자기 주도 학습</li>
+                                <li data-i18n="dev_desc3">개발 커뮤니티 참여 및 네트워킹</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Previous IT Career -->
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content timeline-right">
+                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg p-6">
+                            <div class="flex items-start space-x-4 mb-3">
+                                <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+                                    <i class="fas fa-laptop"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800" data-i18n="prev_career">이전 IT 경력</h3>
+                                    <p class="text-gray-500 text-sm" data-i18n="prev_year">2014 ~ 2018</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-3" data-i18n="prev_role">기술 지원 및 기획 역할</p>
+                            <ul class="list-disc list-inside text-gray-600 text-sm">
+                                <li data-i18n="prev_desc1">기술 지원 과정에서 개발에 대한 관심 증가</li>
+                                <li data-i18n="prev_desc2">개발 문화와 프로세스에 대한 이해</li>
+                                <li data-i18n="prev_desc3">프로그래밍 독학 및 기초 학습</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic and Professional Education -->
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content timeline-left">
+                        <div class="bg-white rounded-xl shadow-md hover:shadow-lg p-6">
+                            <div class="flex items-start space-x-4 mb-3">
+                                <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800" data-i18n="academic">학업 및 전문 교육</h3>
+                                    <p class="text-gray-500 text-sm" data-i18n="academic_year">2022 ~ 2024</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-3" data-i18n="academic_role">컴퓨터과학과 졸업 및 전문 교육</p>
+                            <ul class="list-disc list-inside text-gray-600 text-sm">
+                                <li data-i18n="academic_desc1">컴퓨터과학 전공 학습 (2022-2024)</li>
+                                <li data-i18n="academic_desc2">풀스택 개발자 과정 수료 (2024)</li>
+                                <li data-i18n="academic_desc3">기업실무 프로젝트 최우수상 수상</li>
                             </ul>
                         </div>
                     </div>
@@ -156,217 +922,515 @@
         </div>
     </section>
 
-    <!-- 프로젝트 섹션 -->
-    <section id="projects" class="py-24 bg-blue-50"> <!-- 배경색 변경 -->
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-4">프로젝트</h2> <!-- mb 값 조정 -->
-            <p class="text-gray-600 text-center mb-12">다양한 분야의 프로젝트 경험을 통해 실무 역량을 키워왔습니다.</p> <!-- 설명 추가 -->
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4" data-i18n="projects_title">프로젝트</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="projects_subtitle">혁신적인 아이디어와 기술을 결합한 프로젝트 모음</p>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 프로젝트 카드 1 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden"> <!-- shadow 변경 -->
-                    <img src="image/project1.png" alt="프로젝트 1" class="w-full h-48 object-cover">
+                <!-- Project Card 1 -->
+                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up">
+                    <div class="project-image-container h-56">
+                        <img src="image/project1.png" alt="프로젝트 1" class="project-image w-full h-full object-cover">
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-900">🏟️ KBO 리그 통합 데이터 플랫폼</h3> <!-- 폰트 색상 변경 -->
-                        <p class="text-gray-700 mb-4">KBO 리그 경기, 선수, 날씨, 뉴스 데이터를 통합 제공하는 웹 플랫폼입니다.</p> <!-- 폰트 색상 및 문구 수정 -->
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">JavaScript</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Python Web Scraping</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Oracle</span>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-gray-800" data-i18n="project1_title">🏟️ KBO 리그 통합 데이터 플랫폼</h3>
+                            <span class="inline-block tag text-xs px-2 py-1 rounded-full" data-i18n="project1_tag">웹 앱</span>
                         </div>
-                        <div class="flex space-x-4">
-                            <a href="https://scandalous-lady-ca4.notion.site/4818ecc4ff1a4744b10b00b0b6f0a9a3?pvs=4" class="text-blue-500 hover:text-blue-700 transition duration-300">Demo</a> <!-- hover 효과 추가 -->
-                            <a href="https://github.com/Bae-Sunny/CrawlingProject" class="text-blue-500 hover:text-blue-700 transition duration-300">GitHub</a>
-                            <a href="https://www.canva.com/design/DAGFSMUCJfE/1RvZJ65ai2eefxNQ34yQzw/view?utm_content=DAGFSMUCJfE&utm_campaign=designshare&utm_medium=link&utm_source=viewer" class="text-blue-500 hover:text-blue-700 transition duration-300">PPT</a>
+                        <p class="text-gray-600 mb-4" data-i18n="project1_desc">KBO 리그의 경기, 선수, 날씨, 뉴스 데이터를 통합 제공하는 원스톱 야구 정보 플랫폼</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag text-xs px-2 py-1 rounded-full">JavaScript</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">Python</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">Oracle</span>
+                        </div>
+                        <div class="flex space-x-4 pt-2 border-t border-gray-200">
+                            <a href="https://scandalous-lady-ca4.notion.site/4818ecc4ff1a4744b10b00b0b6f0a9a3?pvs=4" class="text-blue-500 hover:text-blue-700 flex items-center hover-effect">
+                                <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="project_demo">Demo</span>
+                            </a>
+                            <a href="https://github.com/Bae-Sunny/CrawlingProject" class="text-blue-500 hover:text-blue-700 flex items-center hover-effect">
+                                <i class="fab fa-github mr-1"></i> <span data-i18n="project_github">GitHub</span>
+                            </a>
+                            <a href="https://www.canva.com/design/DAGFSMUCJfE/1RvZJ65ai2eefxNQ34yQzw/view?utm_content=DAGFSMUCJfE&utm_campaign=designshare&utm_medium=link&utm_source=viewer" class="text-blue-500 hover:text-blue-700 flex items-center hover-effect">
+                                <i class="fas fa-file-powerpoint mr-1"></i> <span data-i18n="project_ppt">PPT</span>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 프로젝트 카드 2 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden"> <!-- shadow 변경 -->
-                    <img src="image/project2.png" alt="프로젝트 2" class="w-full h-48 object-cover">
+                <!-- Project Card 2 -->
+                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image-container h-56">
+                        <img src="image/project2.png" alt="프로젝트 2" class="project-image w-full h-full object-cover">
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-900">☕ 커피 원두 등급 예측 웹 서비스</h3> <!-- 폰트 색상 및 제목 수정 -->
-                        <p class="text-gray-700 mb-4">KNN 알고리즘 기반 커피 원두 특성 데이터 분석 및 등급 예측 웹 서비스입니다.</p> <!-- 폰트 색상 및 문구 수정 -->
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Vue.js</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Spring Boot</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Google Colab</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">KNN Algorithm</span>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-gray-800" data-i18n="project2_title">☕ 커피 원두 등급 예측</h3>
+                            <span class="inline-block tag bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full" data-i18n="project2_tag">AI/ML</span>
                         </div>
-                        <div class="flex space-x-4">
-                            <a href="https://scandalous-lady-ca4.notion.site/e816b04935b0481e94943cdbce21fb3b?pvs=4" class="text-blue-500 hover:text-blue-700 transition duration-300">Demo</a> <!-- hover 효과 추가 -->
-                            <a href="https://github.com/Bae-Sunny/algorithm/blob/main/CoffeeKNNet/Indetail.md" class="text-blue-500 hover:text-blue-700 transition duration-300">GitHub</a>
-                            <a href="https://scandalous-lady-ca4.notion.site/e816b04935b0481e94943cdbce21fb3b?pvs=4" class="text-blue-500 hover:text-blue-700 transition duration-300">PPT</a>
+                        <p class="text-gray-600 mb-4" data-i18n="project2_desc">K-최근접 이웃(KNN) 알고리즘을 활용해 커피 원두의 특성 데이터 기반 등급을 예측하는 웹 서비스</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag text-xs px-2 py-1 rounded-full">Vue.js</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">Spring Boot</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">KNN Algorithm</span>
+                        </div>
+                        <div class="flex space-x-4 pt-2 border-t border-gray-200">
+                            <a href="https://scandalous-lady-ca4.notion.site/e816b04935b0481e94943cdbce21fb3b?pvs=4" class="text-blue-500 hover:text-blue-700 flex items-center hover-effect">
+                                <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="project_demo">Demo</span>
+                            </a>
+                            <a href="https://github.com/Bae-Sunny/algorithm/blob/main/CoffeeKNNet/Indetail.md" class="text-blue-500 hover:text-blue-700 flex items-center hover-effect">
+                                <i class="fab fa-github mr-1"></i> <span data-i18n="project_github">GitHub</span>
+                            </a>
+                            <a href="https://scandalous-lady-ca4.notion.site/6be4dcf9e5db4d25a9a5f3f9fcbffe44" class="text-blue-500 hover:text-blue-700 flex items-center hover-effect">
+                                <i class="fas fa-file-powerpoint mr-1"></i> <span data-i18n="project_ppt">PPT</span>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 프로젝트 카드 3 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden"> <!-- shadow 변경 -->
-                    <img src="image/project3.png" alt="프로젝트 3" class="w-full h-48 object-cover">
+                <!-- Project Card 3 -->
+                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image-container h-56">
+                        <img src="image/project3.png" alt="프로젝트 3" class="project-image w-full h-full object-cover">
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-900">🎭 AI 기반 마스크 감지 & 퍼스널 컬러 진단 웹 서비스</h3> <!-- 폰트 색상 및 제목 수정 -->
-                        <p class="text-gray-700 mb-4">AI 딥러닝 기반 마스크 착용 여부 판별 및 퍼스널 컬러 진단 웹 서비스입니다.</p> <!-- 폰트 색상 및 문구 수정 -->
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Vue.js</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Spring Boot</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">TensorFlow</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">OpenCV</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Machine Learning</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Oracle</span>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-gray-800" data-i18n="project3_title">🎭 AI 마스크 감지 & 퍼스널 컬러</h3>
+                            <span class="inline-block tag bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full" data-i18n="project3_tag">AI 비전</span>
                         </div>
-                        <div class="flex space-x-4">
-                            <a href="https://scandalous-lady-ca4.notion.site/AI-c8520be1e0a44c8b82c79be1d9e3c346?pvs=4" class="text-blue-500 hover:text-blue-700 transition duration-300">Demo</a> <!-- hover 효과 추가 -->
-                            <a href="#" class="text-blue-500 hover:text-blue-700 transition duration-300">GitHub</a>
-                            <a href="https://www.canva.com/design/DAGKvfQMiow/auisO2bp0iSHNN5-ymFHEQ/view?utm_content=DAGKvfQMiow&utm_campaign=designshare&utm_medium=link&utm_source=viewer" class="text-blue-500 hover:text-blue-700 transition duration-300">PPT</a>
+                        <p class="text-gray-600 mb-4" data-i18n="project3_desc">딥러닝 기반 이미지 분석 기술을 활용하여 마스크 착용 여부 판별 및 퍼스널 컬러를 진단하는 웹 서비스</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag text-xs px-2 py-1 rounded-full">Vue.js</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">Spring Boot</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">TensorFlow</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">OpenCV</span>
+                        </div>
+                        <div class="flex space-x-4 pt-2 border-t border-gray-200">
+                            <a href="https://scandalous-lady-ca4.notion.site/AI-c8520be1e0a44c8b82c79be1d9e3c346?pvs=4" class="text-blue-500 hover:text-blue-700 flex items-center hover-effect">
+                                <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="project_demo">Demo</span>
+                            </a>
+                            <a href="https://github.com/Bae-Sunny/ai-mask-color" class="text-blue-500 hover:text-blue-700 flex items-center hover-effect">
+                                <i class="fab fa-github mr-1"></i> <span data-i18n="project_github">GitHub</span>
+                            </a>
+                            <a href="https://www.canva.com/design/DAGKvfQMiow/auisO2bp0iSHNN5-ymFHEQ/view?utm_content=DAGKvfQMiow&utm_campaign=designshare&utm_medium=link&utm_source=viewer" class="text-blue-500 hover:text-blue-700 flex items-center hover-effect">
+                                <i class="fas fa-file-powerpoint mr-1"></i> <span data-i18n="project_ppt">PPT</span>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 프로젝트 카드 4 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden"> <!-- shadow 변경 -->
-                    <img src="image/project4.png" alt="프로젝트 4" class="w-full h-48 object-cover">
+                <!-- Project Card 4 -->
+                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image-container h-56">
+                        <img src="image/project4.png" alt="프로젝트 4" class="project-image w-full h-full object-cover">
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-900">🚀 AI 기반 온라인 취업 지원 플랫폼</h3> <!-- 폰트 색상 및 제목 수정 -->
-                        <p class="text-gray-700 mb-4">AI 면접 및 맞춤형 피드백 제공 온라인 취업 지원 플랫폼 (취준생, 컨설턴트, 관리자 통합)</p> <!-- 폰트 색상 및 문구 수정 -->
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">React </span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Spring Boot</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">TensorFlow</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">OpenCV</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Deep Learning</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Oracle</span>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-gray-800" data-i18n="project4_title">🚀 온라인 취업 지원 서비스</h3>
+                            <span class="inline-block tag bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full" data-i18n="project4_tag">풀스택</span>
                         </div>
-                        <div class="flex space-x-4">
-                            <a href="https://scandalous-lady-ca4.notion.site/e638492c79bc423eadad200877af0c9d?pvs=4" class="text-blue-500 hover:text-blue-700 transition duration-300">Demo</a> <!-- hover 효과 추가 -->
-                            <a href="https://github.com/Bae-Sunny/MyDream" class="text-blue-500 hover:text-blue-700 transition duration-300">GitHub</a>
-                            <a href="https://www.canva.com/design/DAGNsnS8GJU/vhAroisxus4p5GENJkmPKA/view?utm_content=DAGNsnS8GJU&utm_campaign=designshare&utm_medium=link&utm_source=viewer" class="text-blue-500 hover:text-blue-700 transition duration-300">PPT</a>
+                        <p class="text-gray-600 mb-4" data-i18n="project4_desc">AI 면접 및 맞춤형 피드백을 제공하는 취업 지원 플랫폼. 취업 준비생, 컨설턴트, 관리자용 통합 시스템</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag text-xs px-2 py-1 rounded-full">React</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">Spring Boot</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">Deep Learning</span>
+                        </div>
+                        <div class="flex space-x-4 pt-2 border-t border-gray-200">
+                            <a href="https://scandalous-lady-ca4.notion.site/e638492c79bc423eadad200877af0c9d?pvs=4" class="text-blue-500 hover:text-blue-700 flex items-center hover-effect">
+                                <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="project_demo">Demo</span>
+                            </a>
+                            <a href="https://github.com/Bae-Sunny/MyDream" class="text-blue-500 hover:text-blue-700 flex items-center hover-effect">
+                                <i class="fab fa-github mr-1"></i> <span data-i18n="project_github">GitHub</span>
+                            </a>
+                            <a href="https://www.canva.com/design/DAGNsnS8GJU/vhAroisxus4p5GENJkmPKA/view?utm_content=DAGNsnS8GJU&utm_campaign=designshare&utm_medium=link&utm_source=viewer" class="text-blue-500 hover:text-blue-700 flex items-center hover-effect">
+                                <i class="fas fa-file-powerpoint mr-1"></i> <span data-i18n="project_ppt">PPT</span>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 프로젝트 카드 5 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden"> <!-- shadow 변경 -->
-                    <img src="image/project5.png" alt="프로젝트 5" class="w-full h-48 object-cover">
+                <!-- Project Card 5 -->
+                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-image-container h-56">
+                        <img src="image/project5.png" alt="프로젝트 5" class="project-image w-full h-full object-cover">
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-900">🎤 AI 면접 답변 분석 및 피드백 시스템</h3> <!-- 폰트 색상 및 제목 수정 -->
-                        <p class="text-gray-700 mb-4">KoBERT 모델 기반 면접 답변 분석 및 맞춤형 피드백 제공 AI 면접 코칭 시스템</p> <!-- 폰트 색상 및 문구 수정 -->
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Deep Learning</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">KoBERT</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">NLP</span>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-gray-800" data-i18n="project5_title">🎤 인터뷰 답변 분석 시스템</h3>
+                            <span class="inline-block tag bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full" data-i18n="project5_tag">NLP</span>
                         </div>
-                        <div class="flex space-x-4">
-                            <a href="https://scandalous-lady-ca4.notion.site/11006503eb5880da95ead45c99ff0f61?pvs=4" class="text-blue-500 hover:text-blue-700 transition duration-300">Demo</a> <!-- hover 효과 추가 -->
-                            <a href="https://github.com/Bae-Sunny/algorithm/blob/main/AIinterview/Indetail.md" class="text-blue-500 hover:text-blue-700 transition duration-300">GitHub</a>
+                        <p class="text-gray-600 mb-4" data-i18n="project5_desc">KoBERT 모델로 면접 답변의 의도를 분석해 카테고리, 표현, 관련 직무를 예측하고 맞춤형 피드백 제공</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag text-xs px-2 py-1 rounded-full">Deep Learning</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">KoBERT</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">NLP</span>
+                        </div>
+                        <div class="flex space-x-4 pt-2 border-t border-gray-200">
+                            <a href="https://scandalous-lady-ca4.notion.site/11006503eb5880da95ead45c99ff0f61?pvs=4" class="text-blue-500 hover:text-blue-700 flex items-center hover-effect">
+                                <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="project_demo">Demo</span>
+                            </a>
+                            <a href="https://github.com/Bae-Sunny/algorithm/blob/main/AIinterview/Indetail.md" class="text-blue-500 hover:text-blue-700 flex items-center hover-effect">
+                                <i class="fab fa-github mr-1"></i> <span data-i18n="project_github">GitHub</span>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 프로젝트 카드 6 -->
-                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden"> <!-- shadow 변경 -->
-                    <img src="image/project6.png" alt="프로젝트 6" class="w-full h-48 object-cover">
+                <!-- Project Card 6 -->
+                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="500">
+                    <div class="project-image-container h-56">
+                        <img src="image/project6.png" alt="프로젝트 6" class="project-image w-full h-full object-cover">
+                    </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-900">🎨 AI 퍼스널 컬러 분석 알고리즘</h3> <!-- 폰트 색상 및 제목 수정 -->
-                        <p class="text-gray-700 mb-4">AI 기반 얼굴 피부색 및 눈동자색 분석을 통한 퍼스널 컬러 시즌 진단 알고리즘</p> <!-- 폰트 색상 및 문구 수정 -->
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">OpenCV</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">dlib</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">scikit-learn</span>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-gray-800" data-i18n="project6_title">🎨 퍼스널 컬러 분석 알고리즘</h3>
+                            <span class="inline-block tag bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full" data-i18n="project6_tag">컴퓨터 비전</span>
                         </div>
-                        <div class="flex space-x-4">
-                            <a href="https://scandalous-lady-ca4.notion.site/11006503eb58805da19dca00169207ef?pvs=4" class="text-blue-500 hover:text-blue-700 transition duration-300">Demo</a> <!-- hover 효과 추가 -->
-                            <a href="https://github.com/Bae-Sunny/algorithm/blob/main/personalcolor/Indetail.md" class="text-blue-500 hover:text-blue-700 transition duration-300">GitHub</a>
+                        <p class="text-gray-600 mb-4" data-i18n="project6_desc">얼굴의 피부색과 눈동자색을 AI로 분석해 최적의 퍼스널 컬러 시즌을 진단하는 알고리즘 개발</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag text-xs px-2 py-1 rounded-full">OpenCV</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">dlib</span>
+                            <span class="tag text-xs px-2 py-1 rounded-full">scikit-learn</span>
+                        </div>
+                        <div class="flex space-x-4 pt-2 border-t border-gray-200">
+                            <a href="https://scandalous-lady-ca4.notion.site/11006503eb58805da19dca00169207ef?pvs=4" class="text-blue-500 hover:text-blue-700 flex items-center hover-effect">
+                                <i class="fas fa-external-link-alt mr-1"></i> <span data-i18n="project_demo">Demo</span>
+                            </a>
+                            <a href="https://github.com/Bae-Sunny/algorithm/blob/main/personalcolor/Indetail.md" class="text-blue-500 hover:text-blue-700 flex items-center hover-effect">
+                                <i class="fab fa-github mr-1"></i> <span data-i18n="project_github">GitHub</span>
+                            </a>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- 기술 스택 섹션 -->
-    <section id="skills" class="py-24 bg-white"> <!-- 배경색 변경 -->
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-4">기술 스택</h2> <!-- mb 값 조정 -->
-            <p class="text-gray-600 text-center mb-12">다양한 개발 경험을 통해 숙련된 기술 스택을 보유하고 있습니다.</p> <!-- 설명 추가 -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12"> <!-- gap 값 조정 -->
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-blue-100 rounded-lg shadow-md flex items-center justify-center mb-4"> <!-- 아이콘 배경색 변경 및 shadow 변경 -->
-                        <span class="text-3xl text-blue-700">💻</span> <!-- 아이콘 색상 변경 -->
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4" data-i18n="skills_title">기술 스택</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="skills_subtitle">다양한 기술을 활용한 문제 해결 역량</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Frontend Skills -->
+                <div class="skill-icon-card" data-aos="zoom-in">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <div class="flex flex-col items-center">
+                            <div class="w-14 h-14 rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center mb-4">
+                                <i class="fas fa-code text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3" data-i18n="skills_frontend">Frontend</h3>
+                            <div class="space-y-2 w-full">
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">React</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Vue.js</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">JavaScript</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">HTML/CSS</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">AJAX</div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Frontend</h3> <!-- 폰트 색상 및 mb 값 조정 -->
-                    <p class="text-gray-600 text-center">React, Vue.js, HTML/CSS, JavaScript</p>
                 </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-blue-100 rounded-lg shadow-md flex items-center justify-center mb-4"> <!-- 아이콘 배경색 변경 및 shadow 변경 -->
-                        <span class="text-3xl text-blue-700">⚙️</span> <!-- 아이콘 색상 변경 -->
+
+                <!-- Backend Skills -->
+                <div class="skill-icon-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <div class="flex flex-col items-center">
+                            <div class="w-14 h-14 rounded-xl bg-green-50 text-green-500 flex items-center justify-center mb-4">
+                                <i class="fas fa-server text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3" data-i18n="skills_backend">Backend</h3>
+                            <div class="space-y-2 w-full">
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Spring Boot</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Node.js</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Django</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">RESTful API</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Spring Security</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Redis</div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Backend</h3> <!-- 폰트 색상 및 mb 값 조정 -->
-                    <p class="text-gray-600 text-center">Node.js, Spring Boot, Spring Security, RESTful API</p>
                 </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-blue-100 rounded-lg shadow-md flex items-center justify-center mb-4"> <!-- 아이콘 배경색 변경 및 shadow 변경 -->
-                        <span class="text-3xl text-blue-700">🗃️</span> <!-- 아이콘 색상 변경 -->
+
+                <!-- Database Skills -->
+                <div class="skill-icon-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <div class="flex flex-col items-center">
+                            <div class="w-14 h-14 rounded-xl bg-yellow-50 text-yellow-500 flex items-center justify-center mb-4">
+                                <i class="fas fa-database text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3" data-i18n="skills_database">Database</h3>
+                            <div class="space-y-2 w-full">
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Oracle</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">MySQL</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">SQL</div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Database</h3> <!-- 폰트 색상 및 mb 값 조정 -->
-                    <p class="text-gray-600 text-center">Oracle, MySQL</p>
                 </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-blue-100 rounded-lg shadow-md flex items-center justify-center mb-4"> <!-- 아이콘 배경색 변경 및 shadow 변경 -->
-                        <span class="text-3xl text-blue-700">🔍</span> <!-- 아이콘 색상 변경 -->
+
+                <!-- Design & Analysis Skills -->
+                <div class="skill-icon-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <div class="flex flex-col items-center">
+                            <div class="w-14 h-14 rounded-xl bg-teal-50 text-teal-500 flex items-center justify-center mb-4">
+                                <i class="fas fa-project-diagram text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3" data-i18n="skills_design">Design & Analysis</h3>
+                            <div class="space-y-2 w-full">
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">ERD</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">UML</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">System Architecture</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Requirements Analysis</div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1">AI/ML</h3> <!-- 폰트 색상 및 mb 값 조정 -->
-                    <p class="text-gray-600 text-center">Python, TensorFlow, OpenCV, Pandas, Scikit-learn</p> <!-- Matplotlib/Seaborn 제거 -->
                 </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-blue-100 rounded-lg shadow-md flex items-center justify-center mb-4"> <!-- 아이콘 배경색 변경 및 shadow 변경 -->
-                        <span class="text-3xl text-blue-700">🚀</span> <!-- 아이콘 색상 변경 -->
+
+                <!-- AI/ML Skills -->
+                <div class="skill-icon-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <div class="flex flex-col items-center">
+                            <div class="w-14 h-14 rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center mb-4">
+                                <i class="fas fa-brain text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3" data-i18n="skills_ai">AI/ML</h3>
+                            <div class="space-y-2 w-full">
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Python</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">TensorFlow</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">OpenCV</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Scikit-learn</div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1">DevOps</h3> <!-- 폰트 색상 및 mb 값 조정 -->
-                    <p class="text-gray-600 text-center">Docker, AWS</p>
                 </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-20 h-20 bg-blue-100 rounded-lg shadow-md flex items-center justify-center mb-4"> <!-- 아이콘 배경색 변경 및 shadow 변경 -->
-                        <span class="text-3xl text-blue-700">🛠️</span> <!-- 아이콘 색상 변경 -->
+
+                <!-- DevOps Skills -->
+                <div class="skill-icon-card" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <div class="flex flex-col items-center">
+                            <div class="w-14 h-14 rounded-xl bg-red-50 text-red-500 flex items-center justify-center mb-4">
+                                <i class="fas fa-rocket text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3" data-i18n="skills_devops">DevOps</h3>
+                            <div class="space-y-2 w-full">
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Docker</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">AWS</div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-1">Tools</h3> <!-- 폰트 색상 및 mb 값 조정 -->
-                    <p class="text-gray-600 text-center">GitHub, Jira, Trello, Figma</p>
+                </div>
+
+                <!-- Documentation Skills -->
+                <div class="skill-icon-card" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <div class="flex flex-col items-center">
+                            <div class="w-14 h-14 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center mb-4">
+                                <i class="fas fa-file-alt text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3" data-i18n="skills_doc">Documentation</h3>
+                            <div class="space-y-2 w-full">
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">PowerPoint</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Notion</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Technical Writing</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Project Documentation</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Development Environments -->
+                <div class="skill-icon-card" data-aos="zoom-in" data-aos-delay="700">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <div class="flex flex-col items-center">
+                            <div class="w-14 h-14 rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center mb-4">
+                                <i class="fas fa-laptop-code text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3" data-i18n="skills_ide">Dev Environments</h3>
+                            <div class="space-y-2 w-full">
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">VS Code</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">IntelliJ IDEA</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">PyCharm</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Android Studio</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Jupyter Notebook</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Services Skills -->
+                <div class="skill-icon-card" data-aos="zoom-in" data-aos-delay="800">
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <div class="flex flex-col items-center">
+                            <div class="w-14 h-14 rounded-xl bg-indigo-50 text-indigo-500 flex items-center justify-center mb-4">
+                                <i class="fas fa-tools text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3" data-i18n="skills_tools">Tools & Services</h3>
+                            <div class="space-y-2 w-full">
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">GitHub</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Jira</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Figma</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Trello</div>
+                                <div class="skill-item px-3 py-2 bg-gray-100 rounded-lg text-sm text-center">Formspree</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 연락처 섹션 -->
-    <section id="contact" class="py-24 bg-white"> <!-- 배경색 변경 -->
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4">연락하기</h2> <!-- mb 값 조정 -->
-            <p class="text-gray-600 mb-8">함께 성장하며 긍정적인 시너지를 낼 수 있는 기회를 기다립니다.</p> <!-- 문구 수정 -->
-            <div class="flex justify-center space-x-6">
-                <a href="mailto:bshwa0563@gmail.com" class="text-blue-500 hover:text-blue-700 transition duration-300 flex items-center space-x-1"> <!-- hover 효과 및 flex 추가 -->
-                    <span>📧</span><span>이메일</span> <!-- 아이콘 추가 -->
-                </a>
-                <a href="https://github.com/Bae-Sunny" target="_blank" class="text-blue-500 hover:text-blue-700 transition duration-300 flex items-center space-x-1"> <!-- hover 효과 및 flex 추가 -->
-                    <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
-                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.68-.22.68-.49V20c-2.78-.6-4.55-1.34-4.55-3.02 0-.67.35-1.22.88-1.55-2.67-.3-5.45-1.33-5.45-5.93 0-1.31.46-2.41 1.22-3.26-.13-.32-.53-1.54.12-3.21 0 0 1.05-.33 3.46 1.26a12.145 12.145 0 0 1 6.02 0c2.41-1.59 3.46-1.26 3.46-1.26.65 1.67.25 2.9.12 3.21.76.85 1.22 1.95 1.22 3.26 0 4.6-.78 5.63-5.45 5.93.53.33.88.88.88 1.55 0 1.69-1.77 2.42-4.56 3.02V21.5c0 .27.18.59.69.49C19.13 20.17 22 16.42 22 12c0-5.523-4.477-10-10-10Z" clip-rule="evenodd" />
-                      </svg>
-                      </span><span>GitHub</span> <!-- GitHub 아이콘 추가 -->
-                </a>
-                <a href="https://linkedin.com/" target="_blank" class="text-blue-500 hover:text-blue-700 transition duration-300 flex items-center space-x-1"> <!-- hover 효과 및 flex 추가 -->
-                    <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
-                        <path fill-rule="evenodd" d="M2.25 2.25a3 3 0 0 0-3 3v13.5a3 3 0 0 0 3 3h19.5a3 3 0 0 0 3-3V5.25a3 3 0 0 0-3-3H2.25ZM12.75 18a.75.75 0 0 0 0-1.5h-1.5a.75.75 0 0 0 0 1.5h1.5ZM6.75 7.5a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 .75.75v7.5a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75v-7.5Z" clip-rule="evenodd" />
-                      </svg>
-                      </span><span>LinkedIn</span> <!-- LinkedIn 아이콘 추가 -->
-                </a>
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="contact_title">함께 성장하고 싶습니다</h2>
+                <p class="text-xl text-blue-100 max-w-2xl mx-auto" data-i18n="contact_subtitle">새로운 도전과 혁신적인 프로젝트를 기다리고 있습니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-8" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-4" data-i18n="contact_info">연락처</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-blue-200" data-i18n="contact_email">이메일</p>
+                                <a href="mailto:bshwa0563@gmail.com" class="hover:text-blue-200 hover-effect transition-colors">bshwa0563@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                                <i class="fab fa-github text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-blue-200" data-i18n="contact_github">GitHub</p>
+                                <a href="https://github.com/Bae-Sunny" target="_blank" class="hover:text-blue-200 hover-effect transition-colors">github.com/Bae-Sunny</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-8 contact-form" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-4" data-i18n="contact_form">메시지 보내기</h3>
+                    <form action="https://formspree.io/f/xbldnree" method="POST">
+                        <div class="space-y-5">
+                            <div>
+                                <label for="name" class="block text-sm text-blue-200 mb-2" data-i18n="contact_name">이름</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-md bg-white text-gray-800 focus:ring-0 focus:border-blue-500" data-i18n-placeholder="contact_name_placeholder">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm text-blue-200 mb-2" data-i18n="contact_email">이메일</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-md bg-white text-gray-800 focus:ring-0 focus:border-blue-500" data-i18n-placeholder="contact_email_placeholder">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm text-blue-200 mb-2" data-i18n="contact_message">메시지</label>
+                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-md bg-white text-gray-800 focus:ring-0 focus:border-blue-500" data-i18n-placeholder="contact_message_placeholder"></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary w-full py-3 rounded-md font-medium hover:shadow-lg focus:outline-none">
+                                <i class="fas fa-paper-plane mr-2"></i> <span data-i18n="contact_send">전송하기</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 푸터 -->
-    <footer class="bg-gray-800 text-white py-6"> <!-- 배경색 변경 및 py 값 조정 -->
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <p>© 2024 배선화 포트폴리오. All rights reserved.</p> <!-- 년도 수정 -->
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <button onclick="scrollToTop()" class="text-xl font-bold gradient-text hover-effect focus:outline-none" style="cursor: pointer;" data-i18n="hero_name">Bae Sunny</button>
+                    <p class="text-gray-400 text-sm mt-2" data-i18n="footer_copyright">© 2025 배선화 포트폴리오. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#about" class="text-gray-400 hover:text-white hover-effect transition-colors"><i class="fas fa-user"></i></a>
+                    <a href="#projects" class="text-gray-400 hover:text-white hover-effect transition-colors"><i class="fas fa-project-diagram"></i></a>
+                    <a href="#skills" class="text-gray-400 hover:text-white hover-effect transition-colors"><i class="fas fa-laptop-code"></i></a>
+                    <a href="#contact" class="text-gray-400 hover:text-white hover-effect transition-colors"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 80,
+            });
+
+            updateLanguage();
+
+            // Mobile menu toggle
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on item click
+            const mobileMenuItems = mobileMenu.querySelectorAll('a');
+            mobileMenuItems.forEach(item => {
+                item.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+
+            // Smooth scroll for nav links and scroll indicator
+            document.querySelectorAll('a[href^="#"], .scroll-indicator').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    scrollToSection(this.getAttribute('href'));
+                });
+            });
+
+            // Highlight active nav link on scroll
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                let currentSection = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 150; // Offset to trigger earlier
+                    const sectionHeight = section.offsetHeight;
+                    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === currentSection) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        function scrollToSection(sectionId) {
+            const targetSection = document.querySelector(sectionId);
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
 </body>
 </html>
