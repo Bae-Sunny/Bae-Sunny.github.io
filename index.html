@@ -47,13 +47,12 @@
         .project-image-container { overflow: hidden; position: relative; } .project-image { transition: transform 0.5s ease; } .project-card:hover .project-image { transform: scale(1.08); }
         .language-dropdown { position: relative; display: inline-block; }
         .language-dropdown-content { display: none; position: absolute; right: 0; top: 100%; margin-top: 0.5rem; background-color: white; min-width: 130px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1); z-index: 50; border-radius: 0.5rem; overflow: hidden; }
-        .language-dropdown:hover .language-dropdown-content, .language-dropdown-button:focus + .language-dropdown-content, .language-dropdown-content:hover { display: block; }
+        .language-dropdown-content.open { display: block; } /* JS로 open 클래스 추가 시 보이도록 */
         .language-option { display: flex; align-items: center; width: 100%; padding: 0.75rem 1rem; text-align: left; font-size: 0.875rem; color: #374151; transition: background-color 0.2s, color 0.2s; cursor: pointer; }
         .language-option:hover, .language-option:focus { background-color: #f3f4f6; color: #1d4ed8; outline: none; }
         .language-flag { width: 18px; height: 18px; margin-right: 0.75rem; border-radius: 2px; flex-shrink: 0; }
     </style>
 
-    <!-- 언어 데이터 및 핵심 함수 정의 (스크립트는 HEAD 끝에 위치) -->
     <script>
         const translations = {
             'ko': { 
@@ -145,20 +144,17 @@
                 'footer_copyright': '© 2025 裵善花 作品集. All rights reserved.'
             }
         };
-
         let currentLanguage = 'ko';
 
         function detectBrowserLanguage() {
             const browserLang = navigator.language.split('-')[0];
             return translations[browserLang] ? browserLang : 'ko';
         }
-
         function getLanguageFromURL() {
             const urlParams = new URLSearchParams(window.location.search);
             const langParam = urlParams.get('lang');
             return langParam && translations[langParam] ? langParam : null;
         }
-
         function changeLanguage(lang) {
             if (translations[lang]) {
                 currentLanguage = lang;
@@ -166,9 +162,9 @@
                 const url = new URL(window.location.href);
                 url.searchParams.set('lang', lang);
                 window.history.replaceState({}, '', url);
+                closeAllDropdowns(); // 언어 변경 후 드롭다운 닫기
             }
         }
-
         function updateLanguage() {
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
@@ -181,7 +177,6 @@
             const titleKeyBase = '배선화 | ';
             const titleSuffix = translations[currentLanguage]?.['portfolio_title_suffix'] || translations['ko']['portfolio_title_suffix'];
             document.title = titleKeyBase + titleSuffix;
-
             const currentLangDisplay = document.getElementById('current-language');
             if (currentLangDisplay) {
                  currentLangDisplay.textContent = translations[currentLanguage]?.['language_name'] || translations['ko']['language_name'];
@@ -189,14 +184,12 @@
             document.documentElement.setAttribute('lang', currentLanguage);
             updateActiveNavLink();
         }
-
         function updateActiveNavLink() {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-link');
             const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
             let currentSectionId = '';
             const headerOffset = 80;
-
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
@@ -204,7 +197,6 @@
                     currentSectionId = section.getAttribute('id');
                 }
             });
-
             navLinks.forEach(link => {
                 link.classList.remove('active', 'text-blue-600');
                 link.classList.add('text-gray-600');
@@ -213,7 +205,6 @@
                     link.classList.remove('text-gray-600');
                 }
             });
-
             mobileNavLinks.forEach(link => {
                 link.classList.remove('bg-blue-50', 'text-blue-600');
                 link.classList.add('text-gray-700');
@@ -223,11 +214,14 @@
                 }
             });
         }
-
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
+        function closeAllDropdowns() {
+            document.querySelectorAll('.language-dropdown-content.open').forEach(dropdown => {
+                dropdown.classList.remove('open');
+            });
+        }
         const urlLang = getLanguageFromURL();
         const browserLang = detectBrowserLanguage();
         currentLanguage = urlLang || browserLang;
@@ -247,7 +241,7 @@
                     <a href="#skills" class="nav-link text-gray-600 hover:text-blue-600 transition-colors font-medium" data-i18n="nav_skills">기술</a>
                     <a href="#contact" class="nav-link text-gray-600 hover:text-blue-600 transition-colors font-medium" data-i18n="nav_contact">연락처</a>
                     <div class="language-dropdown">
-                        <button class="flex items-center text-gray-600 hover:text-blue-600 transition-colors focus:outline-none p-2 rounded-md" id="language-dropdown-button" aria-haspopup="true" aria-expanded="false" aria-label="언어 선택">
+                        <button class="language-dropdown-button flex items-center text-gray-600 hover:text-blue-600 transition-colors focus:outline-none p-2 rounded-md" aria-haspopup="true" aria-expanded="false" aria-label="언어 선택">
                             <i class="fas fa-globe mr-1.5"></i>
                             <span id="current-language" class="text-sm font-medium mr-1">한국어</span>
                             <i class="fas fa-chevron-down text-xs opacity-70"></i>
@@ -262,7 +256,7 @@
                 </div>
                 <div class="md:hidden flex items-center">
                      <div class="language-dropdown mr-2">
-                        <button class="flex items-center text-gray-600 hover:text-blue-600 transition-colors focus:outline-none p-2 rounded-md" id="mobile-language-dropdown-button" aria-haspopup="true" aria-expanded="false" aria-label="언어 선택">
+                        <button class="language-dropdown-button flex items-center text-gray-600 hover:text-blue-600 transition-colors focus:outline-none p-2 rounded-md" aria-haspopup="true" aria-expanded="false" aria-label="언어 선택">
                             <i class="fas fa-globe"></i>
                         </button>
                         <div class="language-dropdown-content" aria-labelledby="mobile-language-dropdown-button" role="menu" tabindex="-1">
@@ -480,9 +474,6 @@
                     <h3 class="text-2xl font-bold mb-2" data-i18n="contact_info">연락처</h3>
                     <div class="flex items-center space-x-4"> <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center shrink-0"> <i class="fas fa-envelope text-xl"></i> </div> <div> <p class="text-sm text-blue-200 font-medium" data-i18n="contact_email">이메일</p> <a href="mailto:bshwa0563@gmail.com" class="hover:text-blue-100 transition-colors text-lg">bshwa0563@gmail.com</a> </div> </div>
                     <div class="flex items-center space-x-4"> <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center shrink-0"> <i class="fab fa-github text-xl"></i> </div> <div> <p class="text-sm text-blue-200 font-medium" data-i18n="contact_github">GitHub</p> <a href="https://github.com/Bae-Sunny" target="_blank" rel="noopener noreferrer" class="hover:text-blue-100 transition-colors text-lg">github.com/Bae-Sunny</a> </div> </div>
-                    <!-- LinkedIn 링크 추가 필요 시 주석 해제
-                    <div class="flex items-center space-x-4"> <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center shrink-0"> <i class="fab fa-linkedin text-xl"></i> </div> <div> <p class="text-sm text-blue-200 font-medium">LinkedIn</p> <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener noreferrer" class="hover:text-blue-100 transition-colors text-lg">Your LinkedIn Profile</a> </div> </div>
-                    -->
                 </div>
                 <div class="bg-white/10 backdrop-blur-md rounded-xl p-8 contact-form" data-aos="fade-left">
                     <h3 class="text-2xl font-bold mb-4" data-i18n="contact_form">메시지 남기기</h3>
@@ -514,12 +505,29 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             AOS.init({ duration: 800, once: true, offset: 100 });
-            updateLanguage();
+            updateLanguage(); // 초기 언어 적용
 
+            // 언어 드롭다운 토글 및 외부 클릭 처리
+            document.querySelectorAll('.language-dropdown-button').forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.stopPropagation(); 
+                    const dropdownContent = this.nextElementSibling;
+                    document.querySelectorAll('.language-dropdown-content.open').forEach(openDropdown => {
+                        if (openDropdown !== dropdownContent) openDropdown.classList.remove('open');
+                    });
+                    dropdownContent.classList.toggle('open');
+                });
+            });
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.language-dropdown')) {
+                    closeAllDropdowns();
+                }
+            });
+
+            // 모바일 메뉴 토글 설정
             const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
             const hamburgerMenu = document.querySelector('.hamburger-menu');
-
             if (mobileMenuToggle && mobileMenu && hamburgerMenu) {
                 mobileMenuToggle.addEventListener('click', function() {
                     mobileMenu.classList.toggle('hidden');
@@ -533,6 +541,7 @@
                 });
             }
 
+            // 부드러운 스크롤링 설정
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     const targetId = this.getAttribute('href');
@@ -544,9 +553,15 @@
                         const elementPosition = targetElement.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                             mobileMenu.classList.add('hidden');
+                             hamburgerMenu.classList.remove('active');
+                        }
                     }
                 });
             });
+
+            // 스크롤 이벤트 리스너 설정
             window.addEventListener('scroll', updateActiveNavLink);
         });
     </script>
