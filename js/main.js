@@ -1,33 +1,30 @@
-// 파셜 불러오기
-function loadPartials() {
-  fetch('/partials/header.html').then(res => res.text()).then(html => {
-    document.getElementById('header').innerHTML = html;
-  });
-  fetch('/partials/footer.html').then(res => res.text()).then(html => {
-    document.getElementById('footer').innerHTML = html;
-  });
-}
+// js/main.js
 
-// 프로젝트 카드 불러오기
-function loadProjects() {
-  fetch('/data/projects.json')
-    .then(res => res.json())
-    .then(data => {
-      const container = document.getElementById('projects');
-      container.innerHTML = data.map(p => `
-        <div class="project-card">
-          <img src="${p.image}" alt="${p.title}" />
-          <h3>${p.title}</h3>
-          <p>${p.description}</p>
-          <p>${p.tech.join(', ')}</p>
-          <a href="${p.github}">GitHub</a>
-          <a href="${p.demo}">Demo</a>
-        </div>
-      `).join('');
+// 구성 요소 목록
+const components = ['header', 'hero', 'about', 'projects', 'skills', 'contact', 'footer'];
+
+// 각 partial HTML을 비동기로 로드하여 지정된 ID에 삽입
+components.forEach(id => {
+  fetch(`partials/${id}.html`)
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById(id).innerHTML = html;
     });
-}
+});
 
-document.addEventListener('DOMContentLoaded', () => {
-  loadPartials();
-  loadProjects();
+// AOS 초기화 및 기타 공통 로직
+window.addEventListener('DOMContentLoaded', () => {
+  AOS.init({ duration: 800, once: true, offset: 100 });
+
+  // 다국어 초기화
+  if (typeof updateLanguage === 'function') {
+    updateLanguage();
+  }
+
+  // 스크롤 내비 활성화 로직 (옵셔널)
+  window.addEventListener('scroll', () => {
+    if (typeof updateActiveNavLink === 'function') {
+      updateActiveNavLink();
+    }
+  });
 });
