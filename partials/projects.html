@@ -1,8 +1,23 @@
 <!-- partials/projects.html -->
-<section id="projects" class="py-24 bg-gray-100">
+<section id="projects" class="py-24 bg-gray-100 dark:bg-gray-900" data-aos="fade-up">
   <div class="max-w-7xl mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-4" data-i18n="projects_title">프로젝트</h2>
-    <p class="text-center text-gray-600 mb-10" data-i18n="projects_subtitle">기술과 데이터를 활용한 실전 프로젝트 경험</p>
-    <div id="project-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    <h2 class="text-3xl font-bold text-center mb-4 text-gray-800 dark:text-white" data-i18n="projects_title">프로젝트</h2>
+    <p class="text-center text-gray-600 dark:text-gray-300 mb-10" data-i18n="projects_subtitle">기술과 데이터를 활용한 실전 프로젝트 경험</p>
+
+    <!-- 검색창 + 필터 버튼 영역 -->
+    <div class="mb-6 text-center space-y-3">
+      <input id="project-search" type="text" placeholder="검색어 입력" list="search-suggestions" class="px-4 py-2 border rounded w-full max-w-md dark:bg-gray-800 dark:text-white" />
+      <datalist id="search-suggestions"></datalist>
+      <div id="project-filters" class="space-x-2"></div>
+    </div>
+
+    <!-- 프로젝트 카드 출력 영역 -->
+    <div id="project-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 swiper-wrapper"></div>
+
+    <!-- 슬라이더 컨트롤러 (선택사항) -->
+    <div class="flex justify-center mt-6 space-x-2">
+      <button id="slider-prev" class="px-3 py-1 border rounded">◀</button>
+      <button id="slider-next" class="px-3 py-1 border rounded">▶</button>
+    </div>
   </div>
 </section>
