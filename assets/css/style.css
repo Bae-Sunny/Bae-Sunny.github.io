@@ -1,19 +1,43 @@
 body {
   font-family: 'Pretendard', sans-serif;
-  background: #f9fafb;
-  color: #1f2937;
+  background: var(--bg-color);
+  color: var(--text-color);
   margin: 0;
   padding: 0;
+  transition: background 0.3s, color 0.3s;
 }
 
-h1, h2 {
+:root {
+  --bg-color: #f9fafb;
+  --text-color: #1f2937;
+  --card-color: white;
+}
+
+.dark-mode {
+  --bg-color: #1e293b;
+  --text-color: #f8fafc;
+  --card-color: #334155;
+}
+
+.hero-section {
   text-align: center;
+  padding: 50px 20px;
 }
 
 .project-card {
-  border: 1px solid #e5e7eb;
-  background-color: white;
+  background-color: var(--card-color);
   border-radius: 8px;
   padding: 16px;
   margin: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .project-card { margin: 10px; }
 }
