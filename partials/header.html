@@ -1,15 +1,55 @@
-<nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-16">
-      <div class="flex-shrink-0">
-        <span class="text-xl font-bold gradient-text cursor-pointer" onclick="scrollToTop()" data-i18n="hero_name">배선화</span>
-      </div>
-      <div class="hidden md:flex items-center space-x-6">
-        <a href="#about" class="nav-link" data-i18n="nav_about">소개</a>
-        <a href="#projects" class="nav-link" data-i18n="nav_projects">프로젝트</a>
-        <a href="#skills" class="nav-link" data-i18n="nav_skills">기술</a>
-        <a href="#contact" class="nav-link" data-i18n="nav_contact">연락처</a>
-      </div>
-    </div>
-  </div>
-</nav>
+<!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                   <span class="text-xl font-bold gradient-text cursor-pointer" onclick="scrollToTop()" data-i18n="hero_name">배선화</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-6"> 
+                    <a href="#about" class="nav-link text-gray-600 hover:text-blue-600 transition-colors font-medium" data-i18n="nav_about">소개</a>
+                    <a href="#projects" class="nav-link text-gray-600 hover:text-blue-600 transition-colors font-medium" data-i18n="nav_projects">프로젝트</a>
+                    <a href="#skills" class="nav-link text-gray-600 hover:text-blue-600 transition-colors font-medium" data-i18n="nav_skills">기술</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-blue-600 transition-colors font-medium" data-i18n="nav_contact">연락처</a>
+                    <div class="language-dropdown">
+                        <button class="language-dropdown-button flex items-center text-gray-600 hover:text-blue-600 transition-colors focus:outline-none p-2 rounded-md" aria-haspopup="true" aria-expanded="false" aria-label="언어 선택">
+                            <i class="fas fa-globe mr-1.5"></i>
+                            <span id="current-language" class="text-sm font-medium mr-1">한국어</span>
+                            <i class="fas fa-chevron-down text-xs opacity-70"></i>
+                        </button>
+                        <div class="language-dropdown-content" aria-labelledby="language-dropdown-button" role="menu" tabindex="-1">
+                            <button class="language-option" onclick="changeLanguage('ko')" role="menuitem" tabindex="-1"> <img src="https://hatscripts.github.io/circle-flags/flags/kr.svg" alt="한국어" class="language-flag"> 한국어 </button>
+                            <button class="language-option" onclick="changeLanguage('en')" role="menuitem" tabindex="-1"> <img src="https://hatscripts.github.io/circle-flags/flags/us.svg" alt="English" class="language-flag"> English </button>
+                            <button class="language-option" onclick="changeLanguage('ja')" role="menuitem" tabindex="-1"> <img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" alt="日本語" class="language-flag"> 日本語 </button>
+                            <button class="language-option" onclick="changeLanguage('zh')" role="menuitem" tabindex="-1"> <img src="https://hatscripts.github.io/circle-flags/flags/cn.svg" alt="中文" class="language-flag"> 中文 </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                     <div class="language-dropdown mr-2">
+                        <button class="language-dropdown-button flex items-center text-gray-600 hover:text-blue-600 transition-colors focus:outline-none p-2 rounded-md" aria-haspopup="true" aria-expanded="false" aria-label="언어 선택">
+                            <i class="fas fa-globe"></i>
+                        </button>
+                        <div class="language-dropdown-content" aria-labelledby="mobile-language-dropdown-button" role="menu" tabindex="-1">
+                           <button class="language-option" onclick="changeLanguage('ko')" role="menuitem" tabindex="-1"> <img src="https://hatscripts.github.io/circle-flags/flags/kr.svg" alt="한국어" class="language-flag"> 한국어 </button>
+                           <button class="language-option" onclick="changeLanguage('en')" role="menuitem" tabindex="-1"> <img src="https://hatscripts.github.io/circle-flags/flags/us.svg" alt="English" class="language-flag"> English </button>
+                           <button class="language-option" onclick="changeLanguage('ja')" role="menuitem" tabindex="-1"> <img src="https://hatscripts.github.io/circle-flags/flags/jp.svg" alt="日本語" class="language-flag"> 日本語 </button>
+                           <button class="language-option" onclick="changeLanguage('zh')" role="menuitem" tabindex="-1"> <img src="https://hatscripts.github.io/circle-flags/flags/cn.svg" alt="中文" class="language-flag"> 中文 </button>
+                        </div>
+                    </div>
+                    <button id="mobile-menu-toggle" class="p-2 text-gray-600 hover:text-blue-600 focus:outline-none" aria-label="메뉴 열기/닫기">
+                        <div class="hamburger-menu">
+                            <div class="hamburger-line"></div> <div class="hamburger-line"></div> <div class="hamburger-line"></div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white shadow-lg border-t border-gray-100">
+            <div class="px-4 pt-4 pb-6 space-y-3">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-i18n="nav_about">소개</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-i18n="nav_projects">프로젝트</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-i18n="nav_skills">기술</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600" data-i18n="nav_contact">연락처</a>
+            </div>
+        </div>
+    </nav>
