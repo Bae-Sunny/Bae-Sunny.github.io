@@ -1,0 +1,60 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+}
+
+/* 버튼 */
+.btn-primary {
+  background-image: linear-gradient(135deg, #3B82F6, #10B981);
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3), 0 4px 6px -2px rgba(16, 185, 129, 0.2);
+}
+
+.skill-item {
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+.skill-item:hover {
+  background-color: #3B82F6;
+  color: white;
+  transform: scale(1.05);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #3B82F6, #10B981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* contact 폼 */
+.contact-form input,
+.contact-form textarea {
+  transition: all 0.3s ease;
+  border: 1px solid #d1d5db;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+  outline: none;
+}
+
+/* project 카드 커스텀 */
+#project-container .card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+#project-container .card:hover {
+  transform: translateY(-5px);
+}
