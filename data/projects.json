@@ -1,0 +1,10 @@
+[
+  {
+    "title": "KBO 리그 통합 데이터 플랫폼",
+    "description": "KBO 데이터를 수집/통합/분석하는 플랫폼입니다.",
+    "tech": ["JavaScript", "Python", "Oracle"],
+    "image": "/assets/images/project1.png",
+    "github": "https://github.com/Bae-Sunny/CrawlingProject",
+    "demo": "https://notion.site/example"
+  }
+]
