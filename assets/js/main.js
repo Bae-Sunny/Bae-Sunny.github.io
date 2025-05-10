@@ -17,16 +17,19 @@ document.addEventListener('DOMContentLoaded', async () => {
   const lang = detectBrowserLanguage();
   changeLanguage(lang);
 
-  // 파셜 로드
-  await Promise.all([
-    loadHTML("#header-include", "partials/header.html"),
-    loadHTML("#hero-include", "partials/hero.html"),
-    loadHTML("#about-include", "partials/about.html"),
-    loadHTML("#projects-include", "partials/projects.html"),
-    loadHTML("#skills-include", "partials/skills.html"),
-    loadHTML("#contact-include", "partials/contact.html"),
-    loadHTML("#footer-include", "partials/footer.html")
-  ]);
+ // 파셜 로드
+await Promise.all([
+  loadHTML("#header-include", "partials/header.html"),
+  loadHTML("#hero-include", "partials/hero.html"),
+  loadHTML("#about-include", "partials/about.html"),
+  loadHTML("#projects-include", "partials/projects.html"),
+  loadHTML("#skills-include", "partials/skills.html"),
+  loadHTML("#contact-include", "partials/contact.html"),
+  loadHTML("#footer-include", "partials/footer.html")
+]);
+
+// AOS 적용 재초기화
+AOS.refresh();
 
   // 프로젝트 데이터 로딩
   fetch('./data/projects.json')
