@@ -170,3 +170,4 @@
         const urlLang = getLanguageFromURL();
         const browserLang = detectBrowserLanguage();
         currentLanguage = urlLang || browserLang;
+        updateLanguage();
