@@ -37,7 +37,6 @@ function setupDarkMode() {
   const toggle = document.querySelector("#dark-mode-toggle");
   const html = document.documentElement;
 
-  // 초기 상태 적용
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") html.classList.add("dark");
 
@@ -49,10 +48,27 @@ function setupDarkMode() {
   });
 }
 
-// 프로젝트 필터링
+// 프로젝트 상세 팝업 모달
+function showProjectModal(project) {
+  const modal = document.createElement("div");
+  modal.className = "fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50";
+  modal.innerHTML = `
+    <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-xl max-w-lg w-full">
+      <button class="float-right text-gray-400 hover:text-red-500 text-lg" onclick="this.closest('div').parentNode.remove()">&times;</button>
+      <h2 class="text-2xl font-bold mb-2 text-gray-800 dark:text-white">${project.title}</h2>
+      <img src="assets/images/${project.img}" alt="${project.title}" class="rounded mb-4">
+      <p class="text-gray-700 dark:text-gray-300 mb-4">${project.desc}</p>
+      <a href="${project.link}" class="text-blue-600 hover:underline" target="_blank">GitHub →</a>
+    </div>
+  `;
+  document.body.appendChild(modal);
+}
+
+// 프로젝트 필터링 + 검색 + 팝업
 function setupProjectFilter(data) {
   const container = document.getElementById('project-container');
   const filterBox = document.getElementById('project-filters');
+  const searchInput = document.getElementById('project-search');
   if (!container || !filterBox) return;
 
   const tags = [...new Set(data.map(p => p.tag))];
@@ -62,29 +78,46 @@ function setupProjectFilter(data) {
     <button class="filter-btn px-3 py-1 border rounded text-sm hover:bg-blue-100 dark:hover:bg-gray-700" data-tag="${tag}">${translateTag(tag)}</button>
   `).join(' ');
 
-  function renderProjects(filterTag) {
-    const filtered = filterTag === 'All' ? data : data.filter(p => p.tag === filterTag);
+  function renderProjects(filterTag, keyword = "") {
+    const filtered = data.filter(p => {
+      const matchTag = filterTag === 'All' || p.tag === filterTag;
+      const matchKeyword = p.title.toLowerCase().includes(keyword.toLowerCase()) || p.desc.toLowerCase().includes(keyword.toLowerCase());
+      return matchTag && matchKeyword;
+    });
+
     container.innerHTML = filtered.map(p => `
-      <div class="card p-4 bg-white dark:bg-gray-800 rounded shadow" data-aos="fade-up">
+      <div class="card p-4 bg-white dark:bg-gray-800 rounded shadow cursor-pointer" data-aos="fade-up">
         <img src="assets/images/${p.img}" alt="${p.title}" class="rounded mb-4">
         <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">${p.title}</h3>
         <p class="text-gray-600 dark:text-gray-300 mb-2">${p.desc}</p>
         <a href="${p.link}" class="text-blue-600 hover:underline" target="_blank">GitHub</a>
       </div>
     `).join('');
+
+    container.querySelectorAll('.card').forEach((card, idx) => {
+      card.addEventListener('click', () => showProjectModal(filtered[idx]));
+    });
+
     AOS.refresh();
   }
 
-  renderProjects('All');
+  let currentTag = 'All';
+  renderProjects(currentTag);
 
   filterBox.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const selected = btn.getAttribute('data-tag');
-      renderProjects(selected);
+      currentTag = btn.getAttribute('data-tag');
+      renderProjects(currentTag, searchInput?.value || "");
       filterBox.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('bg-blue-600', 'text-white'));
       btn.classList.add('bg-blue-600', 'text-white');
     });
   });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      renderProjects(currentTag, searchInput.value);
+    });
+  }
 }
 
 // 태그 다국어 번역 처리
@@ -145,4 +178,4 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
-} 
+}
