@@ -32,13 +32,20 @@ function activateScrollSpy() {
   });
 }
 
-// 다크모드 토글
+// 다크모드 토글 + 로컬스토리지 저장
 function setupDarkMode() {
   const toggle = document.querySelector("#dark-mode-toggle");
+  const html = document.documentElement;
+
+  // 초기 상태 적용
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") html.classList.add("dark");
+
   if (!toggle) return;
 
   toggle.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
+    html.classList.toggle("dark");
+    localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
   });
 }
 
@@ -52,7 +59,7 @@ function setupProjectFilter(data) {
   const buttons = ['All', ...tags];
 
   filterBox.innerHTML = buttons.map(tag => `
-    <button class="filter-btn px-3 py-1 border rounded text-sm hover:bg-blue-100 dark:hover:bg-gray-700" data-tag="${tag}">${tag}</button>
+    <button class="filter-btn px-3 py-1 border rounded text-sm hover:bg-blue-100 dark:hover:bg-gray-700" data-tag="${tag}">${translateTag(tag)}</button>
   `).join(' ');
 
   function renderProjects(filterTag) {
@@ -74,11 +81,38 @@ function setupProjectFilter(data) {
     btn.addEventListener('click', () => {
       const selected = btn.getAttribute('data-tag');
       renderProjects(selected);
+      filterBox.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('bg-blue-600', 'text-white'));
+      btn.classList.add('bg-blue-600', 'text-white');
     });
   });
 }
 
-// 초기 실행
+// 태그 다국어 번역 처리
+function translateTag(tag) {
+  const lang = detectBrowserLanguage();
+  const dict = {
+    ko: {
+      All: '전체',
+      "데이터 플랫폼": '데이터 플랫폼',
+      "AI/ML 웹": 'AI/ML 웹',
+      "AI 비전 웹": 'AI 비전 웹',
+      "풀스택 AI": '풀스택 AI',
+      "NLP AI": 'NLP AI',
+      "컴퓨터 비전 AI": '컴퓨터 비전 AI'
+    },
+    en: {
+      All: 'All',
+      "데이터 플랫폼": 'Data Platform',
+      "AI/ML 웹": 'AI/ML Web',
+      "AI 비전 웹": 'AI Vision Web',
+      "풀스택 AI": 'Fullstack AI',
+      "NLP AI": 'NLP AI',
+      "컴퓨터 비전 AI": 'Computer Vision AI'
+    }
+  };
+  return dict[lang]?.[tag] || tag;
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   AOS.init();
 
@@ -109,7 +143,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 });
 
-// 상단 이동
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+} 
