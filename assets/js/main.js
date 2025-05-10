@@ -1,108 +1,53 @@
-// HTML 파셜을 fetch하여 해당 위치에 삽입하는 함수
-async function loadHTML(selector, filePath) {
-  const res = await fetch(filePath);
-  if (!res.ok) {
-    console.error(`파일 로드 실패: ${filePath}`);
-    return;
+// assets/js/main.js
+
+// Dynamically load HTML partials
+async function includeHTML() {
+  const elements = document.querySelectorAll('[data-include]');
+  for (const el of elements) {
+    const file = el.getAttribute('data-include');
+    if (file) {
+      try {
+        const res = await fetch(file);
+        if (res.ok) {
+          el.innerHTML = await res.text();
+        } else {
+          console.error(`Failed to load ${file}: ${res.status}`);
+        }
+      } catch (err) {
+        console.error(`Error fetching ${file}:`, err);
+      }
+    }
   }
-  const html = await res.text();
-  document.querySelector(selector).innerHTML = html;
+  if (typeof AOS !== 'undefined') AOS.init();
+  if (typeof updateLanguage === 'function') updateLanguage();
+  if (typeof updateActiveNavLink === 'function') updateActiveNavLink();
 }
 
-function activateScrollSpy() {
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll("nav a[href^='#']");
+document.addEventListener("DOMContentLoaded", includeHTML);
 
-  window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      if (pageYOffset >= sectionTop) {
-        current = section.getAttribute("id");
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove("text-blue-600", "font-bold");
-      if (link.getAttribute("href") === `#${current}`) {
-        link.classList.add("text-blue-600", "font-bold");
-      }
-    });
-  });
-}
-
-function setupDarkMode() {
-  const toggle = document.querySelector("#dark-mode-toggle");
-  const html = document.documentElement;
-
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") html.classList.add("dark");
-
-  if (!toggle) return;
-
-  toggle.addEventListener("click", () => {
-    html.classList.toggle("dark");
-    localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
-  });
-}
-
-function showProjectModal(project) {
-  const modal = document.createElement("div");
-  modal.className = "fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 backdrop-blur";
-  modal.innerHTML = `
-    <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-xl max-w-lg w-full">
-      <button class="float-right text-gray-400 hover:text-red-500 text-lg" onclick="this.closest('div').parentNode.remove()">&times;</button>
-      <h2 class="text-2xl font-bold mb-2 text-gray-800 dark:text-white">${project.title}</h2>
-      <img src="assets/images/${project.img}" alt="${project.title}" class="rounded mb-4">
-      <p class="text-gray-700 dark:text-gray-300 mb-4">${project.desc}</p>
-      <a href="${project.link}" class="text-blue-600 hover:underline" target="_blank">GitHub →</a>
-    </div>
-  `;
-  document.body.appendChild(modal);
-}
-
-// 공유 링크 복사
-function setupSectionSharing() {
-  document.querySelectorAll("section[id]").forEach(section => {
-    section.addEventListener("contextmenu", e => {
-      e.preventDefault();
-      const url = `${location.origin}${location.pathname}#${section.id}`;
-      navigator.clipboard.writeText(url).then(() => alert(`📎 섹션 링크 복사됨: ${url}`));
-    });
-  });
-}
-
-document.addEventListener('DOMContentLoaded', async () => {
-  AOS.init();
-
-  const lang = detectBrowserLanguage();
-  changeLanguage(lang);
-
-  await Promise.all([
-    loadHTML("#header-include", "partials/header.html"),
-    loadHTML("#hero-include", "partials/hero.html"),
-    loadHTML("#about-include", "partials/about.html"),
-    loadHTML("#projects-include", "partials/projects.html"),
-    loadHTML("#skills-include", "partials/skills.html"),
-    loadHTML("#contact-include", "partials/contact.html"),
-    loadHTML("#footer-include", "partials/footer.html")
-  ]);
-
-  AOS.refresh();
-  setupDarkMode();
-  activateScrollSpy();
-  setupSectionSharing();
-
-  fetch('./data/projects.json')
-    .then(res => res.json())
-    .then(data => {
-      setupProjectFilter(data);
-    })
-    .catch(error => {
-      console.error('프로젝트 데이터를 불러오는 중 오류 발생:', error);
-    });
+// Mobile menu toggle
+window.addEventListener("click", function (e) {
+  const toggle = document.getElementById("mobile-menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  if (toggle && toggle.contains(e.target)) {
+    menu.classList.toggle("hidden");
+    toggle.querySelector(".hamburger-menu").classList.toggle("active");
+  } else if (!menu.contains(e.target)) {
+    menu.classList.add("hidden");
+    toggle.querySelector(".hamburger-menu").classList.remove("active");
+  }
 });
 
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+// Language dropdown toggle
+window.addEventListener("click", function (e) {
+  const dropdowns = document.querySelectorAll(".language-dropdown");
+  dropdowns.forEach(drop => {
+    const button = drop.querySelector(".language-dropdown-button");
+    const content = drop.querySelector(".language-dropdown-content");
+    if (button.contains(e.target)) {
+      content.classList.toggle("open");
+    } else if (!content.contains(e.target)) {
+      content.classList.remove("open");
+    }
+  });
+});
