@@ -1,5 +1,5 @@
 <!-- Header -->
-<header class="nav w-full px-6 md:px-10 py-5 flex items-center justify-between text-white">
+<header class="nav sticky top-0 z-50 w-full px-6 md:px-10 py-5 flex items-center justify-between text-white">
   <div class="flex items-center gap-3">
     <span class="text-2xl font-extrabold text-pink-300 tracking-tight" data-i18n="hero_name">Bae Sunny</span>
   </div>
@@ -17,7 +17,7 @@
         <span id="current-language" class="text-sm">한국어</span>
         <i class="fas fa-chevron-down text-[10px] opacity-70 ml-1"></i>
       </button>
-      <div class="language-dropdown-content absolute right-0 top-10 bg-white text-gray-800 rounded-lg shadow-xl border border-gray-200 hidden">
+      <div class="language-dropdown-content absolute right-0 top-10 bg-white text-gray-800 rounded-lg shadow-xl border border-gray-200 hidden z-50">
         <button class="language-option block w-full text-left px-3 py-2 hover:bg-gray-100" onclick="changeLanguage('ko')">한국어</button>
         <button class="language-option block w-full text-left px-3 py-2 hover:bg-gray-100" onclick="changeLanguage('en')">English</button>
         <button class="language-option block w-full text-left px-3 py-2 hover:bg-gray-100" onclick="changeLanguage('ja')">日本語</button>
@@ -32,7 +32,7 @@
       <button class="language-dropdown-button p-2 rounded-md hover:bg-white/10">
         <i class="fas fa-globe"></i>
       </button>
-      <div class="language-dropdown-content absolute right-0 top-10 bg-white text-gray-800 rounded-lg shadow-xl border border-gray-200 hidden">
+      <div class="language-dropdown-content absolute right-0 top-10 bg-white text-gray-800 rounded-lg shadow-xl border border-gray-200 hidden z-50">
         <button class="language-option block w-full text-left px-3 py-2 hover:bg-gray-100" onclick="changeLanguage('ko')">한국어</button>
         <button class="language-option block w-full text-left px-3 py-2 hover:bg-gray-100" onclick="changeLanguage('en')">English</button>
         <button class="language-option block w-full text-left px-3 py-2 hover:bg-gray-100" onclick="changeLanguage('ja')">日本語</button>
