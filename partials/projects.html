@@ -1,180 +1,84 @@
-<!-- Projects Section -->
-<section id="projects" class="py-24 bg-gradient-to-b from-gray-50 to-blue-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text inline-block" data-i18n="projects_title">프로젝트</h2>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto" data-i18n="projects_subtitle">데이터와 기술을 활용해 아이디어를 현실로 만든 프로젝트 경험</p>
+<!-- Projects Grid -->
+<section id="projects" class="px-6 md:px-10 pb-10">
+  <h2 class="text-xl font-semibold text-pink-300 mb-6" data-i18n="projects_title">WORK</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Card 1 -->
+    <article class="grid-card group relative overflow-hidden rounded-xl bg-gray-800 transition transform">
+      <img src="assets/images/project1.png" class="w-full h-44 object-cover opacity-90 group-hover:opacity-100 transition" alt="project1">
+      <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition flex items-end">
+        <div class="p-4 w-full">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">KBO 데이터 플랫폼</h3>
+            <span class="text-xs text-pink-300">DATA</span>
+          </div>
+          <p class="text-gray-300 text-xs mt-1">수집-통합-분석 파이프라인</p>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <div class="project-card bg-white rounded-xl overflow-hidden" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                <div class="project-image-container h-60">
-                    <img src="assets/images/project1.png" alt="KBO 리그 통합 데이터 플랫폼" class="project-image w-full h-full object-cover">
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-semibold" data-i18n="project1_title">🏟️ KBO 리그 통합 데이터 플랫폼</h3>
-                        <span class="tag inline-block bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full" data-i18n="project1_tag">데이터 플랫폼</span>
-                    </div>
-                    <p class="text-gray-600 text-sm mb-4" data-i18n="project1_desc">KBO 리그의 다양한 데이터를 수집-통합-분석하여 사용자에게 가치 있는 정보를 제공하는 플랫폼입니다.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">JavaScript</span>
-                        <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Python</span>
-                        <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Oracle</span>
-                    </div>
-                    <div class="flex space-x-4 pt-3 border-t border-gray-100 text-sm">
-                        <a href="https://scandalous-lady-ca4.notion.site/4818ecc4ff1a4744b10b00b0b6f0a9a3?pvs=4" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                            <i class="fas fa-link mr-1 text-xs"></i> <span data-i18n="project_demo">상세보기</span>
-                        </a>
-                        <a href="https://github.com/Bae-Sunny/CrawlingProject" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 font-medium flex items-center">
-                            <i class="fab fa-github mr-1 text-xs"></i> <span data-i18n="project_github">GitHub</span>
-                        </a>
-                        <a href="https://www.canva.com/design/DAGFSMUCJfE/1RvZJ65ai2eefxNQ34yQzw/view?utm_content=DAGFSMUCJfE&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 font-medium flex items-center">
-                            <i class="fas fa-file-powerpoint mr-1 text-xs"></i> <span data-i18n="project_ppt">발표자료</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card bg-white rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100" data-aos-anchor-placement="top-bottom">
-                <div class="project-image-container h-60"> <img src="assets/images/project2.png" alt="커피 원두 등급 예측 서비스" class="project-image w-full h-full object-cover"> </div>
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-semibold" data-i18n="project2_title">☕ 커피 원두 등급 예측 서비스</h3> <span class="tag inline-block bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full" data-i18n="project2_tag">AI/ML 웹</span>
-                    </div>
-                    <p class="text-gray-600 text-sm mb-4" data-i18n="project2_desc">KNN 알고리즘으로 커피 원두 특성 데이터 기반 등급을 예측하고, 웹 서비스로 사용자에게 편리함을 제공합니다.</p>
-                    <div class="flex flex-wrap gap-2 mb-4"> <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Vue.js</span> <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Spring Boot</span> <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">KNN</span>                        </div>
-                    <div class="flex space-x-4 pt-3 border-t border-gray-100 text-sm">
-                        <a href="https://scandalous-lady-ca4.notion.site/e816b04935b0481e94943cdbce21fb3b?pvs=4" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium flex items-center"> <i class="fas fa-link mr-1 text-xs"></i> <span data-i18n="project_demo">상세보기</span> </a>
-                        <a href="https://github.com/Bae-Sunny/algorithm/blob/main/CoffeeKNNet/Indetail.md" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 font-medium flex items-center">
-                        <i class="fab fa-github mr-1 text-xs"></i> <span data-i18n="project_github">GitHub</span> </a>
-                        <a href="https://scandalous-lady-ca4.notion.site/6be4dcf9e5db4d25a9a5f3f9fcbffe44" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 font-medium flex items-center">
-                        <i class="fas fa-file-powerpoint mr-1 text-xs"></i> <span data-i18n="project_ppt">발표자료</span> </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card bg-white rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200" data-aos-anchor-placement="top-bottom">
-                <div class="project-image-container h-60"> <img src="assets/images/project3.png" alt="AI 이미지 분석" class="project-image w-full h-full object-cover"> </div>
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-semibold" data-i18n="project3_title">🎭 AI 이미지 분석 (마스크 & 퍼스널컬러)</h3> <span class="tag inline-block bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full" data-i18n="project3_tag">AI 비전 웹</span>
-                    </div>
-                    <p class="text-gray-600 text-sm mb-4" data-i18n="project3_desc">딥러닝 모델(TF, OpenCV)과 웹 서비스(Vue, Spring)를 결합하여 이미지 분석 결과를 사용자에게 유용하게 전달합니다.</p>
-                    <div class="flex flex-wrap gap-2 mb-4"> <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Vue.js</span> <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Spring Boot</span> <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">TensorFlow</span>                        <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">OpenCV</span> </div>
-                    <div class="flex space-x-4 pt-3 border-t border-gray-100 text-sm">
-                        <a href="https://scandalous-lady-ca4.notion.site/AI-c8520be1e0a44c8b82c79be1d9e3c346?pvs=4" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium flex items-center"> <i class="fas fa-link mr-1 text-xs"></i> <span data-i18n="project_demo">상세보기</span> </a>
-                        <a href="https://github.com/Bae-Sunny/ai-mask-color" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 font-medium flex items-center">
-                        <i class="fab fa-github mr-1 text-xs"></i> <span data-i18n="project_github">GitHub</span> </a>
-                        <a href="https://www.canva.com/design/DAGKvfQMiow/auisO2bp0iSHNN5-ymFHEQ/view?utm_content=DAGKvfQMiow&utm_campaign=designshare&utm_medium=link&utm_source=viewer"
-                        target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 font-medium flex items-center"> <i class="fas fa-file-powerpoint mr-1 text-xs"></i> <span data-i18n="project_ppt">발표자료</span> </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card bg-white rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="0" data-aos-anchor-placement="top-bottom">
-                <div class="project-image-container h-60"> <img src="assets/images/project4.png" alt="온라인 취업 지원 서비스" class="project-image w-full h-full object-cover"> </div>
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-semibold" data-i18n="project4_title">🚀 AI 면접 포함 취업 지원 서비스</h3> <span class="tag inline-block bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full" data-i18n="project4_tag">풀스택 AI</span>
-                    </div>
-                    <p class="text-gray-600 text-sm mb-4" data-i18n="project4_desc">AI 기술과 웹 서비스를 결합하여 취업 준비생들의 실질적인 어려움을 해결하는 풀스택 개발 경험을 쌓았습니다.</p>
-                    <div class="flex flex-wrap gap-2 mb-4"> <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">React</span> <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Spring Boot</span> <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">AI/ML</span>                        </div>
-                    <div class="flex space-x-4 pt-3 border-t border-gray-100 text-sm">
-                        <a href="https://scandalous-lady-ca4.notion.site/e638492c79bc423eadad200877af0c9d?pvs=4" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium flex items-center"> <i class="fas fa-link mr-1 text-xs"></i> <span data-i18n="project_demo">상세보기</span> </a>
-                        <a href="https://github.com/Bae-Sunny/MyDream" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 font-medium flex items-center">
-                        <i class="fab fa-github mr-1 text-xs"></i> <span data-i18n="project_github">GitHub</span> </a>
-                        <a href="https://www.canva.com/design/DAGNsnS8GJU/vhAroisxus4p5GENJkmPKA/view?utm_content=DAGNsnS8GJU&utm_campaign=designshare&utm_medium=link&utm_source=viewer"
-                        target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 font-medium flex items-center"> <i class="fas fa-file-powerpoint mr-1 text-xs"></i> <span data-i18n="project_ppt">발표자료</span> </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card bg-white rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100" data-aos-anchor-placement="top-bottom">
-                <div class="project-image-container h-60"> <img src="assets/images/project5.png" alt="인터뷰 답변 분석기" class="project-image w-full h-full object-cover"> </div>
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-semibold" data-i18n="project5_title">🎤 인터뷰 답변 분석기</h3> <span class="tag inline-block bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full" data-i18n="project5_tag">NLP AI</span>
-                    </div>
-                    <p class="text-gray-600 text-sm mb-4" data-i18n="project5_desc">KoBERT 모델을 활용하여 면접 답변의 의도를 분석하고, 카테고리/표현/직무 예측 및 맞춤 피드백을 제공합니다.</p>
-                    <div class="flex flex-wrap gap-2 mb-4"> <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Python</span> <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">KoBERT</span> <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">NLP</span>                        </div>
-                    <div class="flex space-x-4 pt-3 border-t border-gray-100 text-sm">
-                        <a href="https://scandalous-lady-ca4.notion.site/11006503eb5880da95ead45c99ff0f61?pvs=4" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium flex items-center"> <i class="fas fa-link mr-1 text-xs"></i> <span data-i18n="project_demo">상세보기</span> </a>
-                        <a href="https://github.com/Bae-Sunny/algorithm/blob/main/AIinterview/Indetail.md" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 font-medium flex items-center">
-                        <i class="fab fa-github mr-1 text-xs"></i> <span data-i18n="project_github">GitHub</span> </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card bg-white rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200" data-aos-anchor-placement="top-bottom">
-                <div class="project-image-container h-60"> <img src="assets/images/project6.png" alt="퍼스널 컬러 진단 알고리즘" class="project-image w-full h-full object-cover"> </div>
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-semibold" data-i18n="project6_title">🎨 퍼스널 컬러 진단 알고리즘</h3> <span class="tag inline-block bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded-full" data-i18n="project6_tag">CV AI</span>
-                    </div>
-                    <p class="text-gray-600 text-sm mb-4" data-i18n="project6_desc">AI로 얼굴/눈 색상을 분석하여 최적의 퍼스널 컬러 시즌을 진단하는 알고리즘을 개발했습니다.</p>
-                    <div class="flex flex-wrap gap-2 mb-4"> <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Python</span> <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">OpenCV</span> <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">dlib</span>                        <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Scikit-learn</span> </div>
-                    <div class="flex space-x-4 pt-3 border-t border-gray-100 text-sm">
-                        <a href="https://scandalous-lady-ca4.notion.site/11006503eb58805da19dca00169207ef?pvs=4" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium flex items-center"> <i class="fas fa-link mr-1 text-xs"></i> <span data-i18n="project_demo">상세보기</span> </a>
-                        <a href="https://github.com/Bae-Sunny/algorithm/blob/main/personalcolor/Indetail.md" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 font-medium flex items-center">
-                        <i class="fab fa-github mr-1 text-xs"></i> <span data-i18n="project_github">GitHub</span> </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card bg-white rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200" data-aos-anchor-placement="top-bottom">
-                <div class="project-image-container h-60">
-                    <img src="assets/images/project7.png" alt="ChatGPT 기반 서비스 기획" class="project-image w-full h-full object-cover">
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-semibold" data-i18n="project7_title">🤖 ChatGPT 기반 서비스 기획</h3>
-                        <span class="tag inline-block bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full" data-i18n="project7_tag">AI Planning</span>
-                    </div>
-                    <p class="text-gray-600 text-sm mb-4" data-i18n="project7_desc">
-                        GPT를 활용한 AI 챗봇으로 보이스피싱 대응 시뮬레이션 훈련 서비스를 기획했으며, 실무 수준의 시나리오 설계와 응답 전략을 구조화했습니다.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">AX</span>
-                        <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">OpenAI GPT</span>
-                        <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Genspark</span>
-                        <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">CodePen</span>
-                    </div>
-                    <div class="flex pt-3 border-t border-gray-100 text-sm">
-                        <a href="https://scandalous-lady-ca4.notion.site/ChatGPT-20406503eb588076be44ce38d2f35a42" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
-                            <i class="fas fa-link mr-1 text-xs"></i>
-                            <span data-i18n="project_demo">상세보기</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card bg-white rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200" data-aos-anchor-placement="top-bottom">
-                <div class="project-image-container h-60">
-                    <img src="assets/images/project8.png" alt="스마트스토어 FAQ 기반 RAG 챗봇" class="project-image w-full h-full object-cover">
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-semibold" data-i18n="project8_title">🛍️ 스마트스토어 FAQ 기반 RAG 챗봇</h3>
-                        <span class="tag inline-block bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full" data-i18n="project8_tag">풀스택 AI</span>
-                    </div>
-                    <p class="text-gray-600 text-sm mb-4" data-i18n="project8_desc">
-                        OpenAI GPT와 ChromaDB를 활용해 FAQ 데이터를 질의응답 형태로 제공하는 벡터 검색 기반 챗봇 플랫폼을 개발했으며, Django와 Docker 환경에서 통합 구성했습니다.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Django</span>
-                        <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">RAG</span>
-                        <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">LangChain</span>
-                        <span class="tag px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">ChromaDB</span>                       
-                    </div>
-                    <div class="flex space-x-4 pt-3 border-t border-gray-100 text-sm">
-                        <a href="https://scandalous-lady-ca4.notion.site/FAQ-RAG-20f06503eb5880efa171d8b3e203bd52" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-medium flex items-center"> <i class="fas fa-link mr-1 text-xs"></i> <span data-i18n="project_demo">상세보기</span> </a>
-                        <a href="https://github.com/Bae-Sunny/smartstore-faq-chatbot" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 font-medium flex items-center">
-                        <i class="fab fa-github mr-1 text-xs"></i> <span data-i18n="project_github">GitHub</span> </a>
-                    </div>
-                </div>
-            </div>
-            
+      </div>
+    </article>
+    <!-- Card 2 -->
+    <article class="grid-card group relative overflow-hidden rounded-xl bg-gray-800 transition transform">
+      <img src="assets/images/project2.png" class="w-full h-44 object-cover opacity-90 group-hover:opacity-100 transition" alt="project2">
+      <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition flex items-end">
+        <div class="p-4 w-full">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">커피 등급 예측</h3>
+            <span class="text-xs text-pink-300">AI/ML</span>
+          </div>
+          <p class="text-gray-300 text-xs mt-1">KNN · Vue · Spring</p>
         </div>
-    </div>
+      </div>
+    </article>
+    <!-- Card 3 -->
+    <article class="grid-card group relative overflow-hidden rounded-xl bg-gray-800 transition transform">
+      <img src="assets/images/project3.png" class="w-full h-44 object-cover opacity-90 group-hover:opacity-100 transition" alt="project3">
+      <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition flex items-end">
+        <div class="p-4 w-full">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">AI 이미지 분석</h3>
+            <span class="text-xs text-pink-300">VISION</span>
+          </div>
+          <p class="text-gray-300 text-xs mt-1">TF · OpenCV · Spring</p>
+        </div>
+      </div>
+    </article>
+    <!-- Card 4 -->
+    <article class="grid-card group relative overflow-hidden rounded-xl bg-gray-800 transition transform">
+      <img src="assets/images/project4.png" class="w-full h-44 object-cover opacity-90 group-hover:opacity-100 transition" alt="project4">
+      <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition flex items-end">
+        <div class="p-4 w-full">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">AI 면접 포함 취업 지원</h3>
+            <span class="text-xs text-pink-300">FULLSTACK</span>
+          </div>
+          <p class="text-gray-300 text-xs mt-1">React · Spring · ML</p>
+        </div>
+      </div>
+    </article>
+    <!-- Card 5 -->
+    <article class="grid-card group relative overflow-hidden rounded-xl bg-gray-800 transition transform">
+      <img src="assets/images/project5.png" class="w-full h-44 object-cover opacity-90 group-hover:opacity-100 transition" alt="project5">
+      <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition flex items-end">
+        <div class="p-4 w-full">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">인터뷰 답변 분석기</h3>
+            <span class="text-xs text-pink-300">NLP</span>
+          </div>
+          <p class="text-gray-300 text-xs mt-1">KoBERT · Python</p>
+        </div>
+      </div>
+    </article>
+    <!-- Card 6 -->
+    <article class="grid-card group relative overflow-hidden rounded-xl bg-gray-800 transition transform">
+      <img src="assets/images/project6.png" class="w-full h-44 object-cover opacity-90 group-hover:opacity-100 transition" alt="project6">
+      <div class="overlay absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition flex items-end">
+        <div class="p-4 w-full">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold">퍼스널 컬러 알고리즘</h3>
+            <span class="text-xs text-pink-300">CV</span>
+          </div>
+          <p class="text-gray-300 text-xs mt-1">OpenCV · dlib</p>
+        </div>
+      </div>
+    </article>
+  </div>
 </section>
