@@ -1,9 +1,9 @@
 <!-- Projects Grid -->
 <section id="projects" class="px-6 md:px-10 pb-10">
-  <h2 class="text-xl font-semibold text-pink-300 mb-6">WORK</h2>
+  <h2 class="text-xl font-semibold text-pink-300 mb-6" data-i18n="projects_title">WORK</h2>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-    <!-- Card -->
+    <!-- Card 1 -->
     <article class="group relative overflow-hidden rounded-xl bg-gray-800 transition duration-300">
       <img src="assets/images/project1.png"
            class="w-full h-44 object-cover filter brightness-95 transition-all duration-500 ease-out"
@@ -22,11 +22,102 @@
         </div>
       </div>
     </article>
+
+    <!-- Card 2 -->
+    <article class="group relative overflow-hidden rounded-xl bg-gray-800 transition duration-300">
+      <img src="assets/images/project2.png"
+           class="w-full h-44 object-cover filter brightness-95 transition-all duration-500 ease-out"
+           alt="project2">
+      <div class="absolute bottom-0 left-0 right-0 bg-[#0000004d] backdrop-blur-sm
+                  transform translate-y-full group-hover:translate-y-0
+                  transition-transform duration-500 ease-out">
+        <div class="p-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold text-white text-glow">커피 등급 예측</h3>
+            <span class="text-xs text-pink-300">AI/ML</span>
+          </div>
+          <p class="text-white/90 text-xs mt-1">KNN · Vue · Spring</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="group relative overflow-hidden rounded-xl bg-gray-800 transition duration-300">
+      <img src="assets/images/project3.png"
+           class="w-full h-44 object-cover filter brightness-95 transition-all duration-500 ease-out"
+           alt="project3">
+      <div class="absolute bottom-0 left-0 right-0 bg-[#0000004d] backdrop-blur-sm
+                  transform translate-y-full group-hover:translate-y-0
+                  transition-transform duration-500 ease-out">
+        <div class="p-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold text-white text-glow">AI 이미지 분석</h3>
+            <span class="text-xs text-pink-300">VISION</span>
+          </div>
+          <p class="text-white/90 text-xs mt-1">TF · OpenCV · Spring</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 4 -->
+    <article class="group relative overflow-hidden rounded-xl bg-gray-800 transition duration-300">
+      <img src="assets/images/project4.png"
+           class="w-full h-44 object-cover filter brightness-95 transition-all duration-500 ease-out"
+           alt="project4">
+      <div class="absolute bottom-0 left-0 right-0 bg-[#0000004d] backdrop-blur-sm
+                  transform translate-y-full group-hover:translate-y-0
+                  transition-transform duration-500 ease-out">
+        <div class="p-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold text-white text-glow">AI 면접 포함 취업 지원</h3>
+            <span class="text-xs text-pink-300">FULLSTACK</span>
+          </div>
+          <p class="text-white/90 text-xs mt-1">React · Spring · ML</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 5 -->
+    <article class="group relative overflow-hidden rounded-xl bg-gray-800 transition duration-300">
+      <img src="assets/images/project5.png"
+           class="w-full h-44 object-cover filter brightness-95 transition-all duration-500 ease-out"
+           alt="project5">
+      <div class="absolute bottom-0 left-0 right-0 bg-[#0000004d] backdrop-blur-sm
+                  transform translate-y-full group-hover:translate-y-0
+                  transition-transform duration-500 ease-out">
+        <div class="p-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold text-white text-glow">인터뷰 답변 분석기</h3>
+            <span class="text-xs text-pink-300">NLP</span>
+          </div>
+          <p class="text-white/90 text-xs mt-1">KoBERT · Python</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 6 -->
+    <article class="group relative overflow-hidden rounded-xl bg-gray-800 transition duration-300">
+      <img src="assets/images/project6.png"
+           class="w-full h-44 object-cover filter brightness-95 transition-all duration-500 ease-out"
+           alt="project6">
+      <div class="absolute bottom-0 left-0 right-0 bg-[#0000004d] backdrop-blur-sm
+                  transform translate-y-full group-hover:translate-y-0
+                  transition-transform duration-500 ease-out">
+        <div class="p-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold text-white text-glow">퍼스널 컬러 알고리즘</h3>
+            <span class="text-xs text-pink-300">CV</span>
+          </div>
+          <p class="text-white/90 text-xs mt-1">OpenCV · dlib</p>
+        </div>
+      </div>
+    </article>
+
   </div>
 </section>
 
 <style>
-  .text-glow { text-shadow: 0 2px 6px rgba(0, 0, 0, .55); }
+  .text-glow { text-shadow: 0 2px 6px rgba(0,0,0,.55); }
   .translate-y-full { transform: translateY(100%); }
   .group:hover .group-hover\:translate-y-0 {
     transform: translateY(0) !important;
