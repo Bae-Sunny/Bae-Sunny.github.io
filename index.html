@@ -3,30 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>배선화 | 풀스택 개발자 포트폴리오</title>
+  <title>배선화 | 포트폴리오 (Dark Concept)</title>
 
   <!-- External Libraries -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-  <!-- Custom Style -->
+  <!-- Project style (optional existing) -->
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Theme helpers for Dark Concept -->
+  <style>
+    :root{
+      --navy:#0D0D24;
+      --navy-2:#12122B;
+      --brand:#0033CC;
+      --accent:#FF80A0;
+    }
+    body{ background: var(--brand); }
+    .screen{ max-width: 1200px; margin: 0 auto; border-radius:18px; background: linear-gradient(180deg, #17172f, #0e0e22);
+      box-shadow: 0 40px 80px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06); overflow:hidden; }
+    .nav{ background: rgba(13,13,36,.8); backdrop-filter: blur(8px); }
+    .nav a{ position:relative; }
+    .nav a.active::after, .nav a:hover::after{ content:""; position:absolute; left:0; right:0; bottom:-10px; height:2px; background: var(--accent); }
+    .grid-card:hover{ transform: translateY(-2px); box-shadow: 0 16px 30px rgba(0,0,0,.35); }
+    .grid-card .overlay{ opacity:0; }
+    .grid-card:hover .overlay{ opacity:1; }
+    .pill{ background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); }
+    /* utility */
+    .container-narrow{ max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <!-- Sections Loaded Dynamically -->
-  <div data-include="partials/header.html"></div>
-  <div data-include="partials/hero.html"></div>
-  <div data-include="partials/about.html"></div>
-  <div data-include="partials/projects.html"></div>
-  <div data-include="partials/skills.html"></div>
-  <div data-include="partials/contact.html"></div>
-  <div data-include="partials/footer.html"></div>
+<body class="text-gray-100">
+  <!-- Stage wrapper keeps blue bg around the dark 'screen' -->
+  <main class="min-h-screen flex flex-col items-center pt-24 pb-16">
+    <div class="screen w-full">
+      <div data-include="header.html"></div>
+      <div data-include="hero.html"></div>
+      <div data-include="projects.html"></div>
+      <div data-include="about.html"></div>
+      <div data-include="skills.html"></div>
+      <div data-include="contact.html"></div>
+      <div data-include="footer.html"></div>
+    </div>
+  </main>
 
-  <!-- External Scripts -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
-  <!-- Custom Scripts -->
   <script src="assets/js/translations.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
