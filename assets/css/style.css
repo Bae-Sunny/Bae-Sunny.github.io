@@ -361,3 +361,7 @@ body {
     border-radius: 2px;
     flex-shrink: 0;
 }
+
+.screen { overflow: visible; }
+section[id] { scroll-margin-top: 96px; }
+.language-dropdown-content { z-index: 1000; }
