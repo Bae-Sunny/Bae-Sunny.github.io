@@ -785,8 +785,9 @@
         gap: 16px;
       }
 
+      /* Mobile Navigation */
       .nav-links {
-        position: fixed;
+        position: fixed !important;
         top: 64px;
         left: 0;
         right: 0;
@@ -800,6 +801,7 @@
         opacity: 0;
         transition: all 0.3s ease;
         pointer-events: none;
+        z-index: 999;
       }
 
       .nav-links.active {
@@ -838,6 +840,7 @@
         border: none;
         cursor: pointer;
         padding: 8px;
+        z-index: 1001;
       }
 
       .mobile-menu-btn span {
@@ -845,6 +848,7 @@
         height: 2px;
         background: var(--text-primary);
         transition: all 0.3s;
+        display: block;
       }
 
       .mobile-menu-btn.active span:nth-child(1) {
@@ -880,14 +884,32 @@
       }
     }
 
-    /* Desktop - hide mobile menu button */
+    /* Mobile menu button - hidden on desktop */
     .mobile-menu-btn {
       display: none;
+      z-index: 1001;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: flex !important;
+      }
     }
 
     @media (min-width: 769px) {
       .mobile-menu-btn {
         display: none !important;
+      }
+      
+      .nav-links {
+        display: flex !important;
+        position: static !important;
+        transform: none !important;
+        opacity: 1 !important;
+        pointer-events: all !important;
+        background: none !important;
+        border: none !important;
+        padding: 0 !important;
       }
     }
 
@@ -1391,7 +1413,7 @@
         },
         img: 'assets/images/project7.png',
         tech: ['OpenAI GPT', 'Genspark', 'CodePen'],
-        link: 'https://scandalous-lady-ca4.notion.site/11006503eb58805da19dca00169207ef?source=copy_link'
+        link: 'https://scandalous-lady-ca4.notion.site/ChatGPT-20406503eb588076be44ce38d2f35a42?source=copy_link'
       },
       {
         title: {
@@ -1422,7 +1444,7 @@
       { group: 'Database', items: ['Oracle', 'MySQL', 'Redis', 'SQL'] },
       { group: 'AI/ML', items: ['TensorFlow', 'OpenCV', 'KoBERT', 'Pandas', 'NumPy'] },
       { group: 'DevOps', items: ['AWS EC2', 'Docker', 'GitHub Actions'] },
-      { group: 'Tools', items: ['Git', 'GitHub', 'Jira', 'Figma', 'Notion'] }
+      { group: 'Tools', items: ['Git', 'GitHub', 'Figma', 'Notion'] }
     ];
 
     // Render Projects
