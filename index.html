@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배선화 · Portfolio Dashboard</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <!-- Sidebar Overlay (Mobile) -->
+  <div class="sidebar-overlay"></div>
+  
+  <!-- Dashboard Layout -->
+  <div class="dashboard">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <!-- Sidebar Header -->
+      <div class="sidebar-header">
+        <button class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search...">
+        </div>
+      </div>
+      
+      <!-- Profile Section -->
+      <div class="sidebar-profile">
+        <div class="profile-avatar">배</div>
+        <div class="profile-info">
+          <h2>배선화</h2>
+          <span class="profile-badge">Full-stack Dev</span>
+          <div class="profile-stats">
+            <span><strong>8</strong> Projects</span>
+            <span><strong>4</strong> Years</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Navigation -->
+      <nav class="sidebar-nav">
+        <!-- About Section -->
+        <div class="nav-section">
+          <div class="nav-section-header gold" data-i18n="nav-about">소개</div>
+          <a href="#" class="nav-item active" data-tab="overview">
+            <div class="nav-item-left">
+              <i class="fa-solid fa-house"></i>
+              <span>Overview</span>
+            </div>
+          </a>
+          <a href="#" class="nav-item" data-tab="timeline">
+            <div class="nav-item-left">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+              <span data-i18n="nav-timeline">경력</span>
+            </div>
+            <span class="nav-item-count">5</span>
+          </a>
+        </div>
+        
+        <!-- Projects Section -->
+        <div class="nav-section">
+          <div class="nav-section-header cyan" data-i18n="nav-projects">프로젝트</div>
+          <a href="#" class="nav-item" data-tab="projects">
+            <div class="nav-item-left">
+              <i class="fa-solid fa-folder-open"></i>
+              <span>All Projects</span>
+            </div>
+            <span class="nav-item-count">8</span>
+          </a>
+          <a href="#" class="nav-item">
+            <div class="nav-item-left">
+              <i class="fa-solid fa-robot"></i>
+              <span>AI/ML</span>
+            </div>
+            <span class="nav-item-count">5</span>
+          </a>
+          <a href="#" class="nav-item">
+            <div class="nav-item-left">
+              <i class="fa-solid fa-code"></i>
+              <span>Full-stack</span>
+            </div>
+            <span class="nav-item-count">3</span>
+          </a>
+          <a href="#" class="nav-item">
+            <div class="nav-item-left">
+              <i class="fa-solid fa-spinner"></i>
+              <span>In Progress</span>
+            </div>
+            <div class="status-dots">
+              <span class="status-dot gold"></span>
+              <span class="status-dot coral"></span>
+            </div>
+          </a>
+        </div>
+        
+        <!-- Skills Section -->
+        <div class="nav-section">
+          <div class="nav-section-header coral" data-i18n="nav-skills">스킬</div>
+          <a href="#" class="nav-item" data-tab="skills">
+            <div class="nav-item-left">
+              <i class="fa-solid fa-layer-group"></i>
+              <span>Tech Stack</span>
+            </div>
+            <span class="nav-item-count">6</span>
+          </a>
+          <a href="#" class="nav-item">
+            <div class="nav-item-left">
+              <i class="fa-solid fa-laptop-code"></i>
+              <span>Frontend</span>
+            </div>
+            <div class="status-dots">
+              <span class="status-dot cyan"></span>
+            </div>
+          </a>
+          <a href="#" class="nav-item">
+            <div class="nav-item-left">
+              <i class="fa-solid fa-server"></i>
+              <span>Backend</span>
+            </div>
+            <div class="status-dots">
+              <span class="status-dot cyan"></span>
+            </div>
+          </a>
+        </div>
+      </nav>
+      
+      <!-- Language Switcher -->
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="ko">KOR</button>
+        <button class="lang-btn" data-lang="en">ENG</button>
+        <button class="lang-btn" data-lang="ja">JPN</button>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Mobile Header -->
+      <div class="mobile-header" style="display: none;">
+        <span class="logo">배선화</span>
+        <button class="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      
+      <!-- Header -->
+      <header class="main-header">
+        <div class="header-content">
+          <div class="header-profile">
+            <div class="header-avatar">배</div>
+            <div class="header-info">
+              <h1>
+                <span data-i18n="header-title">배선화</span>
+                <span class="badge" data-i18n="header-badge">FULL-STACK</span>
+              </h1>
+              <div class="header-meta">
+                <span><strong>4</strong> <span data-i18n="header-stat-exp">경력</span></span>
+                <span><strong>8</strong> <span data-i18n="header-stat-projects">프로젝트</span></span>
+                <span><strong>6</strong> <span data-i18n="header-stat-skills">스킬</span></span>
+              </div>
+            </div>
+          </div>
+          <div class="header-actions">
+            <button class="btn-icon"><i class="fa-solid fa-pen"></i></button>
+            <button class="btn-icon"><i class="fa-solid fa-gear"></i></button>
+          </div>
+        </div>
+      </header>
+      
+      <!-- Tabs -->
+      <div class="tabs-container">
+        <div class="tab active" data-tab="overview" data-i18n="tab-overview">전체 보기</div>
+        <div class="tab" data-tab="timeline" data-i18n="tab-timeline">경력</div>
+        <div class="tab" data-tab="projects">
+          <span data-i18n="tab-projects">프로젝트</span>
+          <span class="badge-dot"></span>
+        </div>
+        <div class="tab" data-tab="skills" data-i18n="tab-skills">스킬</div>
+      </div>
+      
+      <!-- Content Area -->
+      <div class="content-area">
+        <div class="cards-grid" id="cardsGrid">
+          <!-- Dynamic content rendered by JavaScript -->
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  
+  <!-- Mobile Header Show/Hide -->
+  <script>
+    // Show mobile header on small screens
+    function checkMobileHeader() {
+      const mobileHeader = document.querySelector('.mobile-header');
+      if (window.innerWidth <= 900) {
+        mobileHeader.style.display = 'flex';
+      } else {
+        mobileHeader.style.display = 'none';
+      }
+    }
+    
+    window.addEventListener('resize', checkMobileHeader);
+    checkMobileHeader();
+  </script>
+</body>
+</html>
