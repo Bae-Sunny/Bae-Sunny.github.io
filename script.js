@@ -23,14 +23,14 @@ const TRANSLATIONS = {
     'view-detail': '상세보기 →'
   },
   en: {
-  'hero-title-1': 'Defining problems,',
-  'hero-title-2': 'solving them',
-  'hero-title-3': 'to the end',
-  'hero-title-4': 'Full-stack Developer',
-  'hero-subtitle-1': 'I look at',
-  'hero-subtitle-2': 'why this problem occurred',
-  'hero-subtitle-3': 'before features.',
-  'hero-subtitle-4': 'I\'ve been solving real problems in actual services with code.',
+    'hero-title-1': 'Defining problems,',
+    'hero-title-2': 'solving them',
+    'hero-title-3': 'to the end',
+    'hero-title-4': 'Full-stack Developer',
+    'hero-subtitle-1': 'I look at',
+    'hero-subtitle-2': 'why this problem occurred',
+    'hero-subtitle-3': 'before features.',
+    'hero-subtitle-4': 'I\'ve been solving real problems in actual services with code.',
     'projects-title': 'All Projects',
     'projects-subtitle': 'Real-world solutions from work, learning, and experimentation.',
     'experience-title': 'Experience',
@@ -50,7 +50,6 @@ const TRANSLATIONS = {
     'hero-subtitle-2': 'なぜこの問題が起きたのか',
     'hero-subtitle-3': 'を先に見ます。',
     'hero-subtitle-4': '実際のサービスで直面した問題をコードで解決してきました。',
-    'projects-title': 'All Projects',
     'projects-title': 'All Projects',
     'projects-subtitle': '実務・学習・実験過程で発生した問題を解決した成果物です。',
     'experience-title': 'Experience',
@@ -474,7 +473,7 @@ function renderExperience() {
 function updateTranslations() {
   document.querySelectorAll('[data-i18n]').forEach(elem => {
     const key = elem.getAttribute('data-i18n');
-    if (TRANSLATIONS[currentLang][key]) {
+    if (TRANSLATIONS[currentLang][key] !== undefined) {
       elem.textContent = TRANSLATIONS[currentLang][key];
     }
   });
@@ -501,6 +500,27 @@ function switchLanguage(lang) {
   renderExperience();
 }
 
+// ==================== SCROLL EVENTS ====================
+// 스크롤 시 네비게이션 & 맨 위로 버튼 표시
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('nav');
+  const scrollBtn = document.getElementById('scrollToTop');
+  
+  // 네비게이션 표시/숨김
+  if (window.scrollY > 100) {
+    nav.classList.remove('nav-hidden');
+  } else {
+    nav.classList.add('nav-hidden');
+  }
+  
+  // 맨 위로 버튼 표시/숨김
+  if (window.scrollY > 300) {
+    scrollBtn.classList.add('visible');
+  } else {
+    scrollBtn.classList.remove('visible');
+  }
+});
+
 // ==================== INIT ====================
 document.addEventListener("DOMContentLoaded", () => {
   // 초기 렌더링
@@ -513,5 +533,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const lang = btn.getAttribute('data-lang');
       switchLanguage(lang);
     });
+  });
+  
+  // 맨 위로 버튼 클릭 이벤트
+  const scrollBtn = document.getElementById('scrollToTop');
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
