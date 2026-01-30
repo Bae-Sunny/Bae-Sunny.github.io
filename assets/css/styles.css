@@ -641,3 +641,28 @@ section {
     font-size: 12px;
   }
 }
+/* 이미지 로딩 상태 */
+.project-img {
+  background: linear-gradient(90deg, #1f2937 25%, #374151 50%, #1f2937 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.project-img[src] {
+  animation: none;
+  background: #1f2937;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 섹션 간 이동 시 네비게이션 높이만큼 오프셋 */
+section {
+  scroll-margin-top: 80px;
+}
