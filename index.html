@@ -1,85 +1,113 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>배선화 · Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css" />
-</head>
-<body>
-  <!-- LANGUAGE SELECTOR -->
-  <div class="lang-selector">
-    <button class="lang-btn active" data-lang="ko">KOR</button>
-    <button class="lang-btn" data-lang="en">ENG</button>
-    <button class="lang-btn" data-lang="ja">JPN</button>
-  </div>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="container">
-    <h1 class="hero-title">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배선화 · Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+    <!-- LANGUAGE SELECTOR -->
+    <div class="lang-selector">
+        <button class="lang-btn active" data-lang="ko">KOR</button>
+        <button class="lang-btn" data-lang="en">ENG</button>
+        <button class="lang-btn" data-lang="ja">JPN</button>
+    </div>
+    <button id="scrollToTop" class="scroll-to-top" aria-label="맨 위로">↑</button>
+    <!-- NAVIGATION (optional) -->
+    <nav id="nav" class="nav-hidden">
+        <div class="container">
+            <div class="nav-content">
+                <a href="#hero" class="nav-logo">Bae Sunhwa</a>
+                <div class="nav-links">
+                    <a href="#projects" data-i18n="projects-title">프로젝트</a>
+                    <a href="#experience" data-i18n="experience-title">경력</a>
+                    <a href="#contact" data-i18n="contact-title">연락처</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- HERO -->
+    <section id="hero">
+        <div class="container">
+            <h1 class="hero-title">
       <span data-i18n="hero-title-1">문제를 정의하고,</span><br>
       <span class="highlight" data-i18n="hero-title-2">끝까지 해결</span>
       <span data-i18n="hero-title-3">하는</span><br>
       <span data-i18n="hero-title-4">풀스택 개발자</span>
     </h1>
-    <p class="hero-subtitle">
-      <span data-i18n="hero-subtitle-1">기능보다</span> 
-      <strong data-i18n="hero-subtitle-2">왜 이 문제가 생겼는지</strong>
-      <span data-i18n="hero-subtitle-3">를 먼저 봅니다.</span><br />
-      <span data-i18n="hero-subtitle-4">실제 서비스에서 부딪힌 문제를 코드로 해결해왔습니다.</span>
-    </p>
-  </div>
-</section>
+            <p class="hero-subtitle">
+                <span data-i18n="hero-subtitle-1">기능보다</span>
+                <strong data-i18n="hero-subtitle-2">왜 이 문제가 생겼는지</strong>
+                <span data-i18n="hero-subtitle-3">를 먼저 봅니다.</span>
+                <br />
+                <span data-i18n="hero-subtitle-4">실제 서비스에서 부딪힌 문제를 코드로 해결해왔습니다.</span>
+            </p>
+        </div>
+    </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="container-wide">
-      <h2 class="section-title" data-i18n="projects-title">All Projects</h2>
-      <p class="section-subtitle" data-i18n="projects-subtitle">
-        실제 업무·학습·실험 과정에서 발생한 문제를 해결한 결과물입니다.
-      </p>
-      <div class="projects-grid" id="projectsGrid"></div>
-    </div>
-  </section>
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="container-wide">
+            <h2 class="section-title" data-i18n="projects-title">All Projects</h2>
+            <p class="section-subtitle" data-i18n="projects-subtitle">
+                실제 업무·학습·실험 과정에서 발생한 문제를 해결한 결과물입니다.
+            </p>
+            <div class="projects-grid" id="projectsGrid"></div>
+        </div>
+    </section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="container">
-      <h2 class="section-title" data-i18n="experience-title">Experience</h2>
-      <p class="section-subtitle" data-i18n="experience-subtitle">
-        문제 해결이 필요한 순간, 직접 설계하고 구현했습니다.
-      </p>
-      <div class="experience-timeline" id="experienceTimeline"></div>
-    </div>
-  </section>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title" data-i18n="experience-title">Experience</h2>
+            <p class="section-subtitle" data-i18n="experience-subtitle">
+                문제 해결이 필요한 순간, 직접 설계하고 구현했습니다.
+            </p>
+            <div class="experience-timeline" id="experienceTimeline"></div>
+        </div>
+    </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title" data-i18n="contact-title">Contact</h2>
-      <p class="section-subtitle" data-i18n="contact-subtitle">
-        함께 문제를 풀어보고 싶다면 언제든지 연락 주세요.
-      </p>
-      <div class="contact-links">
-        <a href="mailto:bshwa0563@gmail.com" class="contact-btn">
-          <span class="icon">✉️</span>
-          <span data-i18n="contact-email">Email</span>
-        </a>
-        <a href="https://github.com/Bae-Sunny" target="_blank" class="contact-btn">
-          <span class="icon">💻</span>
-          GitHub
-        </a>
-        <a href="https://www.youtube.com/@Coding_Gumi" target="_blank" class="contact-btn">
-          <span class="icon">🎥</span>
-          YouTube
-        </a>
-      </div>
-    </div>
-  </section>
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title" data-i18n="contact-title">Contact</h2>
+            <p class="section-subtitle" data-i18n="contact-subtitle">
+                함께 문제를 풀어보고 싶다면 언제든지 연락 주세요.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:bshwa0563@gmail.com" class="contact-btn">
+                    <span class="icon">✉️</span>
+                    <span data-i18n="contact-email">Email</span>
+                </a>
+                <a href="https://github.com/Bae-Sunny" target="_blank" class="contact-btn">
+                    <span class="icon">💻</span> GitHub
+                </a>
+                <a href="https://www.youtube.com/@Coding_Gumi" target="_blank" class="contact-btn">
+                    <span class="icon">🎥</span> YouTube
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-copyright">© 2025 Bae Sunhwa. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="mailto:bshwa0563@gmail.com">Email</a>
+                    <a href="https://github.com/Bae-Sunny" target="_blank">GitHub</a>
+                    <a href="https://www.youtube.com/@Coding_Gumi" target="_blank">YouTube</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
