@@ -281,7 +281,7 @@ const PROJECTS = [
       en: "Workflow analysis and automation script development",
       ja: "業務プロセス分析および自動化スクリプト開発"
     },
-    img: "assets/images/project3.png",
+    img: "assets/images/project9.png",
     tags: {
       ko: ["업무 자동화", "반복 작업 제거"],
       en: ["Workflow Automation", "Eliminate Repetition"],
