@@ -264,31 +264,31 @@ const PROJECTS = [
     tech: ["Django", "LangChain", "RAG"],
     link: "https://scandalous-lady-ca4.notion.site/FAQ-RAG-20f06503eb5880efa171d8b3e203bd52"
   },
-  {
-    title: {
-      ko: "사내 리포트 자동화 도구",
-      en: "Internal Report Automation Tool",
-      ja: "社内レポート自動化ツール"
-    },
-    desc: {
-      ko: "반복되는 주간 리포트 작성 시간을 자동화로 단축",
-      en: "Automated weekly report generation reducing manual work",
-      ja: "繰り返される週次レポート作成時間を自動化で短縮"
-    },
-    role: {
-      ko: "업무 프로세스 분석 및 자동화 스크립트 개발",
-      en: "Workflow analysis and automation script development",
-      ja: "業務プロセス分析および自動化スクリプト開発"
-    },
-    img: "assets/images/project9.png",
-    tags: {
-      ko: ["업무 자동화", "반복 작업 제거"],
-      en: ["Workflow Automation", "Eliminate Repetition"],
-      ja: ["業務自動化", "反復作業除去"]
-    },
-    tech: ["Python", "Excel", "Vue"],
-    link: "#"
-  }
+  // {
+  //   title: {
+  //     ko: "사내 리포트 자동화 도구",
+  //     en: "Internal Report Automation Tool",
+  //     ja: "社内レポート自動化ツール"
+  //   },
+  //   desc: {
+  //     ko: "반복되는 주간 리포트 작성 시간을 자동화로 단축",
+  //     en: "Automated weekly report generation reducing manual work",
+  //     ja: "繰り返される週次レポート作成時間を自動化で短縮"
+  //   },
+  //   role: {
+  //     ko: "업무 프로세스 분석 및 자동화 스크립트 개발",
+  //     en: "Workflow analysis and automation script development",
+  //     ja: "業務プロセス分析および自動化スクリプト開発"
+  //   },
+  //   img: "assets/images/project9.png",
+  //   tags: {
+  //     ko: ["업무 자동화", "반복 작업 제거"],
+  //     en: ["Workflow Automation", "Eliminate Repetition"],
+  //     ja: ["業務自動化", "反復作業除去"]
+  //   },
+  //   tech: ["Python", "Excel", "Vue"],
+  //   link: "#"
+  // }
 ];
 
 // ==================== EXPERIENCE ====================
