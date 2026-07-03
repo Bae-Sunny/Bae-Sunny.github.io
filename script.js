@@ -12,15 +12,21 @@ const TRANSLATIONS = {
     'hero-subtitle-2': '왜 이 문제가 생겼는지',
     'hero-subtitle-3': '를 먼저 봅니다.',
     'hero-subtitle-4': '실제 서비스에서 부딪힌 문제를 코드로 해결해왔습니다.',
+    'diff-remove': '기능 구현에만 집중한다',
+    'diff-add': '문제가 왜 생겼는지 먼저 파악한다',
     'projects-title': 'All Projects',
     'projects-subtitle': '실제 업무·학습·실험 과정에서 발생한 문제를 해결한 결과물입니다.',
     'experience-title': 'Experience',
     'experience-subtitle': '문제 해결이 필요한 순간, 직접 설계하고 구현했습니다.',
     'contact-title': 'Contact',
     'contact-subtitle': '함께 문제를 풀어보고 싶다면 언제든지 연락 주세요.',
-    'contact-email': 'Email',
-    'role-label': 'Role.',
-    'view-detail': '상세보기 →'
+    'whoami-name': 'Bae Sunhwa',
+    'whoami-role': '풀스택 개발자',
+    'role-label': 'role:',
+    'view-detail': '상세보기 →',
+    'nav-projects': '프로젝트',
+    'nav-experience': '경력',
+    'nav-contact': '연락처'
   },
   en: {
     'hero-title-1': 'Defining problems,',
@@ -31,15 +37,21 @@ const TRANSLATIONS = {
     'hero-subtitle-2': 'why this problem occurred',
     'hero-subtitle-3': 'before features.',
     'hero-subtitle-4': 'I\'ve been solving real problems in actual services with code.',
+    'diff-remove': 'Focus only on shipping features',
+    'diff-add': 'Understand why the problem exists first',
     'projects-title': 'All Projects',
     'projects-subtitle': 'Real-world solutions from work, learning, and experimentation.',
     'experience-title': 'Experience',
     'experience-subtitle': 'When problems arose, I designed and implemented solutions.',
     'contact-title': 'Contact',
     'contact-subtitle': 'Let\'s solve problems together.',
-    'contact-email': 'Email',
-    'role-label': 'Role.',
-    'view-detail': 'View Details →'
+    'whoami-name': 'Bae Sunhwa',
+    'whoami-role': 'Full-stack Developer',
+    'role-label': 'role:',
+    'view-detail': 'View Details →',
+    'nav-projects': 'Projects',
+    'nav-experience': 'Experience',
+    'nav-contact': 'Contact'
   },
   ja: {
     'hero-title-1': '問題を定義し、',
@@ -50,15 +62,21 @@ const TRANSLATIONS = {
     'hero-subtitle-2': 'なぜこの問題が起きたのか',
     'hero-subtitle-3': 'を先に見ます。',
     'hero-subtitle-4': '実際のサービスで直面した問題をコードで解決してきました。',
+    'diff-remove': '機能実装だけに集中する',
+    'diff-add': '問題がなぜ起きたのかを先に把握する',
     'projects-title': 'All Projects',
     'projects-subtitle': '実務・学習・実験過程で発生した問題を解決した成果物です。',
     'experience-title': 'Experience',
     'experience-subtitle': '問題解決が必要な瞬間、直接設計し実装しました。',
     'contact-title': 'Contact',
     'contact-subtitle': '一緒に問題を解決しませんか。',
-    'contact-email': 'Email',
-    'role-label': 'Role.',
-    'view-detail': '詳細を見る →'
+    'whoami-name': 'Bae Sunhwa',
+    'whoami-role': 'フルスタック開発者',
+    'role-label': 'role:',
+    'view-detail': '詳細を見る →',
+    'nav-projects': 'プロジェクト',
+    'nav-experience': '経歴',
+    'nav-contact': '連絡先'
   }
 };
 
@@ -263,32 +281,7 @@ const PROJECTS = [
     },
     tech: ["Django", "LangChain", "RAG"],
     link: "https://scandalous-lady-ca4.notion.site/FAQ-RAG-20f06503eb5880efa171d8b3e203bd52"
-  },
-  // {
-  //   title: {
-  //     ko: "사내 리포트 자동화 도구",
-  //     en: "Internal Report Automation Tool",
-  //     ja: "社内レポート自動化ツール"
-  //   },
-  //   desc: {
-  //     ko: "반복되는 주간 리포트 작성 시간을 자동화로 단축",
-  //     en: "Automated weekly report generation reducing manual work",
-  //     ja: "繰り返される週次レポート作成時間を自動化で短縮"
-  //   },
-  //   role: {
-  //     ko: "업무 프로세스 분석 및 자동화 스크립트 개발",
-  //     en: "Workflow analysis and automation script development",
-  //     ja: "業務プロセス分析および自動化スクリプト開発"
-  //   },
-  //   img: "assets/images/project9.png",
-  //   tags: {
-  //     ko: ["업무 자동화", "반복 작업 제거"],
-  //     en: ["Workflow Automation", "Eliminate Repetition"],
-  //     ja: ["業務自動化", "反復作業除去"]
-  //   },
-  //   tech: ["Python", "Excel", "Vue"],
-  //   link: "#"
-  // }
+  }
 ];
 
 // ==================== EXPERIENCE ====================
@@ -422,28 +415,48 @@ const EXPERIENCES = [
   }
 ];
 
+// ==================== HELPERS ====================
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
+function pad(n) {
+  return String(n).padStart(2, '0');
+}
+
 // ==================== RENDER FUNCTIONS ====================
 
 // Projects 렌더링
 function renderProjects() {
-  const grid = document.getElementById("projectsGrid");
-  if (!grid) return;
+  const list = document.getElementById("projectsGrid");
+  if (!list) return;
 
-  grid.innerHTML = PROJECTS.map(p => `
-    <article class="project-card">
-      <img src="${p.img}" alt="${p.title[currentLang]}" class="project-img" loading="lazy">
-      <div class="project-content">
+  list.innerHTML = PROJECTS.map((p, i) => `
+    <article class="project-row line reveal" style="--i:${i % 6}">
+      <div class="project-thumb-wrap">
+        <img src="${p.img}" alt="${p.title[currentLang]}" class="project-thumb" loading="lazy" onerror="this.style.opacity='0'">
+      </div>
+      <div class="project-body">
+        <div class="project-head">
+          <span class="project-index">PROJECT_${pad(i + 1)}</span>
+          <span>${slugify(p.title.en)}</span>
+        </div>
         <h3 class="project-title">${p.title[currentLang]}</h3>
         <p class="project-desc">${p.desc[currentLang]}</p>
-        <p class="project-role"><strong>${TRANSLATIONS[currentLang]['role-label']}</strong> ${p.role[currentLang]}</p>
+        <p class="project-role"><span class="role-label">${TRANSLATIONS[currentLang]['role-label']}</span>${p.role[currentLang]}</p>
         <div class="project-tags">
           ${p.tags[currentLang].map(t => `<span class="tag problem">${t}</span>`).join("")}
           ${p.tech.map(t => `<span class="tag tech">${t}</span>`).join("")}
         </div>
-        ${p.link !== "#" ? `<a href="${p.link}" target="_blank" class="project-link">${TRANSLATIONS[currentLang]['view-detail']}</a>` : ""}
+        ${p.link !== "#" ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer" class="project-link">${TRANSLATIONS[currentLang]['view-detail']}</a>` : ""}
       </div>
     </article>
   `).join("");
+
+  observeReveal();
 }
 
 // Experience 렌더링
@@ -452,7 +465,7 @@ function renderExperience() {
   if (!timeline) return;
 
   timeline.innerHTML = EXPERIENCES.map((exp, index) => `
-    <div class="experience-item" style="animation-delay: ${index * 0.1}s">
+    <div class="experience-item line reveal" style="--i:${index}">
       <div class="experience-header">
         <div>
           <h3 class="experience-role">${exp.role[currentLang]}</h3>
@@ -467,6 +480,8 @@ function renderExperience() {
       </ul>
     </div>
   `).join("");
+
+  observeReveal();
 }
 
 // 다국어 텍스트 업데이트
@@ -482,8 +497,7 @@ function updateTranslations() {
 // 언어 전환
 function switchLanguage(lang) {
   currentLang = lang;
-  
-  // 버튼 활성화 상태 업데이트
+
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.remove('active');
     if (btn.getAttribute('data-lang') === lang) {
@@ -491,51 +505,80 @@ function switchLanguage(lang) {
     }
   });
 
-  // HTML lang 속성 변경
   document.documentElement.lang = lang;
 
-  // 컨텐츠 재렌더링
   updateTranslations();
   renderProjects();
   renderExperience();
 }
 
+// ==================== SCROLL REVEAL (IntersectionObserver) ====================
+let revealObserver;
+
+function getRevealObserver() {
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  }
+  return revealObserver;
+}
+
+function observeReveal() {
+  const observer = getRevealObserver();
+  document.querySelectorAll('.reveal:not(.in-view)').forEach(el => observer.observe(el));
+}
+
 // ==================== SCROLL EVENTS ====================
-// 스크롤 시 네비게이션 & 맨 위로 버튼 표시
 window.addEventListener('scroll', () => {
   const nav = document.getElementById('nav');
   const scrollBtn = document.getElementById('scrollToTop');
-  
-  // 네비게이션 표시/숨김
+  const progress = document.getElementById('scrollProgress');
+
   if (window.scrollY > 100) {
     nav.classList.remove('nav-hidden');
   } else {
     nav.classList.add('nav-hidden');
   }
-  
-  // 맨 위로 버튼 표시/숨김
+
   if (window.scrollY > 300) {
     scrollBtn.classList.add('visible');
   } else {
     scrollBtn.classList.remove('visible');
   }
-});
+
+  if (progress) {
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = scrollHeight > 0 ? (window.scrollY / scrollHeight) * 100 : 0;
+    progress.style.width = pct + '%';
+  }
+}, { passive: true });
 
 // ==================== INIT ====================
 document.addEventListener("DOMContentLoaded", () => {
-  // 초기 렌더링
   renderProjects();
   renderExperience();
 
-  // 언어 버튼 이벤트 리스너
+  document.querySelectorAll('section > .container, section > .container-wide').forEach((el) => {
+    el.classList.add('reveal');
+  });
+  document.querySelectorAll('.diff-line').forEach((el) => {
+    el.classList.add('reveal');
+  });
+  observeReveal();
+
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const lang = btn.getAttribute('data-lang');
       switchLanguage(lang);
     });
   });
-  
-  // 맨 위로 버튼 클릭 이벤트
+
   const scrollBtn = document.getElementById('scrollToTop');
   scrollBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
