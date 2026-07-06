@@ -26,7 +26,14 @@ const TRANSLATIONS = {
     'view-detail': '상세보기 →',
     'nav-projects': '프로젝트',
     'nav-experience': '경력',
-    'nav-contact': '연락처'
+    'nav-contact': '연락처',
+    'featured-label': '대표 프로젝트',
+    'more-label': '그 외 프로젝트',
+    'case-problem': '문제',
+    'case-approach': '접근',
+    'case-outcome': '결과',
+    'hero-lede': 'AI/ML, 백엔드, 프론트엔드를 넘나들며 실제 서비스의 문제를 코드로 풀어온 기록입니다.',
+    'colophon-title': '이야기 나눠요.'
   },
   en: {
     'hero-title-1': 'Defining problems,',
@@ -51,7 +58,14 @@ const TRANSLATIONS = {
     'view-detail': 'View Details →',
     'nav-projects': 'Projects',
     'nav-experience': 'Experience',
-    'nav-contact': 'Contact'
+    'nav-contact': 'Contact',
+    'featured-label': 'Featured Work',
+    'more-label': 'More Projects',
+    'case-problem': 'Problem',
+    'case-approach': 'Approach',
+    'case-outcome': 'Outcome',
+    'hero-lede': 'A record of solving real service problems with code — across AI/ML, backend, and frontend.',
+    'colophon-title': "Let's Talk."
   },
   ja: {
     'hero-title-1': '問題を定義し、',
@@ -76,7 +90,14 @@ const TRANSLATIONS = {
     'view-detail': '詳細を見る →',
     'nav-projects': 'プロジェクト',
     'nav-experience': '経歴',
-    'nav-contact': '連絡先'
+    'nav-contact': '連絡先',
+    'featured-label': '代表プロジェクト',
+    'more-label': 'その他のプロジェクト',
+    'case-problem': '課題',
+    'case-approach': 'アプローチ',
+    'case-outcome': '成果',
+    'hero-lede': 'AI/ML、バックエンド、フロントエンドを横断しながら、実際のサービスの問題をコードで解決してきた記録です。',
+    'colophon-title': 'お話ししましょう。'
   }
 };
 
@@ -139,22 +160,22 @@ const PROJECTS = [
       ja: "AI画像分析Web"
     },
     desc: {
-      ko: "이미지 업로드 기반 분석 결과를 웹으로 제공",
-      en: "Web-based image analysis with upload functionality",
-      ja: "画像アップロードベースの分析結果をWebで提供"
+      ko: "VGG16 기반 마스크 감지(정확도 98%)와 퍼스널 컬러 진단, BeautyGAN 가상 메이크업까지 결합한 뷰티 분석 웹 서비스",
+      en: "A beauty-analysis web service combining VGG16-based mask detection (98% accuracy), personal color diagnosis, and BeautyGAN virtual makeup",
+      ja: "VGG16ベースのマスク検出（精度98%）とパーソナルカラー診断、BeautyGAN仮想メイクを組み合わせたビューティー分析Webサービス"
     },
     role: {
-      ko: "이미지 처리 로직 설계 및 AI 결과 시각화",
-      en: "Image processing logic design and AI visualization",
-      ja: "画像処理ロジック設計およびAI結果の視覚化"
+      ko: "Vue.js 기반 UI/UX 설계 및 Spring Boot API 연동, 퍼스널 컬러 결과 페이지 시각화 구현",
+      en: "Designed the Vue.js UI/UX, integrated the Spring Boot API, and built the personal-color result visualization",
+      ja: "Vue.jsベースのUI/UX設計およびSpring Boot API連携、パーソナルカラー結果ページの可視化実装"
     },
     img: "assets/images/project3.png",
     tags: {
-      ko: ["비전 AI", "실시간 처리"],
-      en: ["Computer Vision", "Real-time Processing"],
-      ja: ["ビジョンAI", "リアルタイム処理"]
+      ko: ["비전 AI", "정확도 98%"],
+      en: ["Computer Vision", "98% Accuracy"],
+      ja: ["ビジョンAI", "精度98%"]
     },
-    tech: ["TensorFlow", "OpenCV"],
+    tech: ["TensorFlow", "OpenCV", "BeautyGAN"],
     link: "https://scandalous-lady-ca4.notion.site/AI-c8520be1e0a44c8b82c79be1d9e3c346"
   },
   {
@@ -189,20 +210,20 @@ const PROJECTS = [
       ja: "インタビュー回答分析機"
     },
     desc: {
-      ko: "텍스트 답변을 분석하여 개선 피드백 제공",
-      en: "Text analysis providing improvement feedback",
-      ja: "テキスト回答を分析し、改善フィードバックを提供"
+      ko: "KoBERT를 파인튜닝해 면접 답변을 52개 의도 유형으로 분류하고 직무 연관도·감정까지 분석하는 피드백 엔진 (훈련 정확도 96.4%, 검증 74.1%)",
+      en: "A feedback engine that fine-tunes KoBERT to classify interview answers into 52 intent types and analyzes job relevance and sentiment (96.4% training accuracy, 74.1% validation)",
+      ja: "KoBERTをファインチューニングして面接回答を52の意図タイプに分類し、職務関連度・感情まで分析するフィードバックエンジン（訓練精度96.4%、検証74.1%）"
     },
     role: {
-      ko: "자연어 처리 파이프라인 설계 및 분석 로직 구현",
-      en: "NLP pipeline design and analysis logic implementation",
-      ja: "自然言語処理パイプライン設計および分析ロジック実装"
+      ko: "분류 태스크 설계 및 KoBERT 파인튜닝, 감정 점수·직무 키워드 매칭 로직 구현",
+      en: "Designed the classification task, fine-tuned KoBERT, and built the sentiment-scoring and job-keyword matching logic",
+      ja: "分類タスク設計およびKoBERTファインチューニング、感情スコア・職務キーワードマッチングロジック実装"
     },
     img: "assets/images/project5.png",
     tags: {
-      ko: ["의도 분석", "텍스트 분류"],
-      en: ["Intent Analysis", "Text Classification"],
-      ja: ["意図分析", "テキスト分類"]
+      ko: ["의도 분석 52종", "훈련 96.4%"],
+      en: ["52 Intent Types", "96.4% Training Acc."],
+      ja: ["意図分析52種", "訓練96.4%"]
     },
     tech: ["KoBERT", "Python"],
     link: "https://scandalous-lady-ca4.notion.site/11006503eb5880da95ead45c99ff0f61"
@@ -214,22 +235,22 @@ const PROJECTS = [
       ja: "パーソナルカラー診断アルゴリズム"
     },
     desc: {
-      ko: "얼굴·눈 색상 분석을 통한 퍼스널 컬러 분류",
-      en: "Personal color classification via face and eye analysis",
-      ja: "顔・目の色分析によるパーソナルカラー分類"
+      ko: "dlib 랜드마크로 피부색(70%)·눈동자색(30%) 가중 평균을 추출해, 4계절 표준 컬러와의 유클리드 거리로 퍼스널 컬러를 정량 진단",
+      en: "Extracts a weighted average of skin tone (70%) and eye color (30%) via dlib landmarks, then diagnoses personal color season by Euclidean distance to standard seasonal palettes",
+      ja: "dlibランドマークで肌色（70%）・瞳の色（30%）の加重平均を抽出し、4シーズンの標準カラーとのユークリッド距離でパーソナルカラーを定量診断"
     },
     role: {
-      ko: "이미지 특징 추출 및 분류 로직 설계",
-      en: "Feature extraction and classification logic design",
-      ja: "画像特徴抽出および分類ロジック設計"
+      ko: "얼굴 랜드마크 검출 및 색상 추출 알고리즘 설계, PersonalColorAnalyzer 클래스로 재사용 가능한 구조 구현",
+      en: "Designed the facial-landmark detection and color-extraction algorithm, packaged as a reusable PersonalColorAnalyzer class",
+      ja: "顔ランドマーク検出および色抽出アルゴリズム設計、PersonalColorAnalyzerクラスとして再利用可能な構造を実装"
     },
     img: "assets/images/project6.png",
     tags: {
-      ko: ["특징 추출", "분류 문제"],
-      en: ["Feature Extraction", "Classification"],
-      ja: ["特徴抽出", "分類問題"]
+      ko: ["가중 유클리드 거리", "dlib 68랜드마크"],
+      en: ["Weighted Euclidean Distance", "dlib 68-point"],
+      ja: ["加重ユークリッド距離", "dlib 68点"]
     },
-    tech: ["OpenCV", "Scikit-learn"],
+    tech: ["OpenCV", "dlib", "Scikit-learn"],
     link: "https://scandalous-lady-ca4.notion.site/11006503eb58805da19dca00169207ef"
   },
   {
@@ -239,52 +260,112 @@ const PROJECTS = [
       ja: "ChatGPTベースのサービス企画"
     },
     desc: {
-      ko: "보이스피싱 대응 시뮬레이션 서비스 기획",
-      en: "Voice phishing response simulation service planning",
-      ja: "ボイスフィッシング対応シミュレーションサービス企画"
+      ko: "기관 사칭·대출빙자 등 5가지 유형의 보이스피싱을 체험하는 AI 챗봇 시뮬레이션 훈련 서비스를 12파트 기획안으로 구성",
+      en: "Structured a 12-part service proposal for an AI chatbot simulation that trains users against 5 real voice-phishing scenarios (agency impersonation, fraudulent loans, etc.)",
+      ja: "機関偽装・融資詐欺など5類型のボイスフィッシングを体験するAIチャットボットシミュレーション訓練サービスを12パートの企画案として構成"
     },
     role: {
-      ko: "문제 정의 및 AI 활용 시나리오 설계",
-      en: "Problem definition and AI scenario design",
-      ja: "問題定義およびAI活用シナリオ設計"
+      ko: "ChatGPT로 아이디어 브레인스토밍부터 목차 설계·기획안 작성까지 전 과정 주도, 실무 적용 가능한 수준으로 표현·흐름 보완",
+      en: "Led the full process with ChatGPT — from brainstorming to outline design to writing the proposal — then refined the language and flow to a practice-ready level",
+      ja: "ChatGPTでアイデアのブレインストーミングから目次設計・企画案作成まで全過程を主導し、実務適用可能なレベルまで表現・流れを補完"
     },
     img: "assets/images/project7.png",
     tags: {
-      ko: ["문제 정의", "AI 기획"],
-      en: ["Problem Definition", "AI Planning"],
-      ja: ["問題定義", "AI企画"]
+      ko: ["시나리오 5종", "기획안 12파트"],
+      en: ["5 Scenarios", "12-Part Proposal"],
+      ja: ["シナリオ5種", "企画案12パート"]
     },
-    tech: ["OpenAI GPT"],
+    tech: ["ChatGPT", "Genspark"],
     link: "https://scandalous-lady-ca4.notion.site/ChatGPT-20406503eb588076be44ce38d2f35a42"
   },
   {
     title: {
       ko: "스마트스토어 FAQ RAG 챗봇",
       en: "Smart Store FAQ RAG Chatbot",
-      ja: "スマートストアFAG RAGチャットボット"
+      ja: "スマートストアFAQ RAGチャットボット"
     },
     desc: {
-      ko: "FAQ 문서를 기반으로 한 검색·응답 챗봇",
-      en: "Search and response chatbot based on FAQ documents",
-      ja: "FAQドキュメントに基づく検索・応答チャットボット"
+      ko: "ChromaDB 벡터 검색과 GPT-4o를 결합한 RAG 파이프라인으로, 실전 시나리오 테스트 기준 응답 정확도 90% 이상을 달성한 FAQ 챗봇",
+      en: "A FAQ chatbot combining ChromaDB vector search with GPT-4o in a RAG pipeline, reaching over 90% response accuracy in real-scenario testing",
+      ja: "ChromaDBベクトル検索とGPT-4oを組み合わせたRAGパイプラインで、実践シナリオテスト基準で応答精度90%以上を達成したFAQチャットボット"
     },
     role: {
-      ko: "벡터 검색 구조 설계 및 챗봇 흐름 구현",
-      en: "Vector search architecture and chatbot flow implementation",
-      ja: "ベクトル検索構造設計およびチャットボットフロー実装"
+      ko: "OpenAI Embedding·ChromaDB 연동 및 LangChain RAG 파이프라인 설계, Docker Compose로 백엔드·프론트 통합 배포",
+      en: "Integrated OpenAI Embedding with ChromaDB, designed the LangChain RAG pipeline, and deployed the full stack with Docker Compose",
+      ja: "OpenAI Embedding・ChromaDB連携およびLangChain RAGパイプライン設計、Docker Composeでバックエンド・フロントを統合デプロイ"
     },
     img: "assets/images/project8.png",
     tags: {
-      ko: ["정보 검색", "응답 정확도"],
-      en: ["Information Retrieval", "Response Accuracy"],
-      ja: ["情報検索", "応答精度"]
+      ko: ["응답 정확도 90%+", "RAG"],
+      en: ["90%+ Response Accuracy", "RAG"],
+      ja: ["応答精度90%+", "RAG"]
     },
-    tech: ["Django", "LangChain", "RAG"],
+    tech: ["Django", "LangChain", "ChromaDB", "GPT-4o"],
     link: "https://scandalous-lady-ca4.notion.site/FAQ-RAG-20f06503eb5880efa171d8b3e203bd52"
   }
 ];
 
-// ==================== EXPERIENCE ====================
+// ==================== FEATURED CASE STUDIES ====================
+// 대표 3개 프로젝트(KBO 플랫폼 / 커피 원두 예측 서비스 / AI 면접 서비스)를
+// Problem-Approach-Outcome 구조로 확장. 본인이 제공한 프로젝트 상세 문서에
+// 실제로 기재된 수치와 사실만 사용했으며, 새로운 성과를 지어내지 않았음.
+const FEATURED_IDS = [0, 1, 3];
+
+const CASE_STUDIES = {
+  0: {
+    problem: {
+      ko: "경기, 날씨, 뉴스, 증권, 커뮤니티 등 KBO 관련 정보가 여러 사이트에 흩어져 있어 팬들이 매번 따로 확인해야 했다.",
+      en: "Game data, weather, news, stock info, and community boards for KBO were scattered across separate sites that fans had to check one by one.",
+      ja: "試合データ、天気、ニュース、証券情報、コミュニティなどKBO関連の情報が複数のサイトに散在し、都度確認する必要があった。"
+    },
+    approach: {
+      ko: "Python 크롤러(BeautifulSoup4, Selenium)로 데이터를 자동 수집하고, Django와 Spring MVC라는 이기종 백엔드를 RESTful API로 통합했으며, Highcharts로 대용량 데이터 시각화 성능을 최적화했다.",
+      en: "Built Python crawlers (BeautifulSoup4, Selenium) to automate collection, integrated two different backend stacks — Django and Spring MVC — through a unified RESTful API, and optimized large-scale data visualization with Highcharts.",
+      ja: "Pythonクローラー（BeautifulSoup4, Selenium）でデータを自動収集し、DjangoとSpring MVCという異種バックエンドをRESTful APIで統合、Highchartsで大容量データの可視化性能を最適化した。"
+    },
+    outcome: {
+      ko: "사이트 구조가 바뀌어도 대응 가능한 크롤링 안정성을 확보하고, 서로 다른 두 백엔드를 하나의 서비스로 통합하는 데 성공했다.",
+      en: "Achieved crawling stability that holds up even when source sites change structure, and successfully unified two separate backend systems into one service.",
+      ja: "サイト構造の変更にも対応できるクローリング安定性を確保し、2つの異なるバックエンドを1つのサービスに統合することに成功した。"
+    }
+  },
+  1: {
+    problem: {
+      ko: "커피 품질 평가가 사람의 주관적 판단에 의존해 일관성이 떨어졌다.",
+      en: "Coffee quality assessment relied on subjective human judgment, making it inconsistent.",
+      ja: "コーヒーの品質評価は人の主観的判断に依存しており、一貫性に欠けていた。"
+    },
+    approach: {
+      ko: "9가지 원두 특성 데이터로 KNN 모델을 학습시키며 K=1~103 구간을 전부 실험해 최적 K값을 찾고, Django+Vue.js로 예측 결과를 실시간으로 확인할 수 있는 웹 서비스를 구현했다.",
+      en: "Trained a KNN model on 9 bean characteristics, testing K values from 1 to 103 to find the optimum, then built a web service with Django and Vue.js to show predictions in real time.",
+      ja: "9つの豆の特性データでKNNモデルを学習させ、K=1〜103の区間をすべて実験して最適なK値を探し、Django+Vue.jsで予測結果をリアルタイムに確認できるWebサービスを実装した。"
+    },
+    outcome: {
+      ko: "K=57에서 정확도 87.84%를 달성해, Logistic Regression(86.04%)·Voting Classifier(86.76%) 등 비교 모델들을 앞섰다.",
+      en: "Reached 87.84% accuracy at K=57, outperforming comparison models including Logistic Regression (86.04%) and a Voting Classifier (86.76%).",
+      ja: "K=57で精度87.84%を達成し、ロジスティック回帰（86.04%）やVoting Classifier（86.76%）などの比較モデルを上回った。"
+    }
+  },
+  3: {
+    problem: {
+      ko: "취업 준비생들이 실전 감각을 기를 기회가 부족하고, 면접 피드백을 받을 창구도 마땅치 않았다.",
+      en: "Job seekers had few chances to practice under real interview conditions or get feedback on their answers.",
+      ja: "就活生が実戦感覚を養う機会が不足し、面接フィードバックを受ける窓口も乏しかった。"
+    },
+    approach: {
+      ko: "AI 면접 시스템(표정·자세·음성 분석, KoBERT 기반 답변 분석)과 실시간 컨설턴트 매칭을 결합한 역할 기반 플랫폼을 설계하고, JWT+Redis+BCrypt 인증 구조와 Docker 환경을 구축하며 기획·일정 관리·코드 리뷰까지 프로젝트를 리드했다.",
+      en: "Designed a role-based platform combining an AI interview system (facial expression, posture, and voice analysis plus KoBERT-based answer analysis) with real-time consultant matching, built on a JWT + Redis + BCrypt auth structure and a Dockerized environment — leading the planning, scheduling, and code review.",
+      ja: "AI面接システム（表情・姿勢・音声分析、KoBERTベースの回答分析）とリアルタイムコンサルタントマッチングを組み合わせたロールベースのプラットフォームを設計し、JWT+Redis+BCryptベースの認証構造とDocker環境を構築、企画・スケジュール管理・コードレビューまでプロジェクトをリードした。"
+    },
+    outcome: {
+      ko: "답변 의도 분석 정확도 90% 이상을 달성했고, Redis 기반 인증 구조로 인증 속도를 40% 개선했으며, Docker 환경 구성으로 개발 속도를 50% 끌어올렸다.",
+      en: "Reached over 90% accuracy in answer-intent analysis, improved authentication speed by 40% with Redis, and increased development speed by 50% through the Docker setup.",
+      ja: "回答意図分析の精度90%以上を達成し、Redisベースの認証構造で認証速度を40%改善、Docker環境構築で開発速度を50%引き上げた。"
+    }
+  }
+};
+
+
 const EXPERIENCES = [
   {
     period: "2025.11 – Present",
@@ -429,56 +510,113 @@ function pad(n) {
 
 // ==================== RENDER FUNCTIONS ====================
 
-// Projects 렌더링
+// Projects 렌더링 — 대표작(feature spread) / 그 외(brief) 분리
 function renderProjects() {
-  const list = document.getElementById("projectsGrid");
-  if (!list) return;
+  const featuredEl = document.getElementById("featuredGrid");
+  const listEl = document.getElementById("projectsGrid");
+  if (!featuredEl || !listEl) return;
 
-  list.innerHTML = PROJECTS.map((p, i) => `
-    <article class="project-row line reveal" style="--i:${i % 6}">
-      <div class="project-thumb-wrap">
-        <img src="${p.img}" alt="${p.title[currentLang]}" class="project-thumb" loading="lazy" onerror="this.style.opacity='0'">
-      </div>
-      <div class="project-body">
-        <div class="project-head">
-          <span class="project-index">PROJECT_${pad(i + 1)}</span>
-          <span>${slugify(p.title.en)}</span>
-        </div>
-        <h3 class="project-title">${p.title[currentLang]}</h3>
-        <p class="project-desc">${p.desc[currentLang]}</p>
-        <p class="project-role"><span class="role-label">${TRANSLATIONS[currentLang]['role-label']}</span>${p.role[currentLang]}</p>
-        <div class="project-tags">
-          ${p.tags[currentLang].map(t => `<span class="tag problem">${t}</span>`).join("")}
-          ${p.tech.map(t => `<span class="tag tech">${t}</span>`).join("")}
-        </div>
-        ${p.link !== "#" ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer" class="project-link">${TRANSLATIONS[currentLang]['view-detail']}</a>` : ""}
-      </div>
-    </article>
-  `).join("");
+  const featuredHTML = [];
+  const moreHTML = [];
+
+  PROJECTS.forEach((p, i) => {
+    const tagsLine = [...p.tags[currentLang], ...p.tech].join(' · ');
+    const linkHTML = p.link !== "#"
+      ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer" class="spread-link">${TRANSLATIONS[currentLang]['view-detail']}</a>`
+      : "";
+
+    if (FEATURED_IDS.includes(i)) {
+      const cs = CASE_STUDIES[i];
+      featuredHTML.push(`
+        <article class="spread reveal" style="--i:${featuredHTML.length}">
+          <div class="spread-media">
+            <div class="spread-media-wrap">
+              <img src="${p.img}" alt="${p.title[currentLang]}" loading="lazy" onerror="this.style.opacity='0'">
+            </div>
+          </div>
+          <div class="spread-content">
+            <span class="spread-eyebrow">No. ${pad(i + 1)} — ${slugify(p.title.en)}</span>
+            <h3 class="spread-title">${p.title[currentLang]}</h3>
+            <dl class="spread-facts">
+              <div>
+                <dt>${TRANSLATIONS[currentLang]['case-problem']}</dt>
+                <dd>${cs.problem[currentLang]}</dd>
+              </div>
+              <div>
+                <dt>${TRANSLATIONS[currentLang]['case-approach']}</dt>
+                <dd>${cs.approach[currentLang]}</dd>
+              </div>
+              <div>
+                <dt>${TRANSLATIONS[currentLang]['case-outcome']}</dt>
+                <dd>${cs.outcome[currentLang]}</dd>
+              </div>
+            </dl>
+            <p class="spread-tags">${tagsLine}</p>
+            ${linkHTML}
+          </div>
+        </article>
+      `);
+    } else {
+      moreHTML.push(`
+        <li class="brief-item reveal" style="--i:${moreHTML.length}">
+          <span class="brief-num">${pad(i + 1)}</span>
+          <div class="brief-body">
+            <h4 class="brief-title">${p.title[currentLang]}</h4>
+            <p class="brief-desc">${p.desc[currentLang]}</p>
+            <span class="brief-meta">${tagsLine}</span>
+          </div>
+          ${p.link !== "#" ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer" class="brief-link">→</a>` : ""}
+        </li>
+      `);
+    }
+  });
+
+  featuredEl.innerHTML = featuredHTML.join("");
+  listEl.innerHTML = moreHTML.join("");
 
   observeReveal();
 }
 
-// Experience 렌더링
+// 목차(TOC) 하단 텍스트 — 실제 데이터에서 계산, 수치 조작 없음
+function renderTocStats() {
+  const projectsSub = document.getElementById("tocProjectsSub");
+  const experienceSub = document.getElementById("tocExperienceSub");
+  if (!projectsSub || !experienceSub) return;
+
+  const featuredCount = FEATURED_IDS.length;
+  const totalCount = PROJECTS.length;
+  const projectsText = {
+    ko: `대표 ${featuredCount}건 · 전체 ${totalCount}건`,
+    en: `${featuredCount} Featured · ${totalCount} Total`,
+    ja: `代表${featuredCount}件・全${totalCount}件`
+  };
+  projectsSub.textContent = projectsText[currentLang];
+
+  const years = EXPERIENCES
+    .map(exp => parseInt(exp.period.slice(0, 4), 10))
+    .filter(y => !isNaN(y));
+  const startYear = Math.min(...years);
+  const currentYear = new Date().getFullYear();
+  const presentText = { ko: '현재', en: 'Present', ja: '現在' };
+  experienceSub.textContent = `${startYear} — ${presentText[currentLang]}`;
+}
+
+// Experience 렌더링 (credits list)
 function renderExperience() {
   const timeline = document.getElementById("experienceTimeline");
   if (!timeline) return;
 
   timeline.innerHTML = EXPERIENCES.map((exp, index) => `
-    <div class="experience-item line reveal" style="--i:${index}">
-      <div class="experience-header">
-        <div>
-          <h3 class="experience-role">${exp.role[currentLang]}</h3>
-          ${exp.company ? `<p class="experience-company">${exp.company}</p>` : ""}
-        </div>
-        <span class="experience-period">${exp.period}</span>
+    <li class="credit-item reveal" style="--i:${index}">
+      <span class="credit-period">${exp.period}</span>
+      <div>
+        <h3 class="credit-role">${exp.role[currentLang]}</h3>
+        ${exp.company ? `<p class="credit-company">${exp.company}</p>` : ""}
+        <ul class="credit-achievements">
+          ${exp.achievements[currentLang].map(achievement => `<li>${achievement}</li>`).join("")}
+        </ul>
       </div>
-      <ul class="experience-achievements">
-        ${exp.achievements[currentLang].map(achievement => `
-          <li>${achievement}</li>
-        `).join("")}
-      </ul>
-    </div>
+    </li>
   `).join("");
 
   observeReveal();
@@ -510,6 +648,7 @@ function switchLanguage(lang) {
   updateTranslations();
   renderProjects();
   renderExperience();
+  renderTocStats();
 }
 
 // ==================== SCROLL REVEAL (IntersectionObserver) ====================
@@ -536,26 +675,12 @@ function observeReveal() {
 
 // ==================== SCROLL EVENTS ====================
 window.addEventListener('scroll', () => {
-  const nav = document.getElementById('nav');
   const scrollBtn = document.getElementById('scrollToTop');
-  const progress = document.getElementById('scrollProgress');
 
-  if (window.scrollY > 100) {
-    nav.classList.remove('nav-hidden');
-  } else {
-    nav.classList.add('nav-hidden');
-  }
-
-  if (window.scrollY > 300) {
+  if (window.scrollY > 400) {
     scrollBtn.classList.add('visible');
   } else {
     scrollBtn.classList.remove('visible');
-  }
-
-  if (progress) {
-    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = scrollHeight > 0 ? (window.scrollY / scrollHeight) * 100 : 0;
-    progress.style.width = pct + '%';
   }
 }, { passive: true });
 
@@ -563,11 +688,9 @@ window.addEventListener('scroll', () => {
 document.addEventListener("DOMContentLoaded", () => {
   renderProjects();
   renderExperience();
+  renderTocStats();
 
-  document.querySelectorAll('section > .container, section > .container-wide').forEach((el) => {
-    el.classList.add('reveal');
-  });
-  document.querySelectorAll('.diff-line').forEach((el) => {
+  document.querySelectorAll('section > .container, section > .container-wide, section > .colophon').forEach((el) => {
     el.classList.add('reveal');
   });
   observeReveal();
