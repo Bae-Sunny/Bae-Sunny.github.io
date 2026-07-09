@@ -706,4 +706,21 @@ document.addEventListener("DOMContentLoaded", () => {
   scrollBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  const themeToggle = document.getElementById('themeToggle');
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  themeToggle.setAttribute('aria-pressed', String(isDark));
+
+  themeToggle.addEventListener('click', () => {
+    const nowDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (nowDark) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+      themeToggle.setAttribute('aria-pressed', 'false');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      themeToggle.setAttribute('aria-pressed', 'true');
+    }
+  });
 });
