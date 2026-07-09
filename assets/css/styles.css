@@ -14,12 +14,42 @@
 
   --ink-invert: #fafaf7;
   --paper-invert: #15140f;
+  --contact-accent: #8fae9c;
+  --colophon-sub: rgba(250, 250, 247, 0.55);
+  --colophon-border: rgba(250, 250, 247, 0.14);
 
   --font-serif: 'Fraunces', serif;
   --font-sans: 'Inter', sans-serif;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --dur: 0.6s;
+}
+
+[data-theme="dark"] {
+  --paper: #171613;
+  --paper-alt: #1f1e1a;
+  --ink: #f1f0ea;
+  --ink-soft: #b3b0a6;
+  --ink-faint: #77746b;
+  --rule: rgba(255, 255, 255, 0.1);
+  --rule-strong: rgba(255, 255, 255, 0.18);
+
+  --accent: #7fb89b;
+  --accent-soft: rgba(127, 184, 155, 0.12);
+  --accent-line: rgba(127, 184, 155, 0.35);
+
+  --ink-invert: #f1f0ea;
+  --paper-invert: #0a0a08;
+  --contact-accent: #7fb89b;
+  --colophon-sub: rgba(241, 240, 234, 0.5);
+  --colophon-border: rgba(241, 240, 234, 0.14);
+}
+
+body,
+#masthead,
+#projects,
+.spread-media-wrap img {
+  transition: background-color 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease);
 }
 
 * {
@@ -234,6 +264,49 @@ a {
   color: var(--ink);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+/* ---- Theme toggle ---- */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle-track {
+  display: block;
+  width: 32px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid var(--rule-strong);
+  background: var(--paper-alt);
+  position: relative;
+  transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--ink-faint);
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+[data-theme="dark"] .theme-toggle-track {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+}
+
+[data-theme="dark"] .theme-toggle-thumb {
+  transform: translateX(14px);
+  background: var(--accent);
 }
 
 @media (max-width: 700px) {
@@ -678,7 +751,7 @@ a {
 }
 
 #contact .kicker {
-  color: #8fae9c;
+  color: var(--contact-accent);
 }
 
 .colophon {
@@ -697,7 +770,7 @@ a {
 
 .colophon-sub {
   font-size: 15.5px;
-  color: rgba(250, 250, 247, 0.55);
+  color: var(--colophon-sub);
   margin-bottom: 44px;
 }
 
@@ -715,13 +788,13 @@ a {
   font-family: var(--font-serif);
   font-size: 20px;
   padding: 16px 0;
-  border-bottom: 1px solid rgba(250, 250, 247, 0.14);
+  border-bottom: 1px solid var(--colophon-border);
   color: var(--ink-invert);
   transition: color 0.25s var(--ease), gap 0.25s var(--ease);
 }
 
 .colophon-links a:hover {
-  color: #8fae9c;
+  color: var(--contact-accent);
   gap: 14px;
 }
 
@@ -738,7 +811,8 @@ a {
 }
 
 .footer-copyright {
-  color: rgba(250, 250, 247, 0.35);
+  color: var(--colophon-sub);
+  opacity: 0.7;
   font-size: 12px;
   letter-spacing: 0.02em;
 }
