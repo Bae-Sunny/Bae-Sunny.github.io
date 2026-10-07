@@ -8,90 +8,109 @@ const TRANSLATIONS = {
     'hero-title-2': '끝까지 해결',
     'hero-title-3': '하는',
     'hero-title-4': '풀스택 개발자',
+    'hero-lede': 'AI/ML, 백엔드, 프론트엔드를 넘나들며 실제 서비스의 문제를 코드로 풀어온 기록입니다.',
     'projects-title': 'All Projects',
     'projects-subtitle': '실제 업무·학습·실험 과정에서 발생한 문제를 해결한 결과물입니다.',
     'experience-title': 'Experience',
     'experience-subtitle': '문제 해결이 필요한 순간, 직접 설계하고 구현했습니다.',
     'contact-title': 'Contact',
     'contact-subtitle': '함께 문제를 풀어보고 싶다면 언제든지 연락 주세요.',
-    'whoami-name': 'Bae Sunhwa',
-    'whoami-role': '풀스택 개발자',
-    'role-label': 'role:',
+    'colophon-title': '이야기 나눠요.',
     'view-detail': '상세보기 →',
     'nav-projects': '프로젝트',
     'nav-experience': '경력',
     'nav-contact': '연락처',
     'featured-label': '대표 프로젝트',
     'more-label': '그 외 프로젝트',
+    'case-role': '역할',
     'case-problem': '문제',
     'case-approach': '접근',
     'case-outcome': '결과',
-    'hero-lede': 'AI/ML, 백엔드, 프론트엔드를 넘나들며 실제 서비스의 문제를 코드로 풀어온 기록입니다.',
-    'colophon-title': '이야기 나눠요.'
+    'aria-theme': '다크모드 전환',
+    'aria-top': '맨 위로 이동',
+    'aria-lang': '언어 선택',
+    'aria-toc': '목차'
   },
   en: {
     'hero-title-1': 'Defining problems,',
     'hero-title-2': 'solving them',
     'hero-title-3': 'to the end',
     'hero-title-4': 'Full-stack Developer',
-    'hero-subtitle-1': 'I look at',
-    'hero-subtitle-2': 'why this problem occurred',
-    'hero-subtitle-3': 'before features.',
-    'hero-subtitle-4': 'I\'ve been solving real problems in actual services with code.',
-    'diff-remove': 'Focus only on shipping features',
-    'diff-add': 'Understand why the problem exists first',
+    'hero-lede': 'A record of solving real service problems with code — across AI/ML, backend, and frontend.',
     'projects-title': 'All Projects',
     'projects-subtitle': 'Real-world solutions from work, learning, and experimentation.',
     'experience-title': 'Experience',
     'experience-subtitle': 'When problems arose, I designed and implemented solutions.',
     'contact-title': 'Contact',
     'contact-subtitle': 'Let\'s solve problems together.',
-    'whoami-name': 'Bae Sunhwa',
-    'whoami-role': 'Full-stack Developer',
-    'role-label': 'role:',
+    'colophon-title': "Let's Talk.",
     'view-detail': 'View Details →',
     'nav-projects': 'Projects',
     'nav-experience': 'Experience',
     'nav-contact': 'Contact',
     'featured-label': 'Featured Work',
     'more-label': 'More Projects',
+    'case-role': 'Role',
     'case-problem': 'Problem',
     'case-approach': 'Approach',
     'case-outcome': 'Outcome',
-    'hero-lede': 'A record of solving real service problems with code — across AI/ML, backend, and frontend.',
-    'colophon-title': "Let's Talk."
+    'aria-theme': 'Toggle dark mode',
+    'aria-top': 'Scroll to top',
+    'aria-lang': 'Select language',
+    'aria-toc': 'Table of contents'
   },
   ja: {
     'hero-title-1': '問題を定義し、',
     'hero-title-2': '最後まで解決',
     'hero-title-3': 'する',
     'hero-title-4': 'フルスタック開発者',
-    'hero-subtitle-1': '機能より',
-    'hero-subtitle-2': 'なぜこの問題が起きたのか',
-    'hero-subtitle-3': 'を先に見ます。',
-    'hero-subtitle-4': '実際のサービスで直面した問題をコードで解決してきました。',
-    'diff-remove': '機能実装だけに集中する',
-    'diff-add': '問題がなぜ起きたのかを先に把握する',
+    'hero-lede': 'AI/ML、バックエンド、フロントエンドを横断しながら、実際のサービスの問題をコードで解決してきた記録です。',
     'projects-title': 'All Projects',
     'projects-subtitle': '実務・学習・実験過程で発生した問題を解決した成果物です。',
     'experience-title': 'Experience',
     'experience-subtitle': '問題解決が必要な瞬間、直接設計し実装しました。',
     'contact-title': 'Contact',
     'contact-subtitle': '一緒に問題を解決しませんか。',
-    'whoami-name': 'Bae Sunhwa',
-    'whoami-role': 'フルスタック開発者',
-    'role-label': 'role:',
+    'colophon-title': 'お話ししましょう。',
     'view-detail': '詳細を見る →',
     'nav-projects': 'プロジェクト',
     'nav-experience': '経歴',
     'nav-contact': '連絡先',
     'featured-label': '代表プロジェクト',
     'more-label': 'その他のプロジェクト',
+    'case-role': '役割',
     'case-problem': '課題',
     'case-approach': 'アプローチ',
     'case-outcome': '成果',
-    'hero-lede': 'AI/ML、バックエンド、フロントエンドを横断しながら、実際のサービスの問題をコードで解決してきた記録です。',
-    'colophon-title': 'お話ししましょう。'
+    'aria-theme': 'ダークモード切替',
+    'aria-top': '一番上へ移動',
+    'aria-lang': '言語選択',
+    'aria-toc': '目次'
+  }
+};
+
+// 탭 제목 / 검색·공유용 메타 태그 (언어별)
+const META = {
+  ko: {
+    title: '배선화 | Full-stack Developer Portfolio',
+    description: '문제를 정의하고 끝까지 해결하는 풀스택 개발자 배선화의 포트폴리오. AI/ML, 백엔드, 프론트엔드 프로젝트 경험을 확인해보세요.',
+    ogTitle: '배선화 | Full-stack Developer',
+    ogDescription: '문제를 정의하고 끝까지 해결하는 개발자 배선화입니다.',
+    ogLocale: 'ko_KR'
+  },
+  en: {
+    title: 'Bae Sunhwa | Full-stack Developer Portfolio',
+    description: 'Portfolio of Bae Sunhwa, a full-stack developer who defines problems and solves them to the end. Explore projects across AI/ML, backend, and frontend.',
+    ogTitle: 'Bae Sunhwa | Full-stack Developer',
+    ogDescription: 'I am Bae Sunhwa, a developer who defines problems and solves them to the end.',
+    ogLocale: 'en_US'
+  },
+  ja: {
+    title: 'ベ・ソンファ | フルスタック開発者ポートフォリオ',
+    description: '問題を定義し最後まで解決するフルスタック開発者、ベ・ソンファのポートフォリオ。AI/ML、バックエンド、フロントエンドのプロジェクト経験をご覧ください。',
+    ogTitle: 'ベ・ソンファ | フルスタック開発者',
+    ogDescription: '問題を定義し最後まで解決する開発者、ベ・ソンファです。',
+    ogLocale: 'ja_JP'
   }
 };
 
@@ -502,6 +521,26 @@ function pad(n) {
   return String(n).padStart(2, '0');
 }
 
+// localStorage 안전 래퍼 (사생활 보호 모드 등에서 예외 방지)
+function storageGet(key) {
+  try { return localStorage.getItem(key); } catch (e) { return null; }
+}
+
+function storageSet(key, value) {
+  try { localStorage.setItem(key, value); } catch (e) { /* ignore */ }
+}
+
+// 저장된 언어 → 브라우저 언어 → 영어 순으로 초기 언어 결정
+function detectInitialLang() {
+  const saved = storageGet('lang');
+  if (saved && TRANSLATIONS[saved]) return saved;
+
+  const browser = (navigator.language || '').slice(0, 2).toLowerCase();
+  if (TRANSLATIONS[browser]) return browser;
+
+  return 'en';
+}
+
 // ==================== RENDER FUNCTIONS ====================
 
 // Projects 렌더링 — 대표작(feature spread) / 그 외(brief) 분리
@@ -510,13 +549,14 @@ function renderProjects() {
   const listEl = document.getElementById("projectsGrid");
   if (!featuredEl || !listEl) return;
 
+  const t = TRANSLATIONS[currentLang];
   const featuredHTML = [];
   const moreHTML = [];
 
   PROJECTS.forEach((p, i) => {
     const tagsLine = [...p.tags[currentLang], ...p.tech].join(' · ');
     const linkHTML = p.link !== "#"
-      ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer" class="spread-link">${TRANSLATIONS[currentLang]['view-detail']}</a>`
+      ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer" class="spread-link">${t['view-detail']}</a>`
       : "";
 
     if (FEATURED_IDS.includes(i)) {
@@ -524,8 +564,9 @@ function renderProjects() {
       featuredHTML.push(`
         <article class="spread reveal" style="--i:${featuredHTML.length}">
           <div class="spread-media">
-            <div class="spread-media-wrap">
-              <img src="${p.img}" alt="${p.title[currentLang]}" loading="lazy" onerror="this.style.opacity='0'">
+            <div class="spread-media-wrap" data-fallback="No. ${pad(i + 1)}">
+              <img src="${p.img}" alt="${p.title[currentLang]}" loading="lazy"
+                   onerror="this.parentElement.classList.add('img-missing')">
             </div>
           </div>
           <div class="spread-content">
@@ -533,15 +574,19 @@ function renderProjects() {
             <h3 class="spread-title">${p.title[currentLang]}</h3>
             <dl class="spread-facts">
               <div>
-                <dt>${TRANSLATIONS[currentLang]['case-problem']}</dt>
+                <dt>${t['case-role']}</dt>
+                <dd>${p.role[currentLang]}</dd>
+              </div>
+              <div>
+                <dt>${t['case-problem']}</dt>
                 <dd>${cs.problem[currentLang]}</dd>
               </div>
               <div>
-                <dt>${TRANSLATIONS[currentLang]['case-approach']}</dt>
+                <dt>${t['case-approach']}</dt>
                 <dd>${cs.approach[currentLang]}</dd>
               </div>
               <div>
-                <dt>${TRANSLATIONS[currentLang]['case-outcome']}</dt>
+                <dt>${t['case-outcome']}</dt>
                 <dd>${cs.outcome[currentLang]}</dd>
               </div>
             </dl>
@@ -559,7 +604,7 @@ function renderProjects() {
             <p class="brief-desc">${p.desc[currentLang]}</p>
             <span class="brief-meta">${tagsLine}</span>
           </div>
-          ${p.link !== "#" ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer" class="brief-link">→</a>` : ""}
+          ${p.link !== "#" ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer" class="brief-link" aria-label="${p.title[currentLang]}">→</a>` : ""}
         </li>
       `);
     }
@@ -590,7 +635,6 @@ function renderTocStats() {
     .map(exp => parseInt(exp.period.slice(0, 4), 10))
     .filter(y => !isNaN(y));
   const startYear = Math.min(...years);
-  const currentYear = new Date().getFullYear();
   const presentText = { ko: '현재', en: 'Present', ja: '現在' };
   experienceSub.textContent = `${startYear} — ${presentText[currentLang]}`;
 }
@@ -616,30 +660,59 @@ function renderExperience() {
   observeReveal();
 }
 
-// 다국어 텍스트 업데이트
+// 다국어 텍스트 + aria-label 업데이트
 function updateTranslations() {
+  const dict = TRANSLATIONS[currentLang];
+
   document.querySelectorAll('[data-i18n]').forEach(elem => {
     const key = elem.getAttribute('data-i18n');
-    if (TRANSLATIONS[currentLang][key] !== undefined) {
-      elem.textContent = TRANSLATIONS[currentLang][key];
+    if (dict[key] !== undefined) {
+      elem.textContent = dict[key];
+    }
+  });
+
+  document.querySelectorAll('[data-i18n-aria]').forEach(elem => {
+    const key = elem.getAttribute('data-i18n-aria');
+    if (dict[key] !== undefined) {
+      elem.setAttribute('aria-label', dict[key]);
     }
   });
 }
 
+// 탭 제목 및 메타 태그 업데이트
+function updateMeta() {
+  const m = META[currentLang];
+  document.title = m.title;
+
+  const setContent = (selector, value) => {
+    const el = document.querySelector(selector);
+    if (el) el.setAttribute('content', value);
+  };
+
+  setContent('meta[name="description"]', m.description);
+  setContent('meta[property="og:title"]', m.ogTitle);
+  setContent('meta[property="og:description"]', m.ogDescription);
+  setContent('meta[property="og:locale"]', m.ogLocale);
+  setContent('meta[name="twitter:title"]', m.ogTitle);
+  setContent('meta[name="twitter:description"]', m.ogDescription);
+}
+
 // 언어 전환
 function switchLanguage(lang) {
+  if (!TRANSLATIONS[lang]) return;
   currentLang = lang;
+  storageSet('lang', lang);
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.remove('active');
-    if (btn.getAttribute('data-lang') === lang) {
-      btn.classList.add('active');
-    }
+    const active = btn.getAttribute('data-lang') === lang;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', String(active));
   });
 
   document.documentElement.lang = lang;
 
   updateTranslations();
+  updateMeta();
   renderProjects();
   renderExperience();
   renderTocStats();
@@ -667,54 +740,56 @@ function observeReveal() {
   document.querySelectorAll('.reveal:not(.in-view)').forEach(el => observer.observe(el));
 }
 
-// ==================== SCROLL EVENTS ====================
-window.addEventListener('scroll', () => {
-  const scrollBtn = document.getElementById('scrollToTop');
-
-  if (window.scrollY > 400) {
-    scrollBtn.classList.add('visible');
-  } else {
-    scrollBtn.classList.remove('visible');
-  }
-}, { passive: true });
-
 // ==================== INIT ====================
 document.addEventListener("DOMContentLoaded", () => {
-  renderProjects();
-  renderExperience();
-  renderTocStats();
+  const scrollBtn = document.getElementById('scrollToTop');
 
+  // 스크롤 버튼 표시/숨김 (요소가 없으면 건너뜀)
+  if (scrollBtn) {
+    const toggleScrollBtn = () => {
+      scrollBtn.classList.toggle('visible', window.scrollY > 400);
+    };
+    window.addEventListener('scroll', toggleScrollBtn, { passive: true });
+    toggleScrollBtn();
+
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // 정적 섹션 reveal 등록
   document.querySelectorAll('section > .container, section > .container-wide, section > .colophon').forEach((el) => {
     el.classList.add('reveal');
   });
-  observeReveal();
 
+  // 언어 버튼
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const lang = btn.getAttribute('data-lang');
-      switchLanguage(lang);
+      switchLanguage(btn.getAttribute('data-lang'));
     });
   });
 
-  const scrollBtn = document.getElementById('scrollToTop');
-  scrollBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  // 초기 언어 적용 (번역·메타·렌더링 모두 이 안에서 처리)
+  switchLanguage(detectInitialLang());
+  observeReveal();
 
+  // 테마 토글
   const themeToggle = document.getElementById('themeToggle');
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-  themeToggle.setAttribute('aria-pressed', String(isDark));
+  if (themeToggle) {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    themeToggle.setAttribute('aria-pressed', String(isDark));
 
-  themeToggle.addEventListener('click', () => {
-    const nowDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    if (nowDark) {
-      document.documentElement.removeAttribute('data-theme');
-      localStorage.setItem('theme', 'light');
-      themeToggle.setAttribute('aria-pressed', 'false');
-    } else {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
-      themeToggle.setAttribute('aria-pressed', 'true');
-    }
-  });
+    themeToggle.addEventListener('click', () => {
+      const nowDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (nowDark) {
+        document.documentElement.removeAttribute('data-theme');
+        storageSet('theme', 'light');
+        themeToggle.setAttribute('aria-pressed', 'false');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        storageSet('theme', 'dark');
+        themeToggle.setAttribute('aria-pressed', 'true');
+      }
+    });
+  }
 });
