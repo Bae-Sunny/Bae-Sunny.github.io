@@ -9,17 +9,31 @@
   <meta name="keywords" content="풀스택 개발자, Full-stack Developer, 배선화, Bae Sunhwa, AI, 머신러닝, Python, Vue.js, React, Spring Boot">
   <meta name="author" content="Bae Sunhwa">
 
+  <!-- TODO: 아래 SITE_URL(https://bae-sunny.github.io/)을 실제 GitHub Pages 주소로 맞춰 주세요.
+       프로젝트 사이트라면 https://bae-sunny.github.io/저장소이름/ 형태입니다. -->
+  <link rel="canonical" href="https://bae-sunny.github.io/">
+
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bae Sunhwa Portfolio">
+  <meta property="og:locale" content="ko_KR">
   <meta property="og:title" content="배선화 | Full-stack Developer">
   <meta property="og:description" content="문제를 정의하고 끝까지 해결하는 개발자 배선화입니다.">
-  <meta property="og:image" content="assets/images/og-thumbnail.png">
-  <meta property="og:url" content="https://github.com/Bae-Sunny">
+  <meta property="og:image" content="https://bae-sunny.github.io/assets/images/og-thumbnail.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://bae-sunny.github.io/">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="배선화 | Full-stack Developer">
+  <meta name="twitter:description" content="문제를 정의하고 끝까지 해결하는 개발자 배선화입니다.">
+  <meta name="twitter:image" content="https://bae-sunny.github.io/assets/images/og-thumbnail.png">
 
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
 
   <script>
     (function () {
-      var saved = localStorage.getItem('theme');
+      var saved = null;
+      try { saved = localStorage.getItem('theme'); } catch (e) {}
       var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
     })();
@@ -44,19 +58,19 @@
           <a href="#experience" data-i18n="nav-experience">경력</a>
           <a href="#contact" data-i18n="nav-contact">연락처</a>
         </nav>
-        <button id="themeToggle" class="theme-toggle" aria-label="다크모드 전환" aria-pressed="false">
+        <button id="themeToggle" class="theme-toggle" data-i18n-aria="aria-theme" aria-label="다크모드 전환" aria-pressed="false">
           <span class="theme-toggle-track"><span class="theme-toggle-thumb"></span></span>
         </button>
-        <div class="lang-selector" role="group" aria-label="언어 선택">
-          <button class="lang-btn active" data-lang="ko" aria-label="한국어">KOR</button>
-          <button class="lang-btn" data-lang="en" aria-label="English">ENG</button>
-          <button class="lang-btn" data-lang="ja" aria-label="日本語">JPN</button>
+        <div class="lang-selector" role="group" data-i18n-aria="aria-lang" aria-label="언어 선택">
+          <button class="lang-btn active" data-lang="ko" lang="ko" aria-label="한국어" aria-pressed="true">KOR</button>
+          <button class="lang-btn" data-lang="en" lang="en" aria-label="English" aria-pressed="false">ENG</button>
+          <button class="lang-btn" data-lang="ja" lang="ja" aria-label="日本語" aria-pressed="false">JPN</button>
         </div>
       </div>
     </div>
   </header>
 
-  <button id="scrollToTop" class="scroll-to-top" aria-label="맨 위로 이동">↑ TOP</button>
+  <button id="scrollToTop" class="scroll-to-top" data-i18n-aria="aria-top" aria-label="맨 위로 이동">↑ TOP</button>
 
   <main>
     <section id="hero">
@@ -74,23 +88,23 @@
       </div>
     </section>
 
-    <section id="toc" aria-label="목차">
+    <section id="toc" data-i18n-aria="aria-toc" aria-label="목차">
       <div class="container toc-list">
         <a href="#projects" class="toc-item">
           <span class="toc-num">01</span>
-          <span class="toc-title" data-i18n="nav-projects">Projects</span>
+          <span class="toc-title" data-i18n="nav-projects">프로젝트</span>
           <span class="toc-dots"></span>
           <span class="toc-sub" id="tocProjectsSub">—</span>
         </a>
         <a href="#experience" class="toc-item">
           <span class="toc-num">02</span>
-          <span class="toc-title" data-i18n="nav-experience">Experience</span>
+          <span class="toc-title" data-i18n="nav-experience">경력</span>
           <span class="toc-dots"></span>
           <span class="toc-sub" id="tocExperienceSub">—</span>
         </a>
         <a href="#contact" class="toc-item">
           <span class="toc-num">03</span>
-          <span class="toc-title" data-i18n="nav-contact">Contact</span>
+          <span class="toc-title" data-i18n="nav-contact">연락처</span>
           <span class="toc-dots"></span>
           <span class="toc-sub">Email · GitHub · YouTube</span>
         </a>
@@ -106,12 +120,10 @@
         </p>
 
         <h3 class="subsection-label" data-i18n="featured-label">대표 프로젝트</h3>
-        <div class="spreads" id="featuredGrid">
-          </div>
+        <div class="spreads" id="featuredGrid"></div>
 
         <h3 class="subsection-label" data-i18n="more-label">그 외 프로젝트</h3>
-        <ol class="briefs-list" id="projectsGrid">
-          </ol>
+        <ol class="briefs-list" id="projectsGrid"></ol>
       </div>
     </section>
 
@@ -122,8 +134,7 @@
         <p class="section-subtitle" data-i18n="experience-subtitle">
           문제 해결이 필요한 순간, 직접 설계하고 구현했습니다.
         </p>
-        <ol class="credits-list" id="experienceTimeline">
-          </ol>
+        <ol class="credits-list" id="experienceTimeline"></ol>
       </div>
     </section>
 
