@@ -598,6 +598,10 @@ function renderProjects() {
     } else {
       moreHTML.push(`
         <li class="brief-item reveal" style="--i:${moreHTML.length}">
+          <div class="brief-media" data-fallback="No. ${pad(i + 1)}">
+            <img src="${p.img}" alt="" loading="lazy"
+                 onerror="this.parentElement.classList.add('img-missing')">
+          </div>
           <span class="brief-num">${pad(i + 1)}</span>
           <div class="brief-body">
             <h4 class="brief-title">${p.title[currentLang]}</h4>
